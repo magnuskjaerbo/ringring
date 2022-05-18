@@ -1,0 +1,78 @@
+object frmSettings: TfrmSettings
+  Left = 331
+  Height = 374
+  Top = 284
+  Width = 691
+  BorderStyle = bsNone
+  Caption = 'frmSettings'
+  ClientHeight = 374
+  ClientWidth = 691
+  Font.Height = -24
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  LCLVersion = '2.0.0.4'
+  object Memo1: TMemo
+    Left = 232
+    Height = 324
+    Top = 0
+    Width = 459
+    Align = alRight
+    Lines.Strings = (
+      'Memo1'
+    )
+    ParentFont = False
+    TabOrder = 0
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 324
+    Width = 691
+    Align = alBottom
+    ClientHeight = 50
+    ClientWidth = 691
+    TabOrder = 1
+    object BitBtn1: TBitBtn
+      Left = 611
+      Height = 40
+      Top = 5
+      Width = 75
+      Align = alRight
+      BorderSpacing.Around = 4
+      Caption = 'OK'
+      OnClick = BitBtn1Click
+      TabOrder = 0
+    end
+  end
+  object SpinEdit1: TSpinEdit
+    Left = 8
+    Height = 43
+    Top = 8
+    Width = 162
+    TabOrder = 2
+  end
+  object TimeEdit1: TTimeEdit
+    Left = 17
+    Height = 43
+    Top = 76
+    Width = 151
+    ButtonWidth = 23
+    NumGlyphs = 1
+    MaxLength = 0
+    TabOrder = 3
+    Text = 'TimeEdit1'
+  end
+  object DateEdit1: TDateEdit
+    Left = 16
+    Height = 43
+    Top = 120
+    Width = 152
+    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+    DateOrder = doNone
+    ButtonWidth = 23
+    NumGlyphs = 1
+    MaxLength = 0
+    TabOrder = 4
+    Text = 'DateEdit1'
+  end
+end
