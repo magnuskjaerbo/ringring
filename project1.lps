@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectSession>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <BuildModes Active="Default"/>
     <Units Count="20">
       <Unit0>
@@ -20,8 +20,7 @@
         <UnitName Value="Main"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="108"/>
-        <CursorPos X="33" Y="118"/>
+        <CursorPos X="60" Y="6"/>
         <UsageCount Value="203"/>
         <Bookmarks Count="1">
           <Item0 X="3" Y="194" ID="1"/>
@@ -295,14 +294,14 @@
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
-      <Modes Count="0" ActiveMode=""/>
+      <Modes ActiveMode=""/>
     </RunParams>
   </ProjectSession>
   <Debugging>
-    <Watches Count="1">
-      <Item1>
+    <Watches>
+      <Item>
         <Expression Value="jData"/>
-      </Item1>
+      </Item>
     </Watches>
   </Debugging>
 </CONFIG>
