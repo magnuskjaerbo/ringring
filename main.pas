@@ -20,7 +20,6 @@ type
     Image1: TImage;
 	Image2: TImage;
 	Image3: TImage;
-    Image4: TImage;
     Label1: TLabel;
     LabelNextEvent: TLabel;
     LabelNextEvent1: TLabel;
@@ -37,7 +36,6 @@ type
     ShapeIdleTrigger: TShape;
 	ShapeMainTrigger: TShape;
 	Shape4: TShape;
-    tsBlack: TTabSheet;
     TimerScreenBlanc: TTimer;
 	TimerIsRinging: TTimer;
 	TimerCheckRemote: TTimer;
@@ -119,8 +117,8 @@ begin
 
    mouse.CursorPos.SetLocation(0,0);
    Cursor:=crNone;
-
-   MouseAlive := 1;
+    TimerScreenBlanc.Enabled := false;
+  MouseAlive := 1;
   DefaultFormatSettings.ShortDateFormat:='yyyy-mm-dd';
   ExtendedNotebook1.ShowTabs := False;
   BorderStyle := bsNone;
@@ -163,14 +161,14 @@ end;
 
 procedure TForm1.SwapToFront;
 begin
-     if ExtendedNotebook1.ActivePage = tsBlack then
-     begin
-        Image4.Visible:= true;
-        Image4.Update;
-        Application.ProcessMessages;
-        Sleep(2000);
-      Image4.Visible:= false;
-     end;
+     //if ExtendedNotebook1.ActivePage = tsBlack then
+     //begin
+     //   Image4.Visible:= true;
+     //   Image4.Update;
+     //   Application.ProcessMessages;
+     //   Sleep(2000);
+     // Image4.Visible:= false;
+     //end;
    ExtendedNotebook1.ActivePage := tsFront;
 end;
 
@@ -283,9 +281,9 @@ begin
        ShapeTimeOut.Width := ShapeTimeOut.width -1;
        if ShapeTimeOut.Width < 1 then
        begin
-              ExtendedNotebook1.ActivePage := tsBlack;
-              TimerScreenBlanc.Enabled := false;
-              ShapeTimeOut.Width := FSleepTime;
+              //ExtendedNotebook1.ActivePage := tsBlack;
+              //TimerScreenBlanc.Enabled := false;
+              //ShapeTimeOut.Width := FSleepTime;
        end;
   end;
 
