@@ -36,6 +36,7 @@ type
     ShapeIdleTrigger: TShape;
 	ShapeMainTrigger: TShape;
 	Shape4: TShape;
+    tsBlack: TTabSheet;
     TimerScreenBlanc: TTimer;
 	TimerIsRinging: TTimer;
 	TimerCheckRemote: TTimer;
@@ -57,6 +58,8 @@ type
     procedure Memo1Change(Sender: TObject);
     procedure Shape1ChangeBounds(Sender: TObject);
     procedure Shape6ChangeBounds(Sender: TObject);
+    procedure ShapeIdleTrigger1ChangeBounds(Sender: TObject);
+    procedure ShapeIdleTriggerChangeBounds(Sender: TObject);
     procedure TimerScreenBlancTimer(Sender: TObject);
     procedure TimerMainTimer(Sender: TObject);
 	procedure TimerCheckRemoteTimer(Sender: TObject);
@@ -117,8 +120,8 @@ begin
 
    mouse.CursorPos.SetLocation(0,0);
    Cursor:=crNone;
-    TimerScreenBlanc.Enabled := false;
-  MouseAlive := 1;
+
+   MouseAlive := 1;
   DefaultFormatSettings.ShortDateFormat:='yyyy-mm-dd';
   ExtendedNotebook1.ShowTabs := False;
   BorderStyle := bsNone;
@@ -161,14 +164,12 @@ end;
 
 procedure TForm1.SwapToFront;
 begin
-     //if ExtendedNotebook1.ActivePage = tsBlack then
-     //begin
-     //   Image4.Visible:= true;
-     //   Image4.Update;
-     //   Application.ProcessMessages;
-     //   Sleep(2000);
-     // Image4.Visible:= false;
-     //end;
+     if ExtendedNotebook1.ActivePage = tsBlack then
+     begin
+        Application.ProcessMessages;
+        Sleep(2000);
+
+     end;
    ExtendedNotebook1.ActivePage := tsFront;
 end;
 
@@ -225,6 +226,15 @@ begin
     begin
       { Read status of this pin (0: button pressed, 1: button released): }
       gReturnCode := fpread(fileDesc, buttonStatus[1], 1);
+
+
+      if buttonStatus = '0' then
+            ShapeIdleTrigger1.Brush.Color := clWhite
+      else
+      begin
+          ShapeIdleTrigger1.Brush.Color := clLime;
+          end;
+
       FLogger.Add(IntToStr(gReturnCode) + ': ' + buttonStatus);
       if buttonStatus = '0' then
         Image2.Visible := False
@@ -273,6 +283,16 @@ begin
 
 end;
 
+procedure TForm1.ShapeIdleTrigger1ChangeBounds(Sender: TObject);
+begin
+
+end;
+
+procedure TForm1.ShapeIdleTriggerChangeBounds(Sender: TObject);
+begin
+
+end;
+
 procedure TForm1.TimerScreenBlancTimer(Sender: TObject);
 begin
 
@@ -281,9 +301,9 @@ begin
        ShapeTimeOut.Width := ShapeTimeOut.width -1;
        if ShapeTimeOut.Width < 1 then
        begin
-              //ExtendedNotebook1.ActivePage := tsBlack;
-              //TimerScreenBlanc.Enabled := false;
-              //ShapeTimeOut.Width := FSleepTime;
+              ExtendedNotebook1.ActivePage := tsBlack;
+              TimerScreenBlanc.Enabled := false;
+              ShapeTimeOut.Width := FSleepTime;
        end;
   end;
 

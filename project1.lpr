@@ -7,7 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, lazcontrols, Main, uLogger, uSettings, uJSON, uEvents
+  Forms, pkg_gifanim, lazcontrols, Main, uLogger, uSettings, uJSON, uEvents
   { you can add units after this };
 
 {$R *.res}
@@ -15,8 +15,7 @@ uses
 begin
   RequireDerivedFormResource:=True;
 
-    Application.Title:='ringring';
-    Application.Scaled:=True;
+  Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);
   Application.Run;
