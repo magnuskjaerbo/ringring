@@ -89,7 +89,6 @@ procedure TfrmSettings.ReadConfig;
 var
   Section : String;
 begin
-
      ReadConfigSection (2);
      ReadConfigSection (3);
      ReadConfigSection (4);

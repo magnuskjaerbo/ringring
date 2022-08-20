@@ -45,10 +45,10 @@ begin
   DecodeDate(Now, y, m, d);
 
   url := 'www.skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr (y) + '-' + Format('%.*d',[2, m]) + '.txt';
-  FLogger.Add('Reading JSON object from ' + url);
+  if (FLogger <> nil) then FLogger.Add('Reading JSON object from ' + url);
   Response := TStringList.Create();
   HttpGetText (url, Response);
-  FLogger.Add('JSON object: ' + Response.Text);
+  if (FLogger <> nil) then FLogger.Add('JSON object: ' + Response.Text);
   FDateChecker.SetJSON(Response.GetText);
   Response.Destroy;
 
@@ -59,7 +59,7 @@ begin
        y := y +1;
   end;
   url := 'www.skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr (y) + '-' + Format('%.*d',[2, m]) + '.txt';
-  FLogger.Add('Reading JSON object from ' + url);
+  if (FLogger <> nil) then FLogger.Add('Reading JSON object from ' + url);
   Response := TStringList.Create();
   HttpGetText (url, Response);
   FDateChecker.SetJSON(Response.GetText);

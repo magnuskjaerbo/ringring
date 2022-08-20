@@ -1,1 +1,6 @@
 /project1.exe
+*.exe
+*.ppu
+*.o
+*.res
+*.obj
