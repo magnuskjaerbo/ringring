@@ -1,37 +1,40 @@
 object Form1: TForm1
   Cursor = crNone
-  Left = -1772
-  Height = 835
-  Top = 111
+  Left = 264
+  Height = 846
+  Top = 122
   Width = 1228
+  ActiveControl = PanelMain
+  BorderStyle = bsNone
   Caption = 'Form1'
-  ClientHeight = 835
+  ClientHeight = 846
   ClientWidth = 1228
   OnCreate = FormCreate
   OnMouseEnter = FormMouseEnter
   OnMouseLeave = FormMouseLeave
   OnMouseMove = FormMouseMove
+  OnResize = FormResize
   OnShow = FormShow
   LCLVersion = '2.2.0.4'
   WindowState = wsFullScreen
   object PanelMain: TPanel
     Left = 0
-    Height = 835
+    Height = 846
     Top = 0
     Width = 1228
     Align = alClient
     BevelOuter = bvNone
-    ClientHeight = 835
+    ClientHeight = 846
     ClientWidth = 1228
     TabOrder = 0
     object Panel2: TPanel
       Left = 0
-      Height = 587
+      Height = 598
       Top = 0
       Width = 1228
       Align = alClient
       BevelOuter = bvNone
-      ClientHeight = 587
+      ClientHeight = 598
       ClientWidth = 1228
       TabOrder = 0
       object Label1: TLabel
@@ -650,12 +653,12 @@ object Form1: TForm1
         Stretch = True
       end
       object ImageRightBell: TImage
-        Left = 1022
+        Left = 1040
         Height = 130
-        Top = 80
+        Top = 83
         Width = 152
-        Align = alCustom
-        Anchors = [akTop, akRight]
+        AntialiasingMode = amOn
+        Anchors = []
         Picture.Data = {
           1754506F727461626C654E6574776F726B477261706869636344000089504E47
           0D0A1A0A0000000D4948445200000140000001400806000000CD90A5AA000044
@@ -1213,7 +1216,7 @@ object Form1: TForm1
     object Panel1: TPanel
       Left = 0
       Height = 248
-      Top = 587
+      Top = 598
       Width = 1228
       Align = alBottom
       BevelOuter = bvNone
@@ -1804,7 +1807,7 @@ object Form1: TForm1
       object LabelNextEvent1: TLabel
         Left = 136
         Height = 136
-        Top = 72
+        Top = 56
         Width = 832
         AutoSize = False
         Caption = 'Foreldraviðtalur hjá 4. og 5. flokki.'
@@ -10160,6 +10163,29 @@ object Form1: TForm1
           Proportional = True
           Stretch = True
         end
+        object Shape3: TShape
+          Left = 32
+          Height = 6
+          Top = 3
+          Width = 1073
+          Anchors = [akRight, akBottom]
+          Brush.Color = clGray
+          Pen.Style = psClear
+          OnChangeBounds = Shape3ChangeBounds
+          Visible = False
+        end
+        object Label2: TLabel
+          Left = 1164
+          Height = 15
+          Top = 0
+          Width = 32
+          Align = alRight
+          BorderSpacing.Right = 16
+          Caption = 'Label2'
+          Font.Height = -11
+          Font.Name = 'Sans'
+          ParentFont = False
+        end
       end
     end
   end
@@ -10169,7 +10195,7 @@ object Form1: TForm1
     Top = 408
   end
   object TimerCheckRemote: TTimer
-    Interval = 30000
+    Interval = 10000
     OnTimer = TimerCheckRemoteTimer
     Left = 160
     Top = 360

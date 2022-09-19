@@ -8,7 +8,7 @@ uses
   {$IFNDEF Windows}baseunix,{$ENDIF}Classes, SysUtils, Forms, Controls,
   Graphics, Dialogs, ExtCtrls, Buttons, StdCtrls, ComCtrls, LazHelpHTML,
   ExtendedNotebook, IpHtml, Iphttpbroker, Ipfilebroker, uLogger, uSettings,
-  SQLDB, DateUtils, uEvents, ECSwitch, ECSlider, ECRuler, ECSpinCtrls, uIO;
+  SQLDB, DateUtils, uEvents, uIO;
 
 type
 
@@ -21,6 +21,7 @@ type
 	ImageRightBell: TImage;
     ImMotion: TImage;
     Label1: TLabel;
+    Label2: TLabel;
     LabelNextEvent: TLabel;
     LabelNextEvent1: TLabel;
     LabelNextEvent2: TLabel;
@@ -31,6 +32,7 @@ type
     PanelBottomLed: TPanel;
     Shape1: TShape;
     Shape2: TShape;
+    Shape3: TShape;
     ShapeIdleTrigger: TShape;
 	ShapeMainTrigger: TShape;
 	Shape4: TShape;
@@ -41,9 +43,11 @@ type
     procedure FormMouseEnter(Sender: TObject);
     procedure FormMouseLeave(Sender: TObject);
     procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
+    procedure FormResize(Sender: TObject);
 	procedure FormShow(Sender: TObject);
     procedure IdleTimer1Timer(Sender: TObject);
     procedure Label1Click(Sender: TObject);
+    procedure Shape3ChangeBounds(Sender: TObject);
     procedure TimerScreenBlancTimer(Sender: TObject);
     procedure TimerMainTimer(Sender: TObject);
 	procedure TimerCheckRemoteTimer(Sender: TObject);
@@ -95,7 +99,7 @@ begin
 
    {$IFDEF Windows}
    {$endif}
-
+    Label2.Caption := 'v 1.0.1';
     mouse.CursorPos.SetLocation(0,0);
     Cursor:=crNone;
     DoubleBuffered := True;
@@ -109,6 +113,7 @@ begin
     ImageLeftBell.Visible:=false;
     ImageRightBell.Visible:=false;
     Color := clBlack;
+    TimerScreenBlanc.Tag := Self.Width - 128;
 
     if (debug = true) then
     begin
@@ -148,7 +153,20 @@ procedure TForm1.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
 begin
    Screen.Cursor:=crNone;
    Form1.Cursor:= crNone;
+
+   TimerScreenBlanc.Enabled := false;
+   TimerScreenBlanc.Tag := Self.Width - 128;
+   Shape3.Visible:=false;
+   PanelMain.Visible:=true;
+
 end;
+
+procedure TForm1.FormResize(Sender: TObject);
+begin
+  ImageRightBell.Left := Self.Width - ImageRightBell.Width - 64;
+  ImageLeftBell.Left := 64;
+end;
+
 {------------------------------------------------------------------------------}
 procedure TForm1.FormShow(Sender: TObject);
 begin
@@ -177,15 +195,18 @@ begin
    if rc = false then
    begin
      ImMotion.Visible := false;
+     TimerCheckRemote.Enabled:=true;
+//     TimerScreenBlanc.Enabled := true;
    end
    else
      begin
        ImMotion.Visible := true;
+       mouse.CursorPos.SetLocation(0,0);
+
        TimerScreenBlanc.Enabled := false;
-       //if ExtendedNotebook1.ActivePage = tsBlack then
-       //begin
-       //     SwapToFront;
-       //end;
+       TimerScreenBlanc.Tag := Self.Width - 128;
+       Shape3.Visible:=false;
+       PanelMain.Visible:=true;
      end;
 
 end;
@@ -194,12 +215,19 @@ procedure TForm1.Label1Click(Sender: TObject);
 begin
     FRingOnce := true;
 end;
+
+procedure TForm1.Shape3ChangeBounds(Sender: TObject);
+begin
+
+end;
+
 {------------------------------------------------------------------------------}
 procedure TForm1.BlinkScreen ();
   var
       shape : TShape;
   begin
       TimerScreenBlanc.Enabled:=false;
+      TimerScreenBlanc.Tag := Self.Width - 128;
 
       PanelMain.Visible := false;
       shape := TShape.Create(Self);
@@ -229,6 +257,18 @@ end;
 {------------------------------------------------------------------------------}
 procedure TForm1.TimerScreenBlancTimer(Sender: TObject);
 begin
+     Shape3.Visible:=true;
+
+     Shape3.Left  := Self.Width - TimerScreenBlanc.Tag;
+     Shape3.Width := TimerScreenBlanc.Tag;
+
+     TimerScreenBlanc.Tag := TimerScreenBlanc.Tag - 1;
+     if TimerScreenBlanc.Tag <= 0 then
+     begin
+          TimerScreenBlanc.Enabled := false;
+          PanelMain.Visible := false;
+          TimerScreenBlanc.Tag := Self.Width - 128;
+     end;
 end;
 {------------------------------------------------------------------------------}
 procedure TForm1.TimerMainTimer(Sender: TObject);
@@ -236,7 +276,7 @@ var
   timeleft : Int64;
   activated : boolean;
 begin
-
+  TimerMain.Enabled := false;
   BeginFormUpdate;
   Label1.Caption := FormatDateTime ('hh:nn', Now);
 
@@ -266,12 +306,13 @@ begin
   activated := Events.Activate (FNextEvent);
   if (FRingOnce or activated) then
   begin
-       TimerMain.Enabled := false;
+
        FRingOnce := false;
        ExecuteRingEvent (FNextEvent);
        if (activated) then FNextEvent := Events.NextEvent (IncMinute (FNextEvent.Occurance));
   end;
   EndFormUpdate;
+  TimerMain.Enabled := true;
 end;
  {------------------------------------------------------------------------------}
 procedure TForm1.ExecuteRingEvent (AEvent : TEvent);
@@ -291,14 +332,15 @@ begin
             ImageLeftBell.Visible:=true;
             ImageRightBell.Visible:=true;
             FIO.WriteRing(true);
-            Delay (dur.ToInteger * 1000);
+            Delay (dur.ToInteger * 100);
             FIO.WriteRing(false);
             ImageLeftBell.Visible:=false;
             ImageRightBell.Visible:=false;
         end
         else
         begin
-            Delay (dur.ToInteger * 1000);
+            Delay (dur.ToInteger * 100);
+            FIO.WriteRing(false);
         end;
       odd:= not odd;
     end;
@@ -313,7 +355,10 @@ procedure TForm1.TimerCheckRemoteTimer(Sender: TObject);
 var
    Event : TEvent;
 begin
-     Event := Events.NextRemoteEvent(Now);
+
+  TimerCheckRemote.Interval := 60 * 1000;
+  Events.GetRemoteData;
+  Event := Events.NextRemoteEvent(Now);
      if Event.Message <> '' then
      begin
   	 	  LabelNextEvent1.Caption:=Event.Message;

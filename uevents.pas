@@ -14,8 +14,9 @@ type
     	   FEvents 		   : array of TEvent;
            FNextEvent 	   : TEvent;
            function tryNextEvent (ADateTime : TDateTime) : TEvent;
-           procedure GetRemoteData ();
+
   	public
+           procedure GetRemoteData ();
            function NextEvent (ADateTime : TDateTime) : TEvent;
            function NextRemoteEvent (ADateTime : TDateTime) : TEvent;
            function Activate (AEvent : TEvent) : boolean;
@@ -30,8 +31,8 @@ constructor TEvents.Create (ALogger: TLogger; ASettings: TfrmSettings);
 begin
   FDateChecker := TDateChecker.Create (ALogger);
   FLogger := ALogger;
-  FDateChecker.Clear();
-  GetRemoteData ();
+//  FDateChecker.Clear();
+//  GetRemoteData ();
   FEvents := ASettings.FEvents;
 end;
 
@@ -42,6 +43,7 @@ var
   y, m, d: word;
 begin
 
+  FDateChecker.Clear();
   DecodeDate(Now, y, m, d);
 
   url := 'www.skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr (y) + '-' + Format('%.*d',[2, m]) + '.txt';
