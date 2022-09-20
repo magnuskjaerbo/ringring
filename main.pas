@@ -97,7 +97,7 @@ begin
 
    {$IFDEF Windows}
    {$endif}
-    Label2.Caption := 'v 1.0.2';
+    Label2.Caption := 'v 1.0.3';
     mouse.CursorPos.SetLocation(0,0);
     Cursor:=crNone;
     DoubleBuffered := True;
