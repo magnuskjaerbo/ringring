@@ -150,7 +150,7 @@ procedure TForm1.Button2Click(Sender: TObject);
 begin
   {$IFDEF Windows}
   {$ELSE}
-  fpSystem('sudo /sbin/shutdown -P +1');
+  fpSystem('sudo /sbin/reboot -P +1');
   {$ENDIF}
 end;
 
