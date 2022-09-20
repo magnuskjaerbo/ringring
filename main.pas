@@ -17,6 +17,7 @@ type
   TForm1 = class(TForm)
     IdleTimer1: TIdleTimer;
     Image1: TImage;
+    Image2: TImage;
 	ImageLeftBell: TImage;
 	ImageRightBell: TImage;
     ImMotion: TImage;
@@ -25,6 +26,8 @@ type
     LabelNextEvent: TLabel;
     LabelNextEvent1: TLabel;
     LabelNextEvent2: TLabel;
+    LabelNextEvent3: TLabel;
+    LabelNextEvent4: TLabel;
     LabelNextEventMessage: TLabel;
     Panel1: TPanel;
 	Panel2: TPanel;
@@ -96,7 +99,7 @@ begin
 
    {$IFDEF Windows}
    {$endif}
-    Label2.Caption := 'v 1.0.3';
+    Label2.Caption := 'v 1.0.4';
     mouse.CursorPos.SetLocation(0,0);
     Cursor:=crNone;
     DoubleBuffered := True;
@@ -107,6 +110,10 @@ begin
 
     LabelNextEvent1.Caption:='';
     LabelNextEvent2.Caption:='';
+    LabelNextEvent3.Caption:='';
+    LabelNextEvent4.Caption:='';
+    Image1.Visible:=false;
+    Image2.Visible:=false;
     ImageLeftBell.Visible:=false;
     ImageRightBell.Visible:=false;
     Color := clBlack;
@@ -319,6 +326,7 @@ end;
 procedure TForm1.TimerCheckRemoteTimer(Sender: TObject);
 var
    Event : TEvent;
+   Event2 : TEvent;
    sectonext : integer;
 begin
 
@@ -347,12 +355,33 @@ begin
      begin
   	 	  LabelNextEvent1.Caption:=Event.Message;
           LabelNextEvent2.Caption:=DateToStr (Event.Occurance);
+          Image1.Visible:=true;
 	 end
      else
      begin
    	  	  LabelNextEvent1.Caption:='';
        	  LabelNextEvent2.Caption:='';
+          Image1.Visible:=false;
 	 end;
+
+     if Event.Message <> '' then
+     begin
+         Event2 := Events.NextRemoteEvent(IncDay (Event.Occurance));
+            if Event2.Message <> '' then
+            begin
+     	 	      LabelNextEvent3.Caption:=Event2.Message;
+                 LabelNextEvent4.Caption:=DateToStr (Event2.Occurance);
+                 Image2.Visible:=true;
+   	     end
+            else
+            begin
+      	  	      LabelNextEvent3.Caption:='';
+          	      LabelNextEvent4.Caption:='';
+                  Image2.Visible:=false;
+   	     end;
+
+     end;
+
 end;
 {------------------------------------------------------------------------------}
 procedure TForm1.TimerIsRingingTimer(Sender: TObject);

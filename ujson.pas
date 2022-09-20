@@ -95,7 +95,7 @@ begin
                     	 s := jObjectCategory.FindPath('slug').AsString;
                          if (s = 'fri') then
                          begin
-                         	  Event.EventType:=etDayOff;
+                         	  //Event.EventType:=etDayOff;
 						 end;
 					end;
 				  end;
