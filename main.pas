@@ -15,14 +15,15 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
+      Button1: TButton;
+      Button2: TButton;
     IdleTimer1: TIdleTimer;
     Image1: TImage;
     Image2: TImage;
-	ImageLeftBell: TImage;
-	ImageRightBell: TImage;
     ImMotion: TImage;
     Label1: TLabel;
     Label2: TLabel;
+    Label3: TLabel;
     LabelNextEvent: TLabel;
     LabelNextEvent1: TLabel;
     LabelNextEvent2: TLabel;
@@ -31,6 +32,7 @@ type
     LabelNextEventMessage: TLabel;
     Panel1: TPanel;
 	Panel2: TPanel;
+    Panel3: TPanel;
     PanelMain: TPanel;
     PanelBottomLed: TPanel;
     Shape1: TShape;
@@ -40,6 +42,8 @@ type
 	Shape4: TShape;
 	TimerCheckRemote: TTimer;
     TimerMain: TTimer;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormMouseEnter(Sender: TObject);
     procedure FormMouseLeave(Sender: TObject);
@@ -51,7 +55,6 @@ type
     procedure Shape3ChangeBounds(Sender: TObject);
     procedure TimerMainTimer(Sender: TObject);
 	procedure TimerCheckRemoteTimer(Sender: TObject);
-	procedure TimerIsRingingTimer(Sender: TObject);
 
   private
        MouseAlive     : integer;
@@ -99,7 +102,8 @@ begin
 
    {$IFDEF Windows}
    {$endif}
-    Label2.Caption := 'v 1.0.4';
+    Label2.Caption := '1.0.4';
+    Label3.Caption := 'RingRing v ' + Label2.Caption;
     mouse.CursorPos.SetLocation(0,0);
     Cursor:=crNone;
     DoubleBuffered := True;
@@ -114,8 +118,8 @@ begin
     LabelNextEvent4.Caption:='';
     Image1.Visible:=false;
     Image2.Visible:=false;
-    ImageLeftBell.Visible:=false;
-    ImageRightBell.Visible:=false;
+    //ImageLeftBell.Visible:=false;
+    //ImageRightBell.Visible:=false;
     Color := clBlack;
 
     {$IFDEF Windows}
@@ -135,6 +139,19 @@ begin
     FNextEvent := Events.NextEvent (Now);
     FIO := TIO.Create();
 
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+    Panel3.Visible := false;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  {$IFDEF Windows}
+  {$ELSE}
+  fpSystem('sudo /sbin/shutdown -P +1');
+  {$ENDIF}
 end;
 
 {------------------------------------------------------------------------------}
@@ -160,8 +177,8 @@ end;
 
 procedure TForm1.FormResize(Sender: TObject);
 begin
-  ImageRightBell.Left := Self.Width - ImageRightBell.Width - 64;
-  ImageLeftBell.Left := 64;
+  //ImageRightBell.Left := Self.Width - ImageRightBell.Width - 64;
+  //ImageLeftBell.Left := 64;
 end;
 
 {------------------------------------------------------------------------------}
@@ -173,8 +190,8 @@ begin
     LabelNextEventMessage.Color:=clBlack;
     LabelNextEvent.Color:=clBlack;
 
-    ImageLeftBell.Visible:=false;
-    ImageRightBell.Visible:=false;
+    //ImageLeftBell.Visible:=false;
+    //ImageRightBell.Visible:=false;
 
 end;
 {------------------------------------------------------------------------------}
@@ -204,7 +221,8 @@ end;
 {------------------------------------------------------------------------------}
 procedure TForm1.Label1Click(Sender: TObject);
 begin
-    FRingOnce := true;
+//    FRingOnce := true;
+    Panel3.Visible := true;
 end;
 
 procedure TForm1.Shape3ChangeBounds(Sender: TObject);
@@ -301,13 +319,13 @@ begin
     begin
         if odd then
         begin
-            ImageLeftBell.Visible:=true;
-            ImageRightBell.Visible:=true;
+            //ImageLeftBell.Visible:=true;
+            //ImageRightBell.Visible:=true;
             FIO.WriteRing(true);
             Delay (dur.ToInteger * 100);
             FIO.WriteRing(false);
-            ImageLeftBell.Visible:=false;
-            ImageRightBell.Visible:=false;
+            //ImageLeftBell.Visible:=false;
+            //ImageRightBell.Visible:=false;
         end
         else
         begin
@@ -317,8 +335,8 @@ begin
       odd:= not odd;
     end;
 
-    ImageRIghtBell.Visible:=false;
-    ImageLeftBell.Visible:=false;
+    //ImageRIghtBell.Visible:=false;
+    //ImageLeftBell.Visible:=false;
     FIO.WriteRing(false);
     BlinkScreen ();
 end;
@@ -366,7 +384,7 @@ begin
 
      if Event.Message <> '' then
      begin
-         Event2 := Events.NextRemoteEvent(IncDay (Event.Occurance));
+         Event2 := Events.NextRemoteEvent(IncHour (Event.Occurance));
             if Event2.Message <> '' then
             begin
      	 	      LabelNextEvent3.Caption:=Event2.Message;
@@ -382,10 +400,6 @@ begin
 
      end;
 
-end;
-{------------------------------------------------------------------------------}
-procedure TForm1.TimerIsRingingTimer(Sender: TObject);
-begin
 end;
 {------------------------------------------------------------------------------}
 function TForm1.TimeBetweenStr (AFrom, ATo: TDateTime) : string;
