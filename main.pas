@@ -6,8 +6,8 @@ interface
 
 uses
   {$IFNDEF Windows}baseunix,{$ENDIF}Classes, SysUtils, Forms, Controls,
-  Graphics, Dialogs, ExtCtrls, Buttons, StdCtrls, ComCtrls, LazHelpHTML,
-  ExtendedNotebook, IpHtml, Iphttpbroker, Ipfilebroker, uLogger, uSettings,
+  Graphics, Dialogs, ExtCtrls, Buttons, StdCtrls, ComCtrls,
+   IpHtml,  Ipfilebroker, uLogger, uSettings,
   SQLDB, DateUtils, uEvents, uIO;
 
 type
@@ -36,7 +36,6 @@ type
     ShapeIdleTrigger: TShape;
 	ShapeMainTrigger: TShape;
 	Shape4: TShape;
-    TimerScreenBlanc: TTimer;
 	TimerCheckRemote: TTimer;
     TimerMain: TTimer;
     procedure FormCreate(Sender: TObject);
@@ -48,7 +47,6 @@ type
     procedure IdleTimer1Timer(Sender: TObject);
     procedure Label1Click(Sender: TObject);
     procedure Shape3ChangeBounds(Sender: TObject);
-    procedure TimerScreenBlancTimer(Sender: TObject);
     procedure TimerMainTimer(Sender: TObject);
 	procedure TimerCheckRemoteTimer(Sender: TObject);
 	procedure TimerIsRingingTimer(Sender: TObject);
@@ -113,21 +111,17 @@ begin
     ImageLeftBell.Visible:=false;
     ImageRightBell.Visible:=false;
     Color := clBlack;
-    TimerScreenBlanc.Tag := Self.Width - 128;
 
-    if (debug = true) then
-    begin
-        Width := 1024;
-        Height := 600;
-    end
-    else
-    begin
+    {$IFDEF Windows}
+        Width := 1280;
+        Height := 720;
+    {$ELSE}
         Left :=-2;
         Top := -2;
         Width := Screen.Width+4;
         Height := Screen.Height+4;
-    end;
-    WindowState := wsFullScreen;
+        WindowState := wsFullScreen;
+    {$endif}
 
     FSettings := TfrmSettings.Create(Self, FLogger);
     FSettings.Parent := Self;
@@ -154,8 +148,6 @@ begin
    Screen.Cursor:=crNone;
    Form1.Cursor:= crNone;
 
-   TimerScreenBlanc.Enabled := false;
-   TimerScreenBlanc.Tag := Self.Width - 128;
    Shape3.Visible:=false;
    PanelMain.Visible:=true;
 
@@ -196,15 +188,10 @@ begin
    begin
      ImMotion.Visible := false;
      TimerCheckRemote.Enabled:=true;
-//     TimerScreenBlanc.Enabled := true;
    end
    else
      begin
        ImMotion.Visible := true;
-       mouse.CursorPos.SetLocation(0,0);
-
-       TimerScreenBlanc.Enabled := false;
-       TimerScreenBlanc.Tag := Self.Width - 128;
        Shape3.Visible:=false;
        PanelMain.Visible:=true;
      end;
@@ -226,9 +213,6 @@ procedure TForm1.BlinkScreen ();
   var
       shape : TShape;
   begin
-      TimerScreenBlanc.Enabled:=false;
-      TimerScreenBlanc.Tag := Self.Width - 128;
-
       PanelMain.Visible := false;
       shape := TShape.Create(Self);
       shape.Parent := Self;
@@ -253,22 +237,6 @@ procedure TForm1.BlinkScreen ();
       Delay (1000);
       shape.Destroy;
       PanelMain.Visible := true;
-end;
-{------------------------------------------------------------------------------}
-procedure TForm1.TimerScreenBlancTimer(Sender: TObject);
-begin
-     Shape3.Visible:=true;
-
-     Shape3.Left  := Self.Width - TimerScreenBlanc.Tag;
-     Shape3.Width := TimerScreenBlanc.Tag;
-
-     TimerScreenBlanc.Tag := TimerScreenBlanc.Tag - 1;
-     if TimerScreenBlanc.Tag <= 0 then
-     begin
-          TimerScreenBlanc.Enabled := false;
-          PanelMain.Visible := false;
-          TimerScreenBlanc.Tag := Self.Width - 128;
-     end;
 end;
 {------------------------------------------------------------------------------}
 procedure TForm1.TimerMainTimer(Sender: TObject);
@@ -354,7 +322,26 @@ end;
 procedure TForm1.TimerCheckRemoteTimer(Sender: TObject);
 var
    Event : TEvent;
+   sectonext : integer;
 begin
+
+
+
+  sectonext := SecondsBetween(Now, FNextEvent.Occurance);
+
+
+  if (sectonext > 30) or (sectonext < 0) then
+  begin
+    FSettings.Destroy;
+    Events.Destroy;
+
+    FSettings := TfrmSettings.Create(Self, FLogger);
+    FSettings.Parent := Self;
+    Events := TEvents.Create (FLogger, FSettings);
+    FNextEvent := Events.NextEvent (Now);
+
+  end;
+
 
   TimerCheckRemote.Interval := 60 * 1000;
   Events.GetRemoteData;
@@ -377,9 +364,9 @@ end;
 {------------------------------------------------------------------------------}
 function TForm1.TimeBetweenStr (AFrom, ATo: TDateTime) : string;
 var
-   weeks : integer;
+
    days  : integer;
-   ddays  : double;
+
    sec : integer;
    minutes : integer;
    dhours : double;
@@ -464,8 +451,8 @@ procedure TForm1.Delay(dt: DWORD);
 var
   tc : DWORD;
 begin
-  tc := GetTickCount;
-  while (GetTickCount < tc + dt) and (not Application.Terminated) do
+  tc := GetTickCount64;
+  while (GetTickCount64 < tc + dt) and (not Application.Terminated) do
     Application.ProcessMessages;
 end;
 end.

@@ -39,7 +39,6 @@ end;
 procedure TDateChecker.SetJSON (AStr: string);
 var
   jData   		  : TJSONData;
-  jDataEnum 	  : TJSONData;
   jDataEvents 	  : TJSONData;
   jObject 		  : TJSONObject;
   jObjectEvents	  : TJSONObject;
@@ -53,11 +52,9 @@ var
   jEnumCells : TJSONEnum;
   jEnumEvents : TJSONEnum;
   jEnumCategory : TJSONEnum;
-  jType : TJSONType;
   s: string;
   date: string;
   title: string;
-  I : integer;
   Event : TEvent;
   nEvents : integer;
 begin
@@ -69,13 +66,13 @@ begin
      if jData.IsNull then exit;
      jArray := TJSONArray (jData);
      for jEnum in jArray do begin
-     	 jDataEnum := jEnum.Value;
+
          jObject := TJSONObject (jEnum.Value);
 
          jDataEvents := jObject.Find('Cells');
          jArrayCells := TJSONArray (jDataEvents);
          for jEnumCells in jArrayCells do begin
-         	 jDataEnum := jEnumCells.Value;
+
              jObjectCells := TJSONObject (jEnumCells.Value);
 
              date := jObjectCells.FindPath('date').AsString;
@@ -137,9 +134,7 @@ function TDateChecker.NextEvent (ADate : TDateTime; AType : TEventType) : TEvent
 var
   Event : TEvent;
   strDate : string;
-  strDateC : string;
   minDiff, diff : double;
-  ClosestEvent : TEvent;
 begin
      strDate := DateToStr (ADate);
      minDiff := 100000000;

@@ -1,14 +1,14 @@
 object Form1: TForm1
   Cursor = crNone
-  Left = 264
-  Height = 846
-  Top = 122
-  Width = 1228
+  Left = 116
+  Height = 720
+  Top = 88
+  Width = 1280
   ActiveControl = PanelMain
   BorderStyle = bsNone
   Caption = 'Form1'
-  ClientHeight = 846
-  ClientWidth = 1228
+  ClientHeight = 720
+  ClientWidth = 1280
   OnCreate = FormCreate
   OnMouseEnter = FormMouseEnter
   OnMouseLeave = FormMouseLeave
@@ -16,32 +16,31 @@ object Form1: TForm1
   OnResize = FormResize
   OnShow = FormShow
   LCLVersion = '2.2.0.4'
-  WindowState = wsFullScreen
   object PanelMain: TPanel
     Left = 0
-    Height = 846
+    Height = 720
     Top = 0
-    Width = 1228
+    Width = 1280
     Align = alClient
     BevelOuter = bvNone
-    ClientHeight = 846
-    ClientWidth = 1228
+    ClientHeight = 720
+    ClientWidth = 1280
     TabOrder = 0
     object Panel2: TPanel
       Left = 0
-      Height = 598
+      Height = 472
       Top = 0
-      Width = 1228
+      Width = 1280
       Align = alClient
       BevelOuter = bvNone
-      ClientHeight = 598
-      ClientWidth = 1228
+      ClientHeight = 472
+      ClientWidth = 1280
       TabOrder = 0
       object Label1: TLabel
         Left = 0
         Height = 265
         Top = 0
-        Width = 1228
+        Width = 1280
         Align = alTop
         Alignment = taCenter
         Caption = '12:55'
@@ -57,7 +56,7 @@ object Form1: TForm1
         Left = 0
         Height = 54
         Top = 272
-        Width = 1228
+        Width = 1280
         Align = alTop
         Alignment = taCenter
         Caption = '12:55'
@@ -72,7 +71,7 @@ object Form1: TForm1
         Left = 0
         Height = 45
         Top = 326
-        Width = 1228
+        Width = 1280
         Align = alTop
         Alignment = taCenter
         Caption = '12:55'
@@ -87,7 +86,7 @@ object Form1: TForm1
         Left = 32
         Height = 7
         Top = 265
-        Width = 1164
+        Width = 1216
         Align = alTop
         BorderSpacing.Left = 32
         BorderSpacing.Right = 32
@@ -653,9 +652,9 @@ object Form1: TForm1
         Stretch = True
       end
       object ImageRightBell: TImage
-        Left = 1040
+        Left = 1087
         Height = 130
-        Top = 83
+        Top = 52
         Width = 152
         AntialiasingMode = amOn
         Anchors = []
@@ -1216,12 +1215,12 @@ object Form1: TForm1
     object Panel1: TPanel
       Left = 0
       Height = 248
-      Top = 598
-      Width = 1228
+      Top = 472
+      Width = 1280
       Align = alBottom
       BevelOuter = bvNone
       ClientHeight = 248
-      ClientWidth = 1228
+      ClientWidth = 1280
       TabOrder = 1
       object Image1: TImage
         Left = 8
@@ -1834,7 +1833,7 @@ object Form1: TForm1
         Left = 0
         Height = 8
         Top = 0
-        Width = 1228
+        Width = 1280
         Align = alTop
         Brush.Color = clOlive
         Pen.Style = psClear
@@ -1844,7 +1843,7 @@ object Form1: TForm1
         Left = 0
         Height = 8
         Top = 225
-        Width = 1228
+        Width = 1280
         Align = alBottom
         Brush.Color = clOlive
         Pen.Style = psClear
@@ -1854,14 +1853,14 @@ object Form1: TForm1
         Left = 0
         Height = 15
         Top = 233
-        Width = 1228
+        Width = 1280
         Align = alBottom
         BevelOuter = bvNone
         ClientHeight = 15
-        ClientWidth = 1228
+        ClientWidth = 1280
         TabOrder = 0
         object ShapeIdleTrigger: TShape
-          Left = 1212
+          Left = 1264
           Height = 15
           Top = 0
           Width = 8
@@ -1870,7 +1869,7 @@ object Form1: TForm1
           Shape = stCircle
         end
         object ShapeMainTrigger: TShape
-          Left = 1220
+          Left = 1272
           Height = 15
           Top = 0
           Width = 8
@@ -10164,7 +10163,7 @@ object Form1: TForm1
           Stretch = True
         end
         object Shape3: TShape
-          Left = 32
+          Left = 84
           Height = 6
           Top = 3
           Width = 1073
@@ -10175,15 +10174,17 @@ object Form1: TForm1
           Visible = False
         end
         object Label2: TLabel
-          Left = 1164
+          Left = 1212
           Height = 15
           Top = 0
-          Width = 32
+          Width = 36
           Align = alRight
           BorderSpacing.Right = 16
           Caption = 'Label2'
+          Font.Color = clYellow
           Font.Height = -11
           Font.Name = 'Sans'
+          Font.Style = [fsBold]
           ParentFont = False
         end
       end
@@ -10206,12 +10207,5 @@ object Form1: TForm1
     OnTimer = IdleTimer1Timer
     Left = 512
     Top = 416
-  end
-  object TimerScreenBlanc: TTimer
-    Enabled = False
-    Interval = 10
-    OnTimer = TimerScreenBlancTimer
-    Left = 776
-    Top = 512
   end
 end

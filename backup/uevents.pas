@@ -14,8 +14,9 @@ type
     	   FEvents 		   : array of TEvent;
            FNextEvent 	   : TEvent;
            function tryNextEvent (ADateTime : TDateTime) : TEvent;
-           procedure GetRemoteData ();
+
   	public
+           procedure GetRemoteData ();
            function NextEvent (ADateTime : TDateTime) : TEvent;
            function NextRemoteEvent (ADateTime : TDateTime) : TEvent;
            function Activate (AEvent : TEvent) : boolean;
@@ -30,8 +31,8 @@ constructor TEvents.Create (ALogger: TLogger; ASettings: TfrmSettings);
 begin
   FDateChecker := TDateChecker.Create (ALogger);
   FLogger := ALogger;
-  FDateChecker.Clear();
-  GetRemoteData ();
+//  FDateChecker.Clear();
+//  GetRemoteData ();
   FEvents := ASettings.FEvents;
 end;
 
@@ -42,13 +43,14 @@ var
   y, m, d: word;
 begin
 
+  FDateChecker.Clear();
   DecodeDate(Now, y, m, d);
 
   url := 'www.skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr (y) + '-' + Format('%.*d',[2, m]) + '.txt';
-  FLogger.Add('Reading JSON object from ' + url);
+  if (FLogger <> nil) then FLogger.Add('Reading JSON object from ' + url);
   Response := TStringList.Create();
   HttpGetText (url, Response);
-  FLogger.Add('JSON object: ' + Response.Text);
+  if (FLogger <> nil) then FLogger.Add('JSON object: ' + Response.Text);
   FDateChecker.SetJSON(Response.GetText);
   Response.Destroy;
 
@@ -59,7 +61,7 @@ begin
        y := y +1;
   end;
   url := 'www.skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr (y) + '-' + Format('%.*d',[2, m]) + '.txt';
-  FLogger.Add('Reading JSON object from ' + url);
+  if (FLogger <> nil) then FLogger.Add('Reading JSON object from ' + url);
   Response := TStringList.Create();
   HttpGetText (url, Response);
   FDateChecker.SetJSON(Response.GetText);
@@ -89,8 +91,6 @@ var
   Event     : TEvent;
   ClosestEvent : TEvent;
   dayDiff      : integer;
-  hourDiff     : integer;
-  minuteDiff   : integer;
   occurance    : TDateTime;
   minDiff      : double;
   dateDiff     : double;

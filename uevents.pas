@@ -12,7 +12,7 @@ type
 	       FDateChecker	   : TDateChecker;
            FLogger : TLogger;
     	   FEvents 		   : array of TEvent;
-           FNextEvent 	   : TEvent;
+           //FNextEvent 	   : TEvent;
            function tryNextEvent (ADateTime : TDateTime) : TEvent;
 
   	public
@@ -91,8 +91,6 @@ var
   Event     : TEvent;
   ClosestEvent : TEvent;
   dayDiff      : integer;
-  hourDiff     : integer;
-  minuteDiff   : integer;
   occurance    : TDateTime;
   minDiff      : double;
   dateDiff     : double;

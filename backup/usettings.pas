@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, Buttons, Arrow, Spin, EditBtn, IniFiles, uLogger, dateutils;
+  Buttons, IniFiles, uLogger, dateutils, httpsend, ftpsend;
 
 type
 
@@ -63,16 +63,27 @@ constructor TfrmSettings.Create (AOwner: TComponent; ALogger: TLogger);
 var
   filePath : string;
   iniFile : string;
+  Response: TStringList;
+  url : string;
+
 begin
      inherited Create (AOwner);
      FLogger := ALogger;
      //ShowMessage(ParamStr(0));
-  	 filePath := ExtractFilePath (ParamStr(0));
-  	 iniFile :=filePath + 'config.ini';
-     //ShowMessage(iniFile);
+     url := 'www.skopunarskuli.fo/RingRing/config.ini';
+     Response := TStringList.Create();
+     HttpGetText (url, Response);
+
+     filePath := ExtractFilePath (ParamStr(0));
+     iniFile :=filePath + 'config.ini';
+     if Response.Count <> 0 then
+     begin
+         Response.SaveToFile(iniFile);
+     end;
+     Response.Destroy;
+
      FIni := TIniFile.Create(iniFile);
      if (FLogger <> nil) then FLogger.Add('Loaded: ' + FIni.FileName);
-     //Memo1.Lines.LoadFromFile(iniFile);
      ReadConfig;
 end;
 
@@ -86,9 +97,8 @@ begin
 end;
 
 procedure TfrmSettings.ReadConfig;
-var
-  Section : String;
 begin
+
      ReadConfigSection (2);
      ReadConfigSection (3);
      ReadConfigSection (4);
