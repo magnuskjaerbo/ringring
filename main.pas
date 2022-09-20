@@ -32,7 +32,6 @@ type
     PanelBottomLed: TPanel;
     Shape1: TShape;
     Shape2: TShape;
-    Shape3: TShape;
     ShapeIdleTrigger: TShape;
 	ShapeMainTrigger: TShape;
 	Shape4: TShape;
@@ -148,7 +147,6 @@ begin
    Screen.Cursor:=crNone;
    Form1.Cursor:= crNone;
 
-   Shape3.Visible:=false;
    PanelMain.Visible:=true;
 
 end;
@@ -192,7 +190,6 @@ begin
    else
      begin
        ImMotion.Visible := true;
-       Shape3.Visible:=false;
        PanelMain.Visible:=true;
      end;
 

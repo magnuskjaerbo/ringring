@@ -1842,7 +1842,7 @@ object Form1: TForm1
       object Shape2: TShape
         Left = 0
         Height = 8
-        Top = 225
+        Top = 208
         Width = 1280
         Align = alBottom
         Brush.Color = clOlive
@@ -1851,17 +1851,17 @@ object Form1: TForm1
       end
       object PanelBottomLed: TPanel
         Left = 0
-        Height = 15
-        Top = 233
+        Height = 32
+        Top = 216
         Width = 1280
         Align = alBottom
         BevelOuter = bvNone
-        ClientHeight = 15
+        ClientHeight = 32
         ClientWidth = 1280
         TabOrder = 0
         object ShapeIdleTrigger: TShape
           Left = 1264
-          Height = 15
+          Height = 32
           Top = 0
           Width = 8
           Align = alRight
@@ -1870,7 +1870,7 @@ object Form1: TForm1
         end
         object ShapeMainTrigger: TShape
           Left = 1272
-          Height = 15
+          Height = 32
           Top = 0
           Width = 8
           Align = alRight
@@ -1879,7 +1879,7 @@ object Form1: TForm1
         end
         object ImMotion: TImage
           Left = 0
-          Height = 15
+          Height = 32
           Top = 0
           Width = 15
           Align = alLeft
@@ -10162,29 +10162,19 @@ object Form1: TForm1
           Proportional = True
           Stretch = True
         end
-        object Shape3: TShape
-          Left = 84
-          Height = 6
-          Top = 3
-          Width = 1073
-          Anchors = [akRight, akBottom]
-          Brush.Color = clGray
-          Pen.Style = psClear
-          OnChangeBounds = Shape3ChangeBounds
-          Visible = False
-        end
         object Label2: TLabel
-          Left = 1212
-          Height = 15
+          Left = 1197
+          Height = 32
           Top = 0
-          Width = 36
+          Width = 51
           Align = alRight
           BorderSpacing.Right = 16
           Caption = 'Label2'
           Font.Color = clYellow
-          Font.Height = -11
+          Font.Height = -16
           Font.Name = 'Sans'
           Font.Style = [fsBold]
+          Layout = tlCenter
           ParentFont = False
         end
       end
