@@ -5,7 +5,7 @@ unit Main;
 interface
 
 uses
-  {$IFNDEF Windows}baseunix,{$ENDIF}Classes, SysUtils, Forms, Controls,
+  {$IFNDEF Windows}baseunix, Unix,{$ENDIF}Classes, SysUtils, Forms, Controls,
   Graphics, Dialogs, ExtCtrls, Buttons, StdCtrls, ComCtrls,
    IpHtml,  Ipfilebroker, uLogger, uSettings,
   SQLDB, DateUtils, uEvents, uIO;
