@@ -16,7 +16,6 @@ Type
       FLogger: TLogger;
     public
       function ValidDate (ADate : TDateTime) : boolean;
-      //function NextEvent (ADate : TDateTime; AType : TEventType) : OEvents;
       procedure NextEvent (var OEvents : TOEvents; ADate : TDateTime; AType : TEventType);
       procedure SetJSON (AStr: string);
       procedure Clear ();

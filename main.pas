@@ -102,7 +102,7 @@ begin
 
    {$IFDEF Windows}
    {$endif}
-    Label2.Caption := '1.0.5';
+    Label2.Caption := '1.0.6';
     Label3.Caption := 'RingRing v ' + Label2.Caption;
     mouse.CursorPos.SetLocation(0,0);
     Cursor:=crNone;
@@ -361,7 +361,17 @@ begin
   begin
   	   if (LabelNextEvent1.Tag > Length (Events1) - 1) then  LabelNextEvent1.Tag := 0;
        LabelNextEvent1.Caption := Events1[LabelNextEvent1.Tag].Message;
-       LabelNextEvent2.Caption := DateToStr (Events1[LabelNextEvent1.Tag].Occurance) + '  ' + IntToStr (LabelNextEvent1.Tag+1) + ' / ' + IntToStr (Length (Events1));
+
+       if Length (Events1) > 1 then
+       begin
+        LabelNextEvent2.Caption := DateToStr (Events1[LabelNextEvent1.Tag].Occurance) + '  ' + IntToStr (LabelNextEvent1.Tag+1) + ' / ' + IntToStr (Length (Events1));
+
+       end
+       else
+       begin
+       	   LabelNextEvent2.Caption := DateToStr (Events1[LabelNextEvent1.Tag].Occurance);
+       end;
+
        Image1.Visible:=true;
        LabelNextEvent1.Tag := LabelNextEvent1.Tag + 1;
   end
@@ -379,7 +389,16 @@ begin
     begin
  		 if (LabelNextEvent3.Tag > Length (Events2) - 1) then  LabelNextEvent3.Tag := 0;
          LabelNextEvent3.Caption := Events2[LabelNextEvent3.Tag].Message;
-         LabelNextEvent4.Caption := DateToStr (Events2[LabelNextEvent3.Tag].Occurance);
+
+
+         if Length (Events2) > 1 then
+         begin
+          LabelNextEvent4.Caption := DateToStr (Events2[LabelNextEvent3.Tag].Occurance) + '  ' + IntToStr (LabelNextEvent3.Tag+1) + ' / ' + IntToStr (Length (Events2));
+         end
+         else
+         begin
+         	   LabelNextEvent4.Caption := DateToStr (Events2[LabelNextEvent3.Tag].Occurance);
+         end;
          Image2.Visible:=true;
          LabelNextEvent3.Tag := LabelNextEvent3.Tag + 1;
     end
