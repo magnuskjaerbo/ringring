@@ -15,8 +15,9 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-      Button1: TButton;
-      Button2: TButton;
+      ButtonOk: TButton;
+      ButtonReboot: TButton;
+      ButtonClose: TButton;
     IdleTimer1: TIdleTimer;
     Image1: TImage;
     Image2: TImage;
@@ -41,17 +42,18 @@ type
     ShapeIdleTrigger: TShape;
 	ShapeMainTrigger: TShape;
 	Shape4: TShape;
-    SpeedButton1: TSpeedButton;
+    SpeedButtonSilent: TSpeedButton;
 	TimerCheckRemote: TTimer;
     TimerMain: TTimer;
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
+    procedure ButtonOkClick(Sender: TObject);
+    procedure ButtonRebootClick(Sender: TObject);
+    procedure ButtonCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
 	procedure FormShow(Sender: TObject);
     procedure IdleTimer1Timer(Sender: TObject);
     procedure Label1Click(Sender: TObject);
     procedure Shape3ChangeBounds(Sender: TObject);
-    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButtonSilentClick(Sender: TObject);
     procedure TimerMainTimer(Sender: TObject);
 	procedure TimerCheckRemoteTimer(Sender: TObject);
 
@@ -134,17 +136,22 @@ begin
 
 end;
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TForm1.ButtonOkClick(Sender: TObject);
 begin
     Panel3.Visible := false;
 end;
 
-procedure TForm1.Button2Click(Sender: TObject);
+procedure TForm1.ButtonRebootClick(Sender: TObject);
 begin
   {$IFDEF Windows}
   {$ELSE}
   fpSystem('reboot');
   {$ENDIF}
+end;
+
+procedure TForm1.ButtonCloseClick(Sender: TObject);
+begin
+    Close;
 end;
 
 {------------------------------------------------------------------------------}
@@ -194,7 +201,7 @@ begin
 
 end;
 
-procedure TForm1.SpeedButton1Click(Sender: TObject);
+procedure TForm1.SpeedButtonSilentClick(Sender: TObject);
 begin
 	 ImageSilent.Visible:= not ImageSilent.Visible;
 end;

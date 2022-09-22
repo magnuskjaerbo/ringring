@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  Buttons, IniFiles, uLogger, dateutils, httpsend, ftpsend;
+  Buttons, IniFiles, uLogger, dateutils, httpsend;
 
 type
 
