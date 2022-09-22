@@ -158,7 +158,6 @@ begin
      begin
   	 	  strDate := DateToStr (ADate);
          if (Event.Occurance < StrToDate (strDate)) then Continue;
-         //if (Event.EventType <> AType) then Continue;
 
          diff := Event.Occurance - ADate;
          if (diff < minDiff) then
@@ -180,6 +179,7 @@ begin
   	 	     strDate := DateToStr (ADate);
              if (Event.Occurance <> ClosestEvent.Occurance) then Continue;
              if (Event.EventType <> AType) then Continue;
+             if (ClosestEvent.Message = Event.Message) then Continue;
              inc (count);
              SetLength (OEvents, count);
              OEvents[count-1] := Event;

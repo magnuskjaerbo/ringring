@@ -102,7 +102,7 @@ begin
 
    {$IFDEF Windows}
    {$endif}
-    Label2.Caption := '1.0.4';
+    Label2.Caption := '1.0.5';
     Label3.Caption := 'RingRing v ' + Label2.Caption;
     mouse.CursorPos.SetLocation(0,0);
     Cursor:=crNone;
@@ -118,8 +118,6 @@ begin
     LabelNextEvent4.Caption:='';
     Image1.Visible:=false;
     Image2.Visible:=false;
-    //ImageLeftBell.Visible:=false;
-    //ImageRightBell.Visible:=false;
     Color := clBlack;
 
     {$IFDEF Windows}
@@ -177,8 +175,6 @@ end;
 
 procedure TForm1.FormResize(Sender: TObject);
 begin
-  //ImageRightBell.Left := Self.Width - ImageRightBell.Width - 64;
-  //ImageLeftBell.Left := 64;
 end;
 
 {------------------------------------------------------------------------------}
@@ -189,9 +185,6 @@ begin
     Label1.Color:=clBlack;
     LabelNextEventMessage.Color:=clBlack;
     LabelNextEvent.Color:=clBlack;
-
-    //ImageLeftBell.Visible:=false;
-    //ImageRightBell.Visible:=false;
 
 end;
 {------------------------------------------------------------------------------}
@@ -221,7 +214,6 @@ end;
 {------------------------------------------------------------------------------}
 procedure TForm1.Label1Click(Sender: TObject);
 begin
-//    FRingOnce := true;
     Panel3.Visible := true;
 end;
 
@@ -319,13 +311,9 @@ begin
     begin
         if odd then
         begin
-            //ImageLeftBell.Visible:=true;
-            //ImageRightBell.Visible:=true;
             FIO.WriteRing(true);
             Delay (dur.ToInteger * 100);
             FIO.WriteRing(false);
-            //ImageLeftBell.Visible:=false;
-            //ImageRightBell.Visible:=false;
         end
         else
         begin
@@ -335,8 +323,6 @@ begin
       odd:= not odd;
     end;
 
-    //ImageRIghtBell.Visible:=false;
-    //ImageLeftBell.Visible:=false;
     FIO.WriteRing(false);
     BlinkScreen ();
 end;
@@ -374,17 +360,6 @@ begin
   if Length (Events1) > 0 then
   begin
   	   if (LabelNextEvent1.Tag > Length (Events1) - 1) then  LabelNextEvent1.Tag := 0;
-       str := LabelNextEvent1.Caption;
-       if str <> '' then
-       begin
-         	while str <> '' do
-              begin
-	   		  	   SetLength (str, Length (str) -1);
-                   LabelNextEvent1.Caption := str;
-				   LabelNextEvent1.Update;
-                   Sleep (5);
-              end;
-       end;
        LabelNextEvent1.Caption := Events1[LabelNextEvent1.Tag].Message;
        LabelNextEvent2.Caption := DateToStr (Events1[LabelNextEvent1.Tag].Occurance) + '  ' + IntToStr (LabelNextEvent1.Tag+1) + ' / ' + IntToStr (Length (Events1));
        Image1.Visible:=true;
@@ -403,17 +378,6 @@ begin
     if Length (Events2) > 0 then
     begin
  		 if (LabelNextEvent3.Tag > Length (Events2) - 1) then  LabelNextEvent3.Tag := 0;
-         str := LabelNextEvent3.Caption;
-         if str <> '' then
-         begin
-            while str <> '' do
-            begin
-      	    	 SetLength (str, Length (str) -1);
-                 LabelNextEvent3.Caption := str;
-   			     LabelNextEvent3.Update;
-                 Sleep (10);
-            end;
-         end;
          LabelNextEvent3.Caption := Events2[LabelNextEvent3.Tag].Message;
          LabelNextEvent4.Caption := DateToStr (Events2[LabelNextEvent3.Tag].Occurance);
          Image2.Visible:=true;
