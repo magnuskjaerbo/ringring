@@ -70,11 +70,11 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Main"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="139"/>
-        <CursorPos X="50" Y="163"/>
+        <TopLine Value="166"/>
+        <CursorPos X="76" Y="192"/>
         <UsageCount Value="203"/>
         <Bookmarks Count="3">
-          <Item0 X="24" Y="241" ID="2"/>
+          <Item0 X="24" Y="239" ID="2"/>
           <Item1 X="5" Y="182" ID="3"/>
           <Item2 X="3" Y="146" ID="1"/>
         </Bookmarks>
@@ -101,7 +101,6 @@
         <CursorPos X="3" Y="22"/>
         <UsageCount Value="208"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="ujson.pas"/>
@@ -134,7 +133,6 @@
         <CursorPos X="32" Y="12"/>
         <UsageCount Value="226"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="uio.pas"/>

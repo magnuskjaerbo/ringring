@@ -180,13 +180,11 @@ begin
    begin
      ImMotion.Visible := false;
      TimerCheckRemote.Enabled:=true;
-     //Panel3.Visible:=false;
    end
    else
      begin
        ImMotion.Visible := true;
        PanelMain.Visible:=true;
-       //Panel3.Visible:=true;
      end;
 
 end;

@@ -5,8 +5,9 @@
 *.res
 *.obj
 /backup/
-/lib/
-backup/d_debug.lfm
-backup/d_debug.lfm
+/backup
+lib\*.*
+backup\*.*
 backup/RingRing.lps
+backup/ujson.pas
 backup/RingRing.lps
