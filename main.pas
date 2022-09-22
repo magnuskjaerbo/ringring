@@ -47,10 +47,6 @@ type
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure FormMouseEnter(Sender: TObject);
-    procedure FormMouseLeave(Sender: TObject);
-    procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
-    procedure FormResize(Sender: TObject);
 	procedure FormShow(Sender: TObject);
     procedure IdleTimer1Timer(Sender: TObject);
     procedure Label1Click(Sender: TObject);
@@ -60,9 +56,7 @@ type
 	procedure TimerCheckRemoteTimer(Sender: TObject);
 
   private
-       MouseAlive     : integer;
        FRingOnce      : boolean;
-
        FLogger        : TLogger;
        FSettings      : TfrmSettings;
        Events		  : TEvents;
@@ -105,12 +99,10 @@ begin
 
    {$IFDEF Windows}
    {$endif}
-    Label2.Caption := '1.0.6';
+    Label2.Caption := '1.0.7';
     Label3.Caption := 'RingRing v ' + Label2.Caption;
-    mouse.CursorPos.SetLocation(0,0);
-    Cursor:=crNone;
     DoubleBuffered := True;
-    MouseAlive := 1;
+
     DefaultFormatSettings.ShortDateFormat:='yyyy-mm-dd';
 
     BorderStyle := bsNone;
@@ -156,31 +148,6 @@ begin
 end;
 
 {------------------------------------------------------------------------------}
-procedure TForm1.FormMouseEnter(Sender: TObject);
-begin
-  Form1.Cursor:=crNone;
-end;
-{------------------------------------------------------------------------------}
-procedure TForm1.FormMouseLeave(Sender: TObject);
-begin
-
-end;
-{------------------------------------------------------------------------------}
-procedure TForm1.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
-  Y: Integer);
-begin
-   Screen.Cursor:=crNone;
-   Form1.Cursor:= crNone;
-
-   PanelMain.Visible:=true;
-
-end;
-
-procedure TForm1.FormResize(Sender: TObject);
-begin
-end;
-
-{------------------------------------------------------------------------------}
 procedure TForm1.FormShow(Sender: TObject);
 begin
     Form1.Cursor:=crNone;
@@ -206,11 +173,13 @@ begin
    begin
      ImMotion.Visible := false;
      TimerCheckRemote.Enabled:=true;
+     //Panel3.Visible:=false;
    end
    else
      begin
        ImMotion.Visible := true;
        PanelMain.Visible:=true;
+       //Panel3.Visible:=true;
      end;
 
 end;

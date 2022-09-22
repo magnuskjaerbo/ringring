@@ -10,10 +10,6 @@ object Form1: TForm1
   ClientHeight = 720
   ClientWidth = 1280
   OnCreate = FormCreate
-  OnMouseEnter = FormMouseEnter
-  OnMouseLeave = FormMouseLeave
-  OnMouseMove = FormMouseMove
-  OnResize = FormResize
   OnShow = FormShow
   LCLVersion = '2.2.0.4'
   object PanelMain: TPanel
