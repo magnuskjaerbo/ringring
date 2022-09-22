@@ -12,13 +12,14 @@ type
 	       FDateChecker	   : TDateChecker;
            FLogger : TLogger;
     	   FEvents 		   : array of TEvent;
-           FNextEvent 	   : TEvent;
+           //FNextEvent 	   : TEvent;
            function tryNextEvent (ADateTime : TDateTime) : TEvent;
 
   	public
            procedure GetRemoteData ();
            function NextEvent (ADateTime : TDateTime) : TEvent;
-           function NextRemoteEvent (ADateTime : TDateTime) : TEvent;
+           //function NextRemoteEvent (ADateTime : TDateTime) : TEvent;
+           procedure NextRemoteEvent (var OEvents : TOEvents; ADateTime : TDateTime);
            function Activate (AEvent : TEvent) : boolean;
            constructor Create (ALogger: TLogger; ASettings: TfrmSettings);
 end;
@@ -136,9 +137,9 @@ begin
 	 if (mins < 1) then result := true;
 end;
 
-function TEvents.NextRemoteEvent (ADateTime : TDateTime) : TEvent;
+procedure TEvents.NextRemoteEvent (var OEvents : TOEvents; ADateTime : TDateTime);
 begin
-  result := FDateChecker.NextEvent(ADateTime, etRemoteOccurance);
+  FDateChecker.NextEvent(ADateTime, etRemoteOccurance);
 end;
 
 

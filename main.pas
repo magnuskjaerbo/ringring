@@ -343,9 +343,10 @@ end;
 {------------------------------------------------------------------------------}
 procedure TForm1.TimerCheckRemoteTimer(Sender: TObject);
 var
-   Event : TEvent;
-   Event2 : TEvent;
+   Events1 : array of TEvent;
+   Events2 : array of TEvent;
    sectonext : integer;
+   str : String;
 begin
 
 
@@ -368,38 +369,63 @@ begin
 
   TimerCheckRemote.Interval := 60 * 1000;
   Events.GetRemoteData;
-  Event := Events.NextRemoteEvent(Now);
-     if Event.Message <> '' then
-     begin
-  	 	  LabelNextEvent1.Caption:=Event.Message;
-          LabelNextEvent2.Caption:=DateToStr (Event.Occurance);
-          Image1.Visible:=true;
-	 end
-     else
-     begin
-   	  	  LabelNextEvent1.Caption:='';
-       	  LabelNextEvent2.Caption:='';
-          Image1.Visible:=false;
-	 end;
 
-     if Event.Message <> '' then
-     begin
-         Event2 := Events.NextRemoteEvent(IncHour (Event.Occurance));
-            if Event2.Message <> '' then
+  Events.NextRemoteEvent(Events1, Now);
+  if Length (Events1) > 0 then
+  begin
+  	   if (LabelNextEvent1.Tag > Length (Events1) - 1) then  LabelNextEvent1.Tag := 0;
+       str := LabelNextEvent1.Caption;
+       if str <> '' then
+       begin
+         	while str <> '' do
+              begin
+	   		  	   SetLength (str, Length (str) -1);
+                   LabelNextEvent1.Caption := str;
+				   LabelNextEvent1.Update;
+                   Sleep (5);
+              end;
+       end;
+       LabelNextEvent1.Caption := Events1[LabelNextEvent1.Tag].Message;
+       LabelNextEvent2.Caption := DateToStr (Events1[LabelNextEvent1.Tag].Occurance) + '  ' + IntToStr (LabelNextEvent1.Tag+1) + ' / ' + IntToStr (Length (Events1));
+       Image1.Visible:=true;
+       LabelNextEvent1.Tag := LabelNextEvent1.Tag + 1;
+  end
+  else
+  begin
+    LabelNextEvent1.Caption:='';
+    LabelNextEvent2.Caption:='';
+    Image1.Visible:=false;
+  end;
+
+  if Length (Events1) > 0 then
+  begin
+    Events.NextRemoteEvent(Events2, incDay(Events1[0].Occurance));
+    if Length (Events2) > 0 then
+    begin
+ 		 if (LabelNextEvent3.Tag > Length (Events2) - 1) then  LabelNextEvent3.Tag := 0;
+         str := LabelNextEvent3.Caption;
+         if str <> '' then
+         begin
+            while str <> '' do
             begin
-     	 	      LabelNextEvent3.Caption:=Event2.Message;
-                 LabelNextEvent4.Caption:=DateToStr (Event2.Occurance);
-                 Image2.Visible:=true;
-   	     end
-            else
-            begin
-      	  	      LabelNextEvent3.Caption:='';
-          	      LabelNextEvent4.Caption:='';
-                  Image2.Visible:=false;
-   	     end;
-
-     end;
-
+      	    	 SetLength (str, Length (str) -1);
+                 LabelNextEvent3.Caption := str;
+   			     LabelNextEvent3.Update;
+                 Sleep (10);
+            end;
+         end;
+         LabelNextEvent3.Caption := Events2[LabelNextEvent3.Tag].Message;
+         LabelNextEvent4.Caption := DateToStr (Events2[LabelNextEvent3.Tag].Occurance);
+         Image2.Visible:=true;
+         LabelNextEvent3.Tag := LabelNextEvent3.Tag + 1;
+    end
+    else
+    begin
+        LabelNextEvent3.Caption:='';
+        LabelNextEvent4.Caption:='';
+        Image2.Visible:=false;
+    end;
+  end;
 end;
 {------------------------------------------------------------------------------}
 function TForm1.TimeBetweenStr (AFrom, ATo: TDateTime) : string;

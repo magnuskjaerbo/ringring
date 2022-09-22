@@ -8,6 +8,7 @@ uses
   Classes, SysUtils, fpjson, uSettings, uLogger;
 
 Type
+  TOEvents = array of TEvent;
   TDateChecker = class
     private
       FString : string;
@@ -15,11 +16,13 @@ Type
       FLogger: TLogger;
     public
       function ValidDate (ADate : TDateTime) : boolean;
-      function NextEvent (ADate : TDateTime; AType : TEventType) : TEvent;
+      //function NextEvent (ADate : TDateTime; AType : TEventType) : OEvents;
+      procedure NextEvent (var OEvents : TOEvents; ADate : TDateTime; AType : TEventType);
       procedure SetJSON (AStr: string);
       procedure Clear ();
       constructor Create (ALogger: TLogger);
   end;
+
 
 
 
@@ -55,6 +58,7 @@ var
   s: string;
   date: string;
   title: string;
+  dateBeg : string;
   Event : TEvent;
   nEvents : integer;
 begin
@@ -77,6 +81,7 @@ begin
 
              date := jObjectCells.FindPath('date').AsString;
              Event.Occurance:=StrToDate (date);
+             if (Event.Occurance < Now) then continue;
 
              jDataEvents := jObjectCells.Find('Events');
              jArrayEvents := TJSONArray (jDataEvents);
@@ -84,6 +89,12 @@ begin
              begin
              	  jObjectEvents := TJSONObject (jEnumEvents.Value);
                   title := jObjectEvents.FindPath('Title').AsString;
+                  dateBeg := jObjectEvents.FindPath('BeginS').AsString;
+
+                  if (dateBeg <> date) then
+                  begin
+                     continue;
+                  end;
                   Event.Message:= title;
                   Event.EventType:=etRemoteOccurance;
                   jArrayCategory := TJSONArray (jObjectEvents.Find('Category'));
@@ -95,7 +106,7 @@ begin
                     	 s := jObjectCategory.FindPath('slug').AsString;
                          if (s = 'fri') then
                          begin
-                         	  //Event.EventType:=etDayOff;
+                         	  Event.EventType:=etDayOff;
 						 end;
 					end;
 				  end;
@@ -130,27 +141,52 @@ begin
 	 end;
 end;
 
-function TDateChecker.NextEvent (ADate : TDateTime; AType : TEventType) : TEvent;
+procedure TDateChecker.NextEvent (var OEvents : TOEvents; ADate : TDateTime; AType : TEventType);
 var
   Event : TEvent;
+  ClosestEvent : TEvent;
   strDate : string;
   minDiff, diff : double;
+  count : integer;
 begin
+
+     OEvents := default (TOEvents);
+     count := 0;
      strDate := DateToStr (ADate);
      minDiff := 100000000;
 	 for Event in FEvents do
      begin
   	 	  strDate := DateToStr (ADate);
          if (Event.Occurance < StrToDate (strDate)) then Continue;
-         if (Event.EventType <> AType) then Continue;
+         //if (Event.EventType <> AType) then Continue;
 
          diff := Event.Occurance - ADate;
          if (diff < minDiff) then
          begin
-  		 	  result := Event;
-              minDiff := diff;
+             inc (count);
+             ClosestEvent := Event;
+             minDiff := diff;
 		 end;
 	 end;
+
+
+     if count > 0 then
+     begin
+        count := 1;
+        SetLength (OEvents, count);
+        OEvents[count-1] := ClosestEvent;
+	    for Event in FEvents do
+         begin
+  	 	     strDate := DateToStr (ADate);
+             if (Event.Occurance <> ClosestEvent.Occurance) then Continue;
+             if (Event.EventType <> AType) then Continue;
+             inc (count);
+             SetLength (OEvents, count);
+             OEvents[count-1] := Event;
+	     end;
+     end;
+
+
 end;
 
 end.
