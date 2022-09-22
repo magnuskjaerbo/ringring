@@ -69,7 +69,6 @@ var
 begin
      inherited Create (AOwner);
      FLogger := ALogger;
-     //ShowMessage(ParamStr(0));
      url := 'www.skopunarskuli.fo/RingRing/config.ini';
      Response := TStringList.Create();
      HttpGetText (url, Response);
