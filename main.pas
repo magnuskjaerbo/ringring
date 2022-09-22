@@ -312,7 +312,7 @@ var
     odd : boolean;
 begin
 
-	 if (ImageSilent.Visible = true then
+	 if (ImageSilent.Visible = true) then
      begin
          durArr := AEvent.Durations.Split(',');
 
