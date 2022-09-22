@@ -20,6 +20,7 @@ type
     IdleTimer1: TIdleTimer;
     Image1: TImage;
     Image2: TImage;
+    ImageSilent: TImage;
     ImMotion: TImage;
     Label1: TLabel;
     Label2: TLabel;
@@ -40,6 +41,7 @@ type
     ShapeIdleTrigger: TShape;
 	ShapeMainTrigger: TShape;
 	Shape4: TShape;
+    SpeedButton1: TSpeedButton;
 	TimerCheckRemote: TTimer;
     TimerMain: TTimer;
     procedure Button1Click(Sender: TObject);
@@ -53,6 +55,7 @@ type
     procedure IdleTimer1Timer(Sender: TObject);
     procedure Label1Click(Sender: TObject);
     procedure Shape3ChangeBounds(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
     procedure TimerMainTimer(Sender: TObject);
 	procedure TimerCheckRemoteTimer(Sender: TObject);
 
@@ -222,6 +225,11 @@ begin
 
 end;
 
+procedure TForm1.SpeedButton1Click(Sender: TObject);
+begin
+	 ImageSilent.Visible:= not ImageSilent.Visible;
+end;
+
 {------------------------------------------------------------------------------}
 procedure TForm1.BlinkScreen ();
   var
@@ -304,27 +312,31 @@ var
     odd : boolean;
 begin
 
-    durArr := AEvent.Durations.Split(',');
+	 if (ImageSilent.Visible = true then
+     begin
+         durArr := AEvent.Durations.Split(',');
 
-    odd := true;
-    for dur in durArr do
-    begin
-        if odd then
+        odd := true;
+        for dur in durArr do
         begin
-            FIO.WriteRing(true);
-            Delay (dur.ToInteger * 100);
-            FIO.WriteRing(false);
-        end
-        else
-        begin
-            Delay (dur.ToInteger * 100);
-            FIO.WriteRing(false);
-        end;
-      odd:= not odd;
-    end;
+            if odd then
+            begin
+                FIO.WriteRing(true);
+                Delay (dur.ToInteger * 100);
+                FIO.WriteRing(false);
+            end
+            else
+            begin
+                Delay (dur.ToInteger * 100);
+                FIO.WriteRing(false);
+            end;
+          odd:= not odd;
+		end;
 
-    FIO.WriteRing(false);
-    BlinkScreen ();
+        FIO.WriteRing(false);
+
+     end;
+	 BlinkScreen ();
 end;
 {------------------------------------------------------------------------------}
 procedure TForm1.TimerCheckRemoteTimer(Sender: TObject);
