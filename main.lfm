@@ -32,19 +32,21 @@ object Form1: TForm1
       ClientHeight = 392
       ClientWidth = 1280
       TabOrder = 0
-      object Label1: TLabel
+      object LabelClock: TLabel
         Left = 0
         Height = 265
         Top = 0
         Width = 1280
         Align = alTop
         Alignment = taCenter
+        AutoSize = False
         Caption = '12:55'
         Font.Color = 3025567
-        Font.Height = -200
+        Font.Height = 265
+        Font.Quality = fqCleartypeNatural
         Font.Style = [fsBold]
         ParentFont = False
-        OnClick = Label1Click
+        OnClick = LabelClockClick
       end
       object LabelNextEventMessage: TLabel
         Left = 0
@@ -10411,6 +10413,7 @@ object Form1: TForm1
           }
           Proportional = True
           Stretch = True
+          Visible = False
         end
         object Label2: TLabel
           Left = 1197

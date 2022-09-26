@@ -23,7 +23,7 @@ type
     Image2: TImage;
     ImageSilent: TImage;
     ImMotion: TImage;
-    Label1: TLabel;
+    LabelClock: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     LabelNextEvent: TLabel;
@@ -51,7 +51,7 @@ type
     procedure FormCreate(Sender: TObject);
 	procedure FormShow(Sender: TObject);
     procedure IdleTimer1Timer(Sender: TObject);
-    procedure Label1Click(Sender: TObject);
+    procedure LabelClockClick(Sender: TObject);
     procedure Shape3ChangeBounds(Sender: TObject);
     procedure SpeedButtonSilentClick(Sender: TObject);
     procedure TimerMainTimer(Sender: TObject);
@@ -101,7 +101,7 @@ begin
 
    {$IFDEF Windows}
    {$endif}
-    Label2.Caption := '1.0.8';
+    Label2.Caption := '1.0.9';
     Label3.Caption := 'RingRing v ' + Label2.Caption;
     DoubleBuffered := True;
 
@@ -159,7 +159,7 @@ procedure TForm1.FormShow(Sender: TObject);
 begin
     Form1.Cursor:=crNone;
     Color := clBlack;
-    Label1.Color:=clBlack;
+    LabelClock.Color:=clBlack;
     LabelNextEventMessage.Color:=clBlack;
     LabelNextEvent.Color:=clBlack;
 
@@ -174,22 +174,22 @@ begin
    else
       ShapeIdleTrigger.Brush.Color := clBlack;
 
-   rc := FIO.ReadMotionSensor();
+//   rc := FIO.ReadMotionSensor();
 
-   if rc = false then
-   begin
-     ImMotion.Visible := false;
-     TimerCheckRemote.Enabled:=true;
-   end
-   else
-     begin
-       ImMotion.Visible := true;
-       PanelMain.Visible:=true;
-     end;
+//   if rc = false then
+ //  begin
+ //     ImMotion.Visible := false;
+ //     TimerCheckRemote.Enabled:=true;
+ //   end
+ //   else
+ //     begin
+ //       ImMotion.Visible := true;
+ //       PanelMain.Visible:=true;
+ //     end;
 
 end;
 {------------------------------------------------------------------------------}
-procedure TForm1.Label1Click(Sender: TObject);
+procedure TForm1.LabelClockClick(Sender: TObject);
 begin
     Panel3.Visible := true;
 end;
@@ -242,7 +242,7 @@ var
 begin
   TimerMain.Enabled := false;
   BeginFormUpdate;
-  Label1.Caption := FormatDateTime ('hh:nn', Now);
+  LabelClock.Caption := FormatDateTime ('hh:nn', Now);
 
 
   LabelNextEvent.Caption := TimeBetweenStr (Now, FNextEvent.Occurance);
