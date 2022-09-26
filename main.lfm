@@ -1,8 +1,8 @@
 object Form1: TForm1
   Cursor = crNone
-  Left = 1933
+  Left = 202
   Height = 720
-  Top = 25
+  Top = 164
   Width = 1280
   ActiveControl = PanelMain
   BorderStyle = bsNone
@@ -40,12 +40,10 @@ object Form1: TForm1
         Align = alTop
         Alignment = taCenter
         Caption = '12:55'
-        Color = clDefault
         Font.Color = 3025567
         Font.Height = -200
         Font.Style = [fsBold]
         ParentFont = False
-        Transparent = False
         OnClick = Label1Click
       end
       object LabelNextEventMessage: TLabel

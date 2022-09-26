@@ -101,7 +101,7 @@ begin
 
    {$IFDEF Windows}
    {$endif}
-    Label2.Caption := '1.0.7';
+    Label2.Caption := '1.0.8';
     Label3.Caption := 'RingRing v ' + Label2.Caption;
     DoubleBuffered := True;
 
@@ -286,7 +286,7 @@ var
     odd : boolean;
 begin
 
-	 if (ImageSilent.Visible = true) then
+	 if (ImageSilent.Visible = false) then
      begin
          durArr := AEvent.Durations.Split(',');
 
