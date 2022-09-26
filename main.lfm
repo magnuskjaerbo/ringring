@@ -42,7 +42,7 @@ object Form1: TForm1
         AutoSize = False
         Caption = '12:55'
         Font.Color = 3025567
-        Font.Height = 265
+        Font.Height = 200
         Font.Style = [fsBold]
         ParentFont = False
         OnClick = LabelClockClick
