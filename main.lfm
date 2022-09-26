@@ -34,14 +34,13 @@ object Form1: TForm1
       TabOrder = 0
       object LabelClock: TLabel
         Left = 0
-        Height = 255
+        Height = 200
         Top = 0
         Width = 1280
         Align = alTop
         Alignment = taCenter
-        AutoSize = False
         Caption = '12:55'
-        Font.Color = 3025567
+        Font.Color = clSilver
         Font.Height = 200
         Font.Style = [fsBold]
         ParentFont = False
@@ -50,7 +49,7 @@ object Form1: TForm1
       object LabelNextEventMessage: TLabel
         Left = 0
         Height = 54
-        Top = 262
+        Top = 207
         Width = 1280
         Align = alTop
         Alignment = taCenter
@@ -65,7 +64,7 @@ object Form1: TForm1
       object LabelNextEvent: TLabel
         Left = 0
         Height = 45
-        Top = 316
+        Top = 261
         Width = 1280
         Align = alTop
         Alignment = taCenter
@@ -80,7 +79,7 @@ object Form1: TForm1
       object Shape4: TShape
         Left = 32
         Height = 7
-        Top = 255
+        Top = 200
         Width = 1216
         Align = alTop
         BorderSpacing.Left = 32
