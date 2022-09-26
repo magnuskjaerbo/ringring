@@ -34,7 +34,7 @@ object Form1: TForm1
       TabOrder = 0
       object LabelClock: TLabel
         Left = 0
-        Height = 265
+        Height = 255
         Top = 0
         Width = 1280
         Align = alTop
@@ -51,7 +51,7 @@ object Form1: TForm1
       object LabelNextEventMessage: TLabel
         Left = 0
         Height = 54
-        Top = 272
+        Top = 262
         Width = 1280
         Align = alTop
         Alignment = taCenter
@@ -66,7 +66,7 @@ object Form1: TForm1
       object LabelNextEvent: TLabel
         Left = 0
         Height = 45
-        Top = 326
+        Top = 316
         Width = 1280
         Align = alTop
         Alignment = taCenter
@@ -81,7 +81,7 @@ object Form1: TForm1
       object Shape4: TShape
         Left = 32
         Height = 7
-        Top = 265
+        Top = 255
         Width = 1216
         Align = alTop
         BorderSpacing.Left = 32
