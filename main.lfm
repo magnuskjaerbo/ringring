@@ -1,14 +1,14 @@
 object Form1: TForm1
   Cursor = crNone
-  Left = -7
+  Left = 202
   Height = 720
-  Top = 120
-  Width = 1198
+  Top = 164
+  Width = 1280
   ActiveControl = PanelMain
   BorderStyle = bsNone
   Caption = 'Form1'
   ClientHeight = 720
-  ClientWidth = 1198
+  ClientWidth = 1280
   OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '2.2.0.4'
@@ -16,27 +16,27 @@ object Form1: TForm1
     Left = 0
     Height = 720
     Top = 0
-    Width = 1198
+    Width = 1280
     Align = alClient
     BevelOuter = bvNone
     ClientHeight = 720
-    ClientWidth = 1198
+    ClientWidth = 1280
     TabOrder = 0
     object Panel2: TPanel
       Left = 0
       Height = 392
       Top = 0
-      Width = 1198
+      Width = 1280
       Align = alClient
       BevelOuter = bvNone
       ClientHeight = 392
-      ClientWidth = 1198
+      ClientWidth = 1280
       TabOrder = 0
       object LabelClock: TLabel
         Left = 0
         Height = 200
         Top = 0
-        Width = 1198
+        Width = 1280
         Align = alTop
         Alignment = taCenter
         Caption = '12:55'
@@ -50,7 +50,7 @@ object Form1: TForm1
         Left = 0
         Height = 54
         Top = 207
-        Width = 1198
+        Width = 1280
         Align = alTop
         Alignment = taCenter
         Caption = '12:55'
@@ -65,7 +65,7 @@ object Form1: TForm1
         Left = 0
         Height = 45
         Top = 261
-        Width = 1198
+        Width = 1280
         Align = alTop
         Alignment = taCenter
         Caption = '12:55'
@@ -80,7 +80,7 @@ object Form1: TForm1
         Left = 32
         Height = 7
         Top = 200
-        Width = 1134
+        Width = 1216
         Align = alTop
         BorderSpacing.Left = 32
         BorderSpacing.Right = 32
@@ -878,14 +878,14 @@ object Form1: TForm1
         Left = 0
         Height = 168
         Top = 16
-        Width = 1198
+        Width = 1280
         Anchors = [akTop, akLeft, akRight]
         ClientHeight = 168
-        ClientWidth = 1198
+        ClientWidth = 1280
         TabOrder = 0
         Visible = False
         object ButtonOk: TButton
-          Left = 1046
+          Left = 1128
           Height = 140
           Top = 8
           Width = 140
@@ -914,7 +914,7 @@ object Form1: TForm1
           Left = 1
           Height = 15
           Top = 152
-          Width = 1196
+          Width = 1278
           Align = alBottom
           Alignment = taCenter
           Caption = 'Label3'
@@ -1466,11 +1466,11 @@ object Form1: TForm1
       Left = 0
       Height = 328
       Top = 392
-      Width = 1198
+      Width = 1280
       Align = alBottom
       BevelOuter = bvNone
       ClientHeight = 328
-      ClientWidth = 1198
+      ClientWidth = 1280
       TabOrder = 1
       object Image1: TImage
         Left = 8
@@ -2057,25 +2057,25 @@ object Form1: TForm1
         Left = 136
         Height = 72
         Top = 56
-        Width = 832
+        Width = 1136
+        Anchors = [akTop, akLeft, akRight]
         AutoSize = False
         Caption = 'Foreldraviðtalur hjá 4. og 5. flokki.'
         Font.Color = 27756
-        Font.Height = 69
+        Font.Height = 60
         Font.Style = [fsBold]
         ParentFont = False
         WordWrap = True
-        OptimalFill = True
       end
       object LabelNextEvent2: TLabel
         Left = 136
-        Height = 50
+        Height = 41
         Top = 8
-        Width = 40
+        Width = 34
         BorderSpacing.Left = 32
         Caption = 'xx'
         Font.Color = clOlive
-        Font.Height = -37
+        Font.Height = -30
         Font.Style = [fsBold]
         ParentFont = False
       end
@@ -2083,7 +2083,7 @@ object Form1: TForm1
         Left = 0
         Height = 8
         Top = 0
-        Width = 1198
+        Width = 1280
         Align = alTop
         Brush.Color = clOlive
         Pen.Style = psClear
@@ -2093,7 +2093,7 @@ object Form1: TForm1
         Left = 0
         Height = 8
         Top = 288
-        Width = 1198
+        Width = 1280
         Align = alBottom
         Brush.Color = clOlive
         Pen.Style = psClear
@@ -2103,14 +2103,14 @@ object Form1: TForm1
         Left = 0
         Height = 32
         Top = 296
-        Width = 1198
+        Width = 1280
         Align = alBottom
         BevelOuter = bvNone
         ClientHeight = 32
-        ClientWidth = 1198
+        ClientWidth = 1280
         TabOrder = 0
         object ShapeIdleTrigger: TShape
-          Left = 1182
+          Left = 1264
           Height = 32
           Top = 0
           Width = 8
@@ -2119,7 +2119,7 @@ object Form1: TForm1
           Shape = stCircle
         end
         object ShapeMainTrigger: TShape
-          Left = 1190
+          Left = 1272
           Height = 32
           Top = 0
           Width = 8
@@ -10414,7 +10414,7 @@ object Form1: TForm1
           Visible = False
         end
         object Label2: TLabel
-          Left = 1115
+          Left = 1197
           Height = 32
           Top = 0
           Width = 51
@@ -10429,7 +10429,7 @@ object Form1: TForm1
           ParentFont = False
         end
         object LabelStatus: TLabel
-          Left = 1020
+          Left = 1102
           Height = 32
           Top = 0
           Width = 63
@@ -11026,25 +11026,25 @@ object Form1: TForm1
         Left = 136
         Height = 72
         Top = 200
-        Width = 832
+        Width = 1136
+        Anchors = [akTop, akLeft, akRight]
         AutoSize = False
         Caption = 'Foreldraviðtalur hjá 4. og 5. flokki.'
         Font.Color = 27756
-        Font.Height = 69
+        Font.Height = 60
         Font.Style = [fsBold]
         ParentFont = False
         WordWrap = True
-        OptimalFill = True
       end
       object LabelNextEvent4: TLabel
         Left = 136
-        Height = 50
+        Height = 41
         Top = 152
-        Width = 40
+        Width = 34
         BorderSpacing.Left = 32
         Caption = 'xx'
         Font.Color = clOlive
-        Font.Height = -37
+        Font.Height = -30
         Font.Style = [fsBold]
         ParentFont = False
       end
