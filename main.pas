@@ -15,7 +15,6 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-    ButtonSilent: TButton;
     ButtonOk: TButton;
     ButtonReboot: TButton;
     ButtonClose: TButton;
@@ -27,7 +26,6 @@ type
     LabelStatus: TLabel;
     LabelClock: TLabel;
     Label2: TLabel;
-    Label3: TLabel;
     LabelNextEvent: TLabel;
     LabelNextEvent1: TLabel;
     LabelNextEvent2: TLabel;
@@ -45,6 +43,7 @@ type
     ShapeMainTrigger: TShape;
     Shape4: TShape;
     TimerMain: TTimer;
+    ToggleBox1: TToggleBox;
     procedure ButtonSilentClick(Sender: TObject);
     procedure ButtonOkClick(Sender: TObject);
     procedure ButtonRebootClick(Sender: TObject);
@@ -58,6 +57,7 @@ type
       X, Y: integer);
     procedure Shape3ChangeBounds(Sender: TObject);
     procedure TimerMainTimer(Sender: TObject);
+    procedure ToggleBox1Change(Sender: TObject);
 
 
   private
@@ -111,7 +111,6 @@ begin
    {$IFDEF Windows}
    {$endif}
   Label2.Caption := '1.0.11';
-  Label3.Caption := 'RingRing v ' + Label2.Caption;
   DoubleBuffered := True;
   FMainTimerCheckRemote := 0;
   FMainTimerClearStatus := 0;
@@ -128,10 +127,10 @@ begin
   Image2.Visible := False;
   Color := clBlack;
 
-    {$IFDEF Windows}
-        Width := 1280;
-        Height := 720;
-    {$ELSE}
+  {$IFDEF Windows}
+  Width := 1280;
+  Height := 720;
+  {$ELSE}
   Left := -2;
   Top := -2;
   Width := Screen.Width + 4;
@@ -160,7 +159,7 @@ end;
 
 procedure TForm1.ButtonSilentClick(Sender: TObject);
 begin
-  ImageSilent.Visible := not ImageSilent.Visible;
+
 end;
 
 procedure TForm1.ButtonRebootClick(Sender: TObject);
@@ -322,6 +321,11 @@ begin
   Inc(FMainTimerClearStatus);
 
   TimerMain.Enabled := True;
+end;
+
+procedure TForm1.ToggleBox1Change(Sender: TObject);
+begin
+  ImageSilent.Visible := ToggleBox1.Checked;
 end;
 
 {------------------------------------------------------------------------------}
