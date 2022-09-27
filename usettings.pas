@@ -5,8 +5,8 @@ unit uSettings;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  Buttons, IniFiles, uLogger, dateutils, httpsend;
+  Controls, Classes, SysUtils, StdCtrls, Forms, Graphics, Dialogs, ExtCtrls,
+  Buttons, IniFiles, dateutils, httpsend;
 
 type
 
@@ -38,12 +38,11 @@ type
     procedure FormCreate(Sender: TObject);
   private
     FIni : TIniFile;
-    FLogger : TLogger;
     procedure ReadConfig();
     procedure ReadConfigSection (ASection : integer);
   public
     FEvents : array of TEvent;
-    constructor Create (AOwner: TComponent; ALogger: TLogger);
+    constructor Create (AOwner: TComponent; StatusLabel: TLabel);
 
   end;
 
@@ -59,7 +58,7 @@ procedure TfrmSettings.FormCreate(Sender: TObject);
 begin
 end;
 
-constructor TfrmSettings.Create (AOwner: TComponent; ALogger: TLogger);
+constructor TfrmSettings.Create (AOwner: TComponent; StatusLabel : TLabel);
 var
   filePath : string;
   iniFile : string;
@@ -68,8 +67,8 @@ var
 
 begin
      inherited Create (AOwner);
-     FLogger := ALogger;
      url := 'www.skopunarskuli.fo/RingRing/config.ini';
+     StatusLabel.Caption := 'Reading settings from ' + url;
      Response := TStringList.Create();
      HttpGetText (url, Response);
 
@@ -82,7 +81,6 @@ begin
      Response.Destroy;
 
      FIni := TIniFile.Create(iniFile);
-     if (FLogger <> nil) then FLogger.Add('Loaded: ' + FIni.FileName);
      ReadConfig;
 end;
 

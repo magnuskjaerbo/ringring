@@ -13,13 +13,12 @@ Type
     private
       FString : string;
       FEvents : array of TEvent;
-      FLogger: TLogger;
     public
       function ValidDate (ADate : TDateTime) : boolean;
       procedure NextEvent (var OEvents : TOEvents; ADate : TDateTime; AType : TEventType);
       procedure SetJSON (AStr: string);
       procedure Clear ();
-      constructor Create (ALogger: TLogger);
+      constructor Create ();
   end;
 
 
@@ -27,9 +26,8 @@ Type
 
 implementation
 
-constructor TDateChecker.Create (ALogger: TLogger);
+constructor TDateChecker.Create ();
 begin
-	 FLogger := ALogger;
      SetLength (FEvents, 0);
 end;
 

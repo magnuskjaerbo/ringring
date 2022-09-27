@@ -5,35 +5,31 @@ unit uEvents;
 interface
 
 uses
-		Classes, SysUtils, uJSON, uSettings, uLogger,dateutils, ssl_openssl, httpsend;
+		Classes, SysUtils, uJSON, StdCtrls, uSettings, dateutils, ssl_openssl, httpsend;
 type
 	TEvents = class
 	private
-	       FDateChecker	   : TDateChecker;
-           FLogger : TLogger;
-    	   FEvents 		   : array of TEvent;
-           //FNextEvent 	   : TEvent;
-           function tryNextEvent (ADateTime : TDateTime) : TEvent;
+		FDateChecker	   : TDateChecker;
+    	FEvents 		   : array of TEvent;
+        StatusLabel 		: TLabel;
+        function tryNextEvent (ADateTime : TDateTime) : TEvent;
 
   	public
-           procedure GetRemoteData ();
-           function NextEvent (ADateTime : TDateTime) : TEvent;
-           //function NextRemoteEvent (ADateTime : TDateTime) : TEvent;
-           procedure NextRemoteEvent (var OEvents : TOEvents; ADateTime : TDateTime);
-           function Activate (AEvent : TEvent) : boolean;
-           constructor Create (ALogger: TLogger; ASettings: TfrmSettings);
+        procedure GetRemoteData ();
+        function NextEvent (ADateTime : TDateTime) : TEvent;
+        procedure NextRemoteEvent (var OEvents : TOEvents; ADateTime : TDateTime);
+        function Activate (AEvent : TEvent) : boolean;
+        constructor Create (AStatusLabel : TLabel; ASettings: TfrmSettings);
 end;
 
 
 
 implementation
 
-constructor TEvents.Create (ALogger: TLogger; ASettings: TfrmSettings);
+constructor TEvents.Create (AStatusLabel : TLabel; ASettings: TfrmSettings);
 begin
+  StatusLabel := AStatusLabel;
   FDateChecker := TDateChecker.Create (ALogger);
-  FLogger := ALogger;
-//  FDateChecker.Clear();
-//  GetRemoteData ();
   FEvents := ASettings.FEvents;
 end;
 
@@ -48,10 +44,10 @@ begin
   DecodeDate(Now, y, m, d);
 
   url := 'www.skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr (y) + '-' + Format('%.*d',[2, m]) + '.txt';
-  if (FLogger <> nil) then FLogger.Add('Reading JSON object from ' + url);
+  StatusLabel.Caption := 'Reading settings from ' + url;
   Response := TStringList.Create();
   HttpGetText (url, Response);
-  if (FLogger <> nil) then FLogger.Add('JSON object: ' + Response.Text);
+
   FDateChecker.SetJSON(Response.GetText);
   Response.Destroy;
 
@@ -62,7 +58,8 @@ begin
        y := y +1;
   end;
   url := 'www.skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr (y) + '-' + Format('%.*d',[2, m]) + '.txt';
-  if (FLogger <> nil) then FLogger.Add('Reading JSON object from ' + url);
+
+  StatusLabel.Caption := 'Reading settings from ' + url;
   Response := TStringList.Create();
   HttpGetText (url, Response);
   FDateChecker.SetJSON(Response.GetText);
@@ -139,7 +136,7 @@ end;
 
 procedure TEvents.NextRemoteEvent (var OEvents : TOEvents; ADateTime : TDateTime);
 begin
-  FDateChecker.NextEvent(ADateTime, etRemoteOccurance);
+  FDateChecker.NextEvent(OEvents, ADateTime, etRemoteOccurance);
 end;
 
 
