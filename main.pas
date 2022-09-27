@@ -106,7 +106,7 @@ begin
 
    {$IFDEF Windows}
    {$endif}
-    Label2.Caption := '1.0.10';
+    Label2.Caption := '1.0.11';
     Label3.Caption := 'RingRing v ' + Label2.Caption;
     DoubleBuffered := True;
     FMainTimerCheckRemote := 0;
@@ -246,8 +246,6 @@ var
   activated : boolean;
 begin
 
-   	inc (FMainTimerCheckRemote);
-    inc (FMainTimerClearStatus);
     if (FMainTimerClearStatus > 4) then
     begin
 	    LabelStatus.Caption:='';
@@ -289,13 +287,17 @@ begin
        	if (activated) then FNextEvent := Events.NextEvent (IncMinute (FNextEvent.Occurance));
   	end;
 
-  	if (FMainTimerCheckRemote = 60) then
+  	if (FMainTimerCheckRemote = 60) or (FMainTimerCheckRemote = 0) then
   	begin
-      	FMainTimerCheckRemote := 0;
+      	FMainTimerCheckRemote := 1;
       	CheckRemote ();
   	end;
 
   	EndFormUpdate;
+
+    inc (FMainTimerCheckRemote);
+    inc (FMainTimerClearStatus);
+
   	TimerMain.Enabled := true;
 end;
  {------------------------------------------------------------------------------}
