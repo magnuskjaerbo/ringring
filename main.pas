@@ -36,7 +36,7 @@ type
     LabelNextEventMessage: TLabel;
     Panel1: TPanel;
 	Panel2: TPanel;
-    Panel3: TPanel;
+    PanelTools: TPanel;
     PanelMain: TPanel;
     PanelBottomLed: TPanel;
     Shape1: TShape;
@@ -50,11 +50,13 @@ type
     procedure ButtonRebootClick(Sender: TObject);
     procedure ButtonCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 	procedure FormShow(Sender: TObject);
     procedure IdleTimer1Timer(Sender: TObject);
     procedure LabelClockClick(Sender: TObject);
+    procedure LabelClockMouseMove(Sender: TObject; Shift: TShiftState; X,
+        Y: Integer);
     procedure Shape3ChangeBounds(Sender: TObject);
-    procedure SpeedButtonSilentClick(Sender: TObject);
     procedure TimerMainTimer(Sender: TObject);
 
 
@@ -144,9 +146,16 @@ begin
 
 end;
 
+procedure TForm1.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
+    Y: Integer);
+begin
+    Screen.Cursor := crDefault;
+end;
+
 procedure TForm1.ButtonOkClick(Sender: TObject);
 begin
-    Panel3.Visible := false;
+  PanelTools.Visible := false;
+  Screen.Cursor:=crNone;
 end;
 
 procedure TForm1.ButtonSilentClick(Sender: TObject);
@@ -170,7 +179,6 @@ end;
 {------------------------------------------------------------------------------}
 procedure TForm1.FormShow(Sender: TObject);
 begin
-    Form1.Cursor:=crNone;
     Color := clBlack;
     LabelClock.Color:=clBlack;
     LabelNextEventMessage.Color:=clBlack;
@@ -202,7 +210,15 @@ end;
 {------------------------------------------------------------------------------}
 procedure TForm1.LabelClockClick(Sender: TObject);
 begin
-    Panel3.Visible := true;
+    PanelTools.Visible := true;
+    PanelTools.Height := 170;
+    Screen.Cursor:=crDefault;
+end;
+
+procedure TForm1.LabelClockMouseMove(Sender: TObject; Shift: TShiftState; X,
+    Y: Integer);
+begin
+
 end;
 
 procedure TForm1.Shape3ChangeBounds(Sender: TObject);
@@ -210,10 +226,6 @@ begin
 
 end;
 
-procedure TForm1.SpeedButtonSilentClick(Sender: TObject);
-begin
-
-end;
 
 {------------------------------------------------------------------------------}
 procedure TForm1.BlinkScreen ();
@@ -256,6 +268,7 @@ begin
     begin
 	    LabelStatus.Caption:='';
         FMainTimerClearStatus := 0;
+        if (PanelTools.Visible = false) then Screen.Cursor := crNone;
     end;
 
   	TimerMain.Enabled := false;
