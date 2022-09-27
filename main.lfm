@@ -90,9 +90,9 @@ object Form1: TForm1
         Brush.Color = clMaroon
       end
       object ImageSilent: TImage
-        Left = 40
-        Height = 224
-        Top = 41
+        Left = 8
+        Height = 343
+        Top = 40
         Width = 328
         Center = True
         Picture.Data = {
