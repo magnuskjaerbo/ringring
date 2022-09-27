@@ -15,6 +15,7 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
+      ButtonSilent: TButton;
       ButtonOk: TButton;
       ButtonReboot: TButton;
       ButtonClose: TButton;
@@ -43,8 +44,8 @@ type
     ShapeIdleTrigger: TShape;
 	ShapeMainTrigger: TShape;
 	Shape4: TShape;
-    SpeedButtonSilent: TSpeedButton;
     TimerMain: TTimer;
+    procedure ButtonSilentClick(Sender: TObject);
     procedure ButtonOkClick(Sender: TObject);
     procedure ButtonRebootClick(Sender: TObject);
     procedure ButtonCloseClick(Sender: TObject);
@@ -148,6 +149,11 @@ begin
     Panel3.Visible := false;
 end;
 
+procedure TForm1.ButtonSilentClick(Sender: TObject);
+begin
+	ImageSilent.Visible:= not ImageSilent.Visible;
+end;
+
 procedure TForm1.ButtonRebootClick(Sender: TObject);
 begin
   {$IFDEF Windows}
@@ -206,7 +212,7 @@ end;
 
 procedure TForm1.SpeedButtonSilentClick(Sender: TObject);
 begin
-	 ImageSilent.Visible:= not ImageSilent.Visible;
+
 end;
 
 {------------------------------------------------------------------------------}
