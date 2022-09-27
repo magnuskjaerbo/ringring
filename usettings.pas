@@ -13,20 +13,20 @@ type
   TEventType = (etNormal, etDayOff, etRemoteOccurance);
 
   TEventTime = record
-    Hour : Word;
-    Minute : Word;
-    Second : Word;
-    MilliSecond : Word;
+    Hour: word;
+    Minute: word;
+    Second: word;
+    MilliSecond: word;
   end;
 
   TEvent = record
-    EventType	 : TEventType;
-    Day          : integer;
-    Time         : TEventTime;
-    Durations    : string;
-    Occurance    : TDateTime;
-    Valid        : boolean;
-    Message      : string;
+    EventType: TEventType;
+    Day: integer;
+    Time: TEventTime;
+    Durations: string;
+    Occurance: TDateTime;
+    Valid: boolean;
+    Message: string;
   end;
 
   { TfrmSettings }
@@ -37,12 +37,12 @@ type
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
-    FIni : TIniFile;
+    FIni: TIniFile;
     procedure ReadConfig();
-    procedure ReadConfigSection (ASection : integer);
+    procedure ReadConfigSection(ASection: integer);
   public
-    FEvents : array of TEvent;
-    constructor Create (AOwner: TComponent; StatusLabel: TLabel);
+    FEvents: array of TEvent;
+    constructor Create(AOwner: TComponent; StatusLabel: TLabel);
 
   end;
 
@@ -58,30 +58,30 @@ procedure TfrmSettings.FormCreate(Sender: TObject);
 begin
 end;
 
-constructor TfrmSettings.Create (AOwner: TComponent; StatusLabel : TLabel);
+constructor TfrmSettings.Create(AOwner: TComponent; StatusLabel: TLabel);
 var
-  filePath : string;
-  iniFile : string;
+  filePath: string;
+  iniFile: string;
   Response: TStringList;
-  url : string;
+  url: string;
 
 begin
-     inherited Create (AOwner);
-     url := 'www.skopunarskuli.fo/RingRing/config.ini';
-     StatusLabel.Caption := 'Reading settings from ' + url;
-     Response := TStringList.Create();
-     HttpGetText (url, Response);
+  inherited Create(AOwner);
+  url := 'www.skopunarskuli.fo/RingRing/config.ini';
+  StatusLabel.Caption := 'Reading settings from ' + url;
+  Response := TStringList.Create();
+  HttpGetText(url, Response);
 
-     filePath := ExtractFilePath (ParamStr(0));
-     iniFile :=filePath + 'config.ini';
-     if Response.Count <> 0 then
-     begin
-         Response.SaveToFile(iniFile);
-     end;
-     Response.Destroy;
+  filePath := ExtractFilePath(ParamStr(0));
+  iniFile := filePath + 'config.ini';
+  if Response.Count <> 0 then
+  begin
+    Response.SaveToFile(iniFile);
+  end;
+  Response.Destroy;
 
-     FIni := TIniFile.Create(iniFile);
-     ReadConfig;
+  FIni := TIniFile.Create(iniFile);
+  ReadConfig;
 end;
 
 procedure TfrmSettings.FormActivate(Sender: TObject);
@@ -96,69 +96,96 @@ end;
 procedure TfrmSettings.ReadConfig;
 begin
 
-     ReadConfigSection (2);
-     ReadConfigSection (3);
-     ReadConfigSection (4);
-     ReadConfigSection (5);
-     ReadConfigSection (6);
+  ReadConfigSection(2);
+  ReadConfigSection(3);
+  ReadConfigSection(4);
+  ReadConfigSection(5);
+  ReadConfigSection(6);
 end;
 
-procedure TfrmSettings.ReadConfigSection (ASection : integer);
+procedure TfrmSettings.ReadConfigSection(ASection: integer);
 var
-  Content : String;
-  Event : TEvent;
-  count : integer;
-  nEvents : integer;
+  Content: string;
+  Event: TEvent;
+  Count: integer;
+  nEvents: integer;
 begin
 
-     if (not FIni.SectionExists (IntToStr (ASection))) then exit;
+  if (not FIni.SectionExists(IntToStr(ASection))) then exit;
 
-     Event.Day:= ASection;
-     Event.EventType:=etNormal;
-     for count := 1 to 20 do
-     begin
-          Event.Time.Hour:=0;
-          Event.Time.Minute:=0;
-          Event.Time.Second:=0;
-          Event.Durations:='';
+  Event.Day := ASection;
+  Event.EventType := etNormal;
+  for Count := 1 to 20 do
+  begin
+    Event.Time.Hour := 0;
+    Event.Time.Minute := 0;
+    Event.Time.Second := 0;
+    Event.Durations := '';
 
-          Content := IntToStr (count) + '.Time.Hour';
-          if FIni.ValueExists(IntToStr (ASection), Content) then
-          begin
-               Event.Time.Hour := FIni.ReadInteger(IntToStr (ASection), Content, -1);
-          end;
+    Content := IntToStr(Count) + '.Time.Hour';
+    if FIni.ValueExists(IntToStr(ASection), Content) then
+    begin
+      Event.Time.Hour := FIni.ReadInteger(IntToStr(ASection), Content, -1);
+    end
+    else
+    begin
+      if FIni.ValueExists('Default', Content) then
+      begin
+		Event.Time.Hour := FIni.ReadInteger('Default', Content, -1);
+      end;
+   end;
 
-          Content := IntToStr (count) + '.Time.Minute';
-          if FIni.ValueExists(IntToStr (ASection), Content) then
-          begin
-               Event.Time.Minute := FIni.ReadInteger(IntToStr (ASection), Content, -1);
-          end;
 
-          Content := IntToStr (count) + '.Duration';
-          if FIni.ValueExists(IntToStr (ASection), Content) then
-          begin
-               Event.Durations := FIni.ReadString (IntToStr (ASection), Content, '');
-          end;
+    Content := IntToStr(Count) + '.Time.Minute';
+    if FIni.ValueExists(IntToStr(ASection), Content) then
+    begin
+      Event.Time.Minute := FIni.ReadInteger(IntToStr(ASection), Content, -1);
+    end
+    else
+    begin
+      if FIni.ValueExists('Default', Content) then
+      begin
+		Event.Time.Minute := FIni.ReadInteger('Default', Content, -1);
+      end;
+    end;
 
-          Content := IntToStr (count) + '.Message';
-          if FIni.ValueExists(IntToStr (ASection), Content) then
-          begin
-               Event.Message := FIni.ReadString (IntToStr (ASection), Content, '');
-          end;
+    Content := IntToStr(Count) + '.Duration';
+    if FIni.ValueExists(IntToStr(ASection), Content) then
+    begin
+      Event.Durations := FIni.ReadString(IntToStr(ASection), Content, '');
+    end
+    else
+    begin
+      if FIni.ValueExists('Default', Content) then
+      begin
+		Event.Durations := FIni.ReadString('Default', Content, '');
+      end;
+    end;
 
-          if Event.Durations <> '' then
-          begin
-               nEvents := Length (FEvents);
-               nEvents := nEvents + 1;
-               SetLength (FEvents, nEvents);
-               FEvents[nEvents-1] := Event;
-          end;
+    Content := IntToStr(Count) + '.Message';
+    if FIni.ValueExists(IntToStr(ASection), Content) then
+    begin
+      Event.Message := FIni.ReadString(IntToStr(ASection), Content, '');
+    end
+    else
+    begin
+      if FIni.ValueExists('Default', Content) then
+      begin
+		Event.Message := FIni.ReadString('Default', Content, '');
+      end;
+    end;
 
-     end;
+    if (Event.Durations <> '') and (Event.Time.Hour <> 0) then
+    begin
+      nEvents := Length(FEvents);
+      nEvents := nEvents + 1;
+      SetLength(FEvents, nEvents);
+      FEvents[nEvents - 1] := Event;
+    end;
 
+  end;
 
 end;
 
 
 end.
-
