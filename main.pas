@@ -61,6 +61,7 @@ type
 
 
   private
+    FDimValue : Real;
     FMainTimerCheckRemote: integer;
     FMainTimerClearStatus: integer;
     FRingOnce: boolean;
@@ -77,6 +78,7 @@ type
     procedure Delay(dt: DWORD);
     procedure BlinkScreen();
     procedure CheckRemote();
+    procedure DimDisplay();
   public
 
   end;
@@ -314,6 +316,8 @@ begin
   end;
 
 
+
+
   activated := Events.Activate(FNextEvent);
   if (FRingOnce or activated) then
   begin
@@ -539,6 +543,37 @@ begin
     Events.NextRemoteEvent(Events2, incDay(Events1[0].Occurance));
     HandleEvent(LabelNextEvent3, LabelNextEvent4, Image2, Events2);
   end;
+end;
+
+procedure TForm1.DimDisplay();
+var
+  MinToNext : integer;
+begin
+
+  MinToNext := MinutesBetween(Now, FNextEvent.Occurance);
+
+  case MinToNext of
+  	5 : FDimValue := 0.5;
+    4 : FDimValue := 0.6;
+    3 : FDimValue := 0.7;
+    2 : FDimValue := 0.8;
+    1 : FDimValue := 0.9;
+    0 : FDimValue := 1.0;
+    else
+      FDimValue := 0.4;
+  end;
+
+  if (HourOf (Now) > 18) then FDimValue:=0.2;
+
+  if (PanelTools.Visible = true) then
+  begin
+    FDimValue:=1.0;
+  end;
+
+  {$IFDEF Unix}
+  fpSystem('xrandr --output HDMI-1 --brightness ' + FDimValue.ToString);
+  {$ENDIF}
+
 end;
 
 end.
