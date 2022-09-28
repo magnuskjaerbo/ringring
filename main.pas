@@ -548,6 +548,7 @@ end;
 procedure TForm1.DimDisplay();
 var
   MinToNext : integer;
+  command : String;
 begin
 
   MinToNext := MinutesBetween(Now, FNextEvent.Occurance);
@@ -570,8 +571,10 @@ begin
     FDimValue:=1.0;
   end;
 
+  command := 'xrandr --output HDMI-1 --brightness ' + FLoatToStr (FDimValue);
+
   {$IFDEF Unix}
-  fpSystem('xrandr --output HDMI-1 --brightness ' + FDimValue.ToString);
+  fpSystem(command);
   {$ENDIF}
 
 end;
