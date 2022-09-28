@@ -557,18 +557,17 @@ begin
   FDimValue := 1;
 
   case MinToNext of
-  	5 : FDimValue := 0.5;
-    4 : FDimValue := 0.6;
-    3 : FDimValue := 0.7;
-    2 : FDimValue := 0.8;
-    1 : FDimValue := 0.9;
+  	5 : FDimValue := 0.75;
+    4 : FDimValue := 0.8;
+    3 : FDimValue := 0.85;
+    2 : FDimValue := 0.9;
+    1 : FDimValue := 0.95;
     0 : FDimValue := 1.0;
     else
-      FDimValue := 0.4;
-      if (HourOf (Now) > 18) then FDimValue:=0.2;
+      FDimValue := 0.7;
+      if (HourOf (Now) > 18) then FDimValue:=0.5;
+      if (HourOf (Now) < 8) then FDimValue:=0.5;
   end;
-
-
 
   if (PanelTools.Visible = true) then
   begin
