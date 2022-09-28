@@ -337,7 +337,7 @@ begin
 
   Inc(FMainTimerCheckRemote);
   Inc(FMainTimerClearStatus);
-
+  DimDisplay();
   TimerMain.Enabled := True;
 end;
 
