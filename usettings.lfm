@@ -1,5 +1,5 @@
 object frmSettings: TfrmSettings
-  Left = 491
+  Left = -1429
   Height = 185
   Top = 343
   Width = 289

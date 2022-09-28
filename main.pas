@@ -108,6 +108,12 @@ begin
   //fpSystem('tput civis');
 
 
+  {$IFDEF Unix}
+  fpSystem('xrandr --output HDMI-1 --brightness 0.5');
+  {$ENDIF}
+
+  //xrandr --output HDMI-1 --brightness 1
+
    {$IFDEF Windows}
    {$endif}
   Label2.Caption := '1.0.11';
@@ -155,6 +161,10 @@ procedure TForm1.ButtonOkClick(Sender: TObject);
 begin
   PanelTools.Visible := False;
   Screen.Cursor := crNone;
+  {$IFDEF Unix}
+  fpSystem('xrandr --output HDMI-1 --brightness 0.5');
+  {$ENDIF}
+
 end;
 
 procedure TForm1.ButtonSilentClick(Sender: TObject);
@@ -214,6 +224,10 @@ begin
   PanelTools.Visible := True;
   PanelTools.Height := 170;
   Screen.Cursor := crDefault;
+  {$IFDEF Unix}
+  fpSystem('xrandr --output HDMI-1 --brightness 1.0');
+  {$ENDIF}
+
 end;
 
 procedure TForm1.LabelClockMouseMove(Sender: TObject; Shift: TShiftState;
