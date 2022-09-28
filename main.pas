@@ -553,6 +553,9 @@ begin
 
   MinToNext := MinutesBetween(Now, FNextEvent.Occurance);
 
+
+  FDimValue := 1;
+
   case MinToNext of
   	5 : FDimValue := 0.5;
     4 : FDimValue := 0.6;
@@ -562,9 +565,10 @@ begin
     0 : FDimValue := 1.0;
     else
       FDimValue := 0.4;
+      if (HourOf (Now) > 18) then FDimValue:=0.2;
   end;
 
-  if (HourOf (Now) > 18) then FDimValue:=0.2;
+
 
   if (PanelTools.Visible = true) then
   begin
