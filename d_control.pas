@@ -53,10 +53,10 @@ begin
   Left := own.Left;
   Width := own.Width;
 
-  Panel1.Color := clGray;
-  if (Silent = true) then Panel1.Color := clHighlight;
-  Panel2.Color := clGray;
-  Panel3.Color := clGray;
+  Panel1.Color := clDkGray;
+  if (Silent = true) then Panel1.Color := clLime;
+  Panel2.Color := clDkGray;
+  Panel3.Color := clDkGray;
 
 
 end;
@@ -71,11 +71,11 @@ begin
   Silent := not Silent;
   if (Silent = True) then
   begin
-    Panel1.Color := clHighlight;
+    Panel1.Color := clLime;
   end
   else
   begin
-	Panel1.Color := clGray;
+	Panel1.Color := clDkGray;
   end;
 end;
 
@@ -84,11 +84,11 @@ begin
   Reboot := not Reboot;
   if (Reboot = True) then
   begin
-    Panel2.Color := clHighlight;
+    Panel2.Color := clLime;
   end
   else
   begin
-	Panel2.Color := clGray;
+	Panel2.Color := clDkGray;
   end;
 end;
 
@@ -97,11 +97,11 @@ begin
   CloseApp := not CloseApp;
   if (CloseApp = True) then
   begin
-    Panel3.Color := clHighlight;
+    Panel3.Color := clLime;
   end
   else
   begin
-	Panel3.Color := clGray;
+	Panel3.Color := clDkGray;
   end;
 
 end;
