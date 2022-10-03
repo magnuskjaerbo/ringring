@@ -5,7 +5,7 @@ unit d_Control;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Buttons, StdCtrls,
+  {$IFNDEF Windows}baseunix, Unix,{$ENDIF}Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Buttons, StdCtrls,
   ExtCtrls;
 
 type
@@ -77,6 +77,7 @@ begin
   begin
 	Panel1.Color := clDkGray;
   end;
+   ModalResult := mrOk;
 end;
 
 procedure TfrmControl.BitBtn3Click(Sender: TObject);
@@ -90,6 +91,11 @@ begin
   begin
 	Panel2.Color := clDkGray;
   end;
+  {$IFDEF Unix}
+  fpSystem('reboot');
+  {$ENDIF}
+
+   ModalResult := mrOk;
 end;
 
 procedure TfrmControl.BitBtn4Click(Sender: TObject);
@@ -103,6 +109,7 @@ begin
   begin
 	Panel3.Color := clDkGray;
   end;
+   ModalResult := mrOk;
 
 end;
 
