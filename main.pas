@@ -184,14 +184,15 @@ begin
   if (control.ShowModal = mrOk) then
   begin
   	ImageSilent.Visible := control.Silent;
-    if (control.Reboot) then
+
+    if (control.Reboot = True) then
     begin
       {$IFDEF Unix}
       fpSystem('xrandr --output HDMI-1 --brightness 1.0');
       {$ENDIF}
     end;
 
-    if (control.CloseApp) then
+    if (control.CloseApp = True) then
     begin
       Close;
     end;
