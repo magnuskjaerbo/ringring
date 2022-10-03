@@ -16,7 +16,7 @@ uses
   uJSON,
   uEvents,
   d_Debug,
-  uIO { you can add units after this };
+  uIO, d_Control { you can add units after this };
 
 {$R *.res}
 
@@ -27,5 +27,6 @@ begin
   Application.Scaled := False;
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);
+    Application.CreateForm(TfrmControl, frmControl);
   Application.Run;
 end.

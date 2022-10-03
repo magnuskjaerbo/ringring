@@ -21,7 +21,7 @@
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="1"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="9"/>
+      <BuildNr Value="10"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
@@ -53,7 +53,7 @@
         <PackageName Value="LCL"/>
       </Item6>
     </RequiredPackages>
-    <Units Count="8">
+    <Units Count="9">
       <Unit0>
         <Filename Value="RingRing.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -102,6 +102,14 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="uIO"/>
       </Unit7>
+      <Unit8>
+        <Filename Value="d_control.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmControl"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="d_Control"/>
+      </Unit8>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

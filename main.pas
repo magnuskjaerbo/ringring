@@ -8,16 +8,13 @@ uses
   {$IFNDEF Windows}baseunix, Unix,{$ENDIF}Classes, SysUtils, Forms, Controls,
   Graphics, Dialogs, ExtCtrls, Buttons, StdCtrls, ComCtrls,
   IpHtml, Ipfilebroker, uLogger, uSettings,
-  SQLDB, DateUtils, uEvents, uIO;
+  SQLDB, DateUtils, uEvents, uIO, d_Control;
 
 type
 
   { TForm1 }
 
   TForm1 = class(TForm)
-    ButtonOk: TButton;
-    ButtonReboot: TButton;
-    ButtonClose: TButton;
     IdleTimer1: TIdleTimer;
     Image1: TImage;
     Image2: TImage;
@@ -34,7 +31,6 @@ type
     LabelNextEventMessage: TLabel;
     Panel1: TPanel;
     Panel2: TPanel;
-    PanelTools: TPanel;
     PanelMain: TPanel;
     PanelBottomLed: TPanel;
     Shape1: TShape;
@@ -43,11 +39,6 @@ type
     ShapeMainTrigger: TShape;
     Shape4: TShape;
     TimerMain: TTimer;
-    ToggleBox1: TToggleBox;
-    procedure ButtonSilentClick(Sender: TObject);
-    procedure ButtonOkClick(Sender: TObject);
-    procedure ButtonRebootClick(Sender: TObject);
-    procedure ButtonCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: integer);
     procedure FormShow(Sender: TObject);
@@ -83,17 +74,10 @@ type
 
   end;
 
-const
-  PIN_17: PChar = '17';
-  PIN_18: PChar = '18';
-  PIN_ON: PChar = '1';
-  PIN_OFF: PChar = '0';
-  OUT_DIRECTION: PChar = 'out';
-  IN_DIRECTION: PChar = 'in';
 
 var
   Form1: TForm1;
-  gReturnCode: longint; {stores the result of the IO operation}
+
 
 const
   debug: boolean = False;
@@ -107,18 +91,15 @@ implementation
 procedure TForm1.FormCreate(Sender: TObject);
 begin
 
-  //fpSystem('tput civis');
-
-
   {$IFDEF Unix}
-  fpSystem('xrandr --output HDMI-1 --brightness 0.5');
+  //fpSystem('xrandr --output HDMI-1 --brightness 0.5');
   {$ENDIF}
 
   //xrandr --output HDMI-1 --brightness 1
 
    {$IFDEF Windows}
    {$endif}
-  Label2.Caption := '1.0.11';
+  Label2.Caption := '1.0.12';
   DoubleBuffered := True;
   FMainTimerCheckRemote := 0;
   FMainTimerClearStatus := 0;
@@ -159,34 +140,6 @@ begin
   Screen.Cursor := crDefault;
 end;
 
-procedure TForm1.ButtonOkClick(Sender: TObject);
-begin
-  PanelTools.Visible := False;
-  Screen.Cursor := crNone;
-  {$IFDEF Unix}
-  fpSystem('xrandr --output HDMI-1 --brightness 0.5');
-  {$ENDIF}
-
-end;
-
-procedure TForm1.ButtonSilentClick(Sender: TObject);
-begin
-
-end;
-
-procedure TForm1.ButtonRebootClick(Sender: TObject);
-begin
-  {$IFDEF Windows}
-  {$ELSE}
-  fpSystem('reboot');
-  {$ENDIF}
-end;
-
-procedure TForm1.ButtonCloseClick(Sender: TObject);
-begin
-  Close;
-end;
-
 {------------------------------------------------------------------------------}
 procedure TForm1.FormShow(Sender: TObject);
 begin
@@ -222,13 +175,28 @@ end;
 
 {------------------------------------------------------------------------------}
 procedure TForm1.LabelClockClick(Sender: TObject);
+var
+  control : TfrmControl;
 begin
-  PanelTools.Visible := True;
-  PanelTools.Height := 170;
-  Screen.Cursor := crDefault;
-  {$IFDEF Unix}
-  fpSystem('xrandr --output HDMI-1 --brightness 1.0');
-  {$ENDIF}
+
+  control := TfrmControl.Create(self);
+  control.Silent:=ImageSilent.Visible;
+  if (control.ShowModal = mrOk) then
+  begin
+  	ImageSilent.Visible := control.Silent;
+    if (control.Reboot) then
+    begin
+      {$IFDEF Unix}
+      fpSystem('xrandr --output HDMI-1 --brightness 1.0');
+      {$ENDIF}
+    end;
+
+    if (control.CloseApp) then
+    begin
+      Close;
+    end;
+  end;
+  control.Destroy;
 
 end;
 
@@ -286,7 +254,6 @@ begin
   begin
     LabelStatus.Caption := '';
     FMainTimerClearStatus := 0;
-    if (PanelTools.Visible = False) then Screen.Cursor := crNone;
   end;
 
   TimerMain.Enabled := False;
@@ -343,7 +310,7 @@ end;
 
 procedure TForm1.ToggleBox1Change(Sender: TObject);
 begin
-  ImageSilent.Visible := ToggleBox1.Checked;
+
 end;
 
 {------------------------------------------------------------------------------}
@@ -488,6 +455,7 @@ end;
 procedure TForm1.HandleEvent(LabelMessage, LabelDate: TLabel;
   Image: TImage; AEvents: array of TEvent);
 begin
+
   if Length(AEvents) > 0 then
   begin
     if (LabelMessage.Tag > Length(AEvents) - 1) then LabelMessage.Tag := 0;
@@ -535,8 +503,9 @@ begin
 
   setLength(Events1, 0);
   setLength(Events2, 0);
+
   Events.NextRemoteEvent(Events1, Now);
-  HandleEvent(LabelNextEvent1, LabelNextEvent2, Image1, Events1);
+  HandleEvent (LabelNextEvent1, LabelNextEvent2, Image1, Events1);
 
   if Length(Events1) > 0 then
   begin
@@ -567,11 +536,6 @@ begin
       FDimValue := 0.7;
       if (HourOf (Now) > 18) then FDimValue:=0.5;
       if (HourOf (Now) < 8) then FDimValue:=0.5;
-  end;
-
-  if (PanelTools.Visible = true) then
-  begin
-    FDimValue:=1.0;
   end;
 
   command := 'xrandr --output HDMI-1 --brightness ' + FLoatToStr (FDimValue);
