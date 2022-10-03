@@ -1,18 +1,19 @@
 object frmControl: TfrmControl
   Left = 672
-  Height = 173
+  Height = 224
   Top = 260
   Width = 1024
   Caption = 'Funkur'
-  ClientHeight = 173
+  ClientHeight = 224
   ClientWidth = 1024
   Color = clBlack
+  OnMouseLeave = FormMouseLeave
   OnShow = FormShow
   LCLVersion = '2.2.0.4'
   object BitBtn1: TBitBtn
     Left = 859
     Height = 158
-    Top = 6
+    Top = 32
     Width = 159
     Anchors = [akRight, akBottom]
     Default = True
@@ -2081,24 +2082,27 @@ object frmControl: TfrmControl
   end
   object Panel1: TPanel
     Left = 360
-    Height = 158
+    Height = 208
     Top = 8
     Width = 170
     BevelOuter = bvNone
     BorderStyle = bsSingle
     Caption = 'Panel1'
-    ClientHeight = 154
+    ClientHeight = 204
     ClientWidth = 166
     Color = clHighlight
     ParentColor = False
     TabOrder = 1
     object BitBtn2: TBitBtn
       Left = 8
-      Height = 138
+      Height = 188
       Top = 8
       Width = 150
       Align = alClient
       BorderSpacing.Around = 8
+      Caption = 'hsss'
+      Font.Height = -40
+      Font.Style = [fsBold]
       Glyph.Data = {
         36000100424D3600010000000000360000002800000080000000800000000100
         2000000000000000010064000000640000000000000000000000000000000000
@@ -4151,30 +4155,36 @@ object frmControl: TfrmControl
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000
       }
+      Layout = blGlyphTop
       OnClick = BitBtn2Click
+      ParentFont = False
+      Spacing = 0
       TabOrder = 0
     end
   end
   object Panel2: TPanel
     Left = 184
-    Height = 158
+    Height = 208
     Top = 8
     Width = 170
     BevelOuter = bvNone
     BorderStyle = bsSingle
     Caption = 'Panel2'
-    ClientHeight = 154
+    ClientHeight = 204
     ClientWidth = 166
     Color = clWindow
     ParentColor = False
     TabOrder = 2
     object BitBtn3: TBitBtn
       Left = 8
-      Height = 138
+      Height = 188
       Top = 8
       Width = 150
       Align = alClient
       BorderSpacing.Around = 8
+      Caption = 'Reboot'
+      Font.Height = -40
+      Font.Style = [fsBold]
       Glyph.Data = {
         36000100424D3600010000000000360000002800000080000000800000000100
         2000000000000000010064000000640000000000000000000000FFFFFF00FFFF
@@ -6227,30 +6237,36 @@ object frmControl: TfrmControl
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
+      Layout = blGlyphTop
       OnClick = BitBtn3Click
+      ParentFont = False
+      Spacing = 0
       TabOrder = 0
     end
   end
   object Panel3: TPanel
     Left = 8
-    Height = 158
+    Height = 208
     Top = 8
     Width = 170
     BevelOuter = bvNone
     BorderStyle = bsSingle
     Caption = 'Panel3'
-    ClientHeight = 154
+    ClientHeight = 204
     ClientWidth = 166
     Color = clWindow
     ParentColor = False
     TabOrder = 3
     object BitBtn4: TBitBtn
       Left = 8
-      Height = 138
+      Height = 188
       Top = 8
       Width = 150
       Align = alClient
       BorderSpacing.Around = 8
+      Caption = 'Enda'
+      Font.Height = -40
+      Font.Style = [fsBold]
       Glyph.Data = {
         36000100424D3600010000000000360000002800000080000000800000000100
         2000000000000000010064000000640000000000000000000000000000000000
@@ -8303,7 +8319,10 @@ object frmControl: TfrmControl
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000
       }
+      Layout = blGlyphTop
       OnClick = BitBtn4Click
+      ParentFont = False
+      Spacing = 0
       TabOrder = 0
     end
   end

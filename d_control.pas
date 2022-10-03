@@ -24,6 +24,7 @@ type
     procedure BitBtn2Click(Sender: TObject);
     procedure BitBtn3Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
+    procedure FormMouseLeave(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
 
@@ -111,6 +112,11 @@ begin
   end;
    ModalResult := mrOk;
 
+end;
+
+procedure TfrmControl.FormMouseLeave(Sender: TObject);
+begin
+  ModalResult := mrCancel;
 end;
 
 end.
