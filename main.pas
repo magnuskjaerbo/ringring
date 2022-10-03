@@ -188,7 +188,7 @@ begin
     if (control.Reboot = True) then
     begin
       {$IFDEF Unix}
-      fpSystem('xrandr --output HDMI-1 --brightness 1.0');
+      fpSystem('reboot');
       {$ENDIF}
     end;
 
