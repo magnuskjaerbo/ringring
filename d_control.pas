@@ -116,7 +116,7 @@ end;
 
 procedure TfrmControl.FormMouseLeave(Sender: TObject);
 begin
-  ModalResult := mrCancel;
+
 end;
 
 end.
