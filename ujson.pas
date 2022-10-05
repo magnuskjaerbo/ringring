@@ -5,7 +5,7 @@ unit uJSON;
 interface
 
 uses
-  Classes, SysUtils, fpjson, uSettings, uLogger;
+  Classes, SysUtils, fpjson, uSettings, uLogger, DateUtils;
 
 type
   TOEvents = array of TEvent;
@@ -82,7 +82,9 @@ begin
 
       date := jObjectCells.FindPath('date').AsString;
       Event.Occurance := StrToDate(date);
-      if (Event.Occurance < Now) then continue;
+
+      if (CompareDate (Event.Occurance, Now) < 0) then continue;
+      //if (Event.Occurance < Now) then continue;
 
       jDataEvents := jObjectCells.Find('Events');
       jArrayEvents := TJSONArray(jDataEvents);

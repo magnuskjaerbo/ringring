@@ -99,7 +99,7 @@ begin
 
    {$IFDEF Windows}
    {$endif}
-  Label2.Caption := '1.0.12';
+  Label2.Caption := '1.0.13';
   DoubleBuffered := True;
   FMainTimerCheckRemote := 0;
   FMainTimerClearStatus := 0;
