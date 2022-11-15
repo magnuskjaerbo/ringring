@@ -5,7 +5,7 @@ unit uJSON;
 interface
 
 uses
-  Classes, SysUtils, fpjson, uSettings, uLogger, DateUtils;
+  Classes, SysUtils, fpjson, uSettings, uLogger, DateUtils, HTML2TextRender;
 
 type
   TOEvents = array of TEvent;
@@ -60,6 +60,8 @@ var
   dateBeg: string;
   Event: TEvent;
   nEvents: integer;
+  ix: integer;
+  renderer: THTML2TextRenderer;
 begin
 
   if AStr.Length = 0 then exit;
@@ -92,6 +94,16 @@ begin
       begin
         jObjectEvents := TJSONObject(jEnumEvents.Value);
         title := jObjectEvents.FindPath('Title').AsString;
+        ix := title.IndexOf ('<br>');
+        if (ix > 0) then
+        begin
+        	SetLength (title, ix);
+        end;
+        //renderer := THTML2TextRenderer.Create(title);
+        //title :=renderer.Render;
+        //renderer.Destroy;
+
+
         dateBeg := jObjectEvents.FindPath('BeginS').AsString;
 
         if (dateBeg <> date) then

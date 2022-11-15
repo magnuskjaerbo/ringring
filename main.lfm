@@ -33,6 +33,7 @@ object Form1: TForm1
       ClientHeight = 392
       ClientWidth = 1280
       TabOrder = 0
+      OnClick = LabelClockClick
       OnMouseMove = FormMouseMove
       object LabelClock: TLabel
         Left = 0
@@ -51,7 +52,7 @@ object Form1: TForm1
       end
       object LabelNextEventMessage: TLabel
         Left = 0
-        Height = 54
+        Height = 71
         Top = 207
         Width = 1280
         Align = alTop
@@ -59,22 +60,22 @@ object Form1: TForm1
         Caption = '12:55'
         Color = clDefault
         Font.Color = 3025567
-        Font.Height = -40
+        Font.Height = -53
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
       end
       object LabelNextEvent: TLabel
         Left = 0
-        Height = 45
-        Top = 261
+        Height = 62
+        Top = 278
         Width = 1280
         Align = alTop
         Alignment = taCenter
         Caption = '12:55'
         Color = clDefault
         Font.Color = 3025567
-        Font.Height = -33
+        Font.Height = -47
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
