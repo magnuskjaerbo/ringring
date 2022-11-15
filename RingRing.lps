@@ -69,8 +69,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Main"/>
-        <TopLine Value="176"/>
-        <CursorPos X="97" Y="197"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="99"/>
+        <CursorPos X="59" Y="112"/>
         <UsageCount Value="203"/>
         <Bookmarks Count="4">
           <Item0 X="24" Y="249" ID="2"/>
@@ -108,7 +109,6 @@
         <Filename Value="ujson.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uJSON"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
         <TopLine Value="81"/>
         <CursorPos X="45" Y="94"/>
