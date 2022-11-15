@@ -25,12 +25,12 @@ object Form1: TForm1
     TabOrder = 0
     object Panel2: TPanel
       Left = 0
-      Height = 392
+      Height = 488
       Top = 0
       Width = 1280
       Align = alTop
       BevelOuter = bvNone
-      ClientHeight = 392
+      ClientHeight = 488
       ClientWidth = 1280
       TabOrder = 0
       OnClick = LabelClockClick
@@ -52,7 +52,7 @@ object Form1: TForm1
       end
       object LabelNextEventMessage: TLabel
         Left = 0
-        Height = 71
+        Height = 120
         Top = 207
         Width = 1280
         Align = alTop
@@ -60,22 +60,22 @@ object Form1: TForm1
         Caption = '12:55'
         Color = clDefault
         Font.Color = 3025567
-        Font.Height = -53
+        Font.Height = 120
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
       end
       object LabelNextEvent: TLabel
         Left = 0
-        Height = 62
-        Top = 278
+        Height = 150
+        Top = 327
         Width = 1280
         Align = alTop
         Alignment = taCenter
         Caption = '12:55'
         Color = clDefault
         Font.Color = 3025567
-        Font.Height = -47
+        Font.Height = 150
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
@@ -1512,18 +1512,18 @@ object Form1: TForm1
     end
     object Panel1: TPanel
       Left = 0
-      Height = 328
-      Top = 392
+      Height = 232
+      Top = 488
       Width = 1280
       Align = alClient
       BevelOuter = bvNone
-      ClientHeight = 328
+      ClientHeight = 232
       ClientWidth = 1280
       TabOrder = 1
       OnMouseMove = FormMouseMove
       object Image1: TImage
         Left = 8
-        Height = 112
+        Height = 80
         Top = 16
         Width = 136
         BorderSpacing.Left = 30
@@ -2103,22 +2103,22 @@ object Form1: TForm1
         Transparent = True
       end
       object LabelNextEvent1: TLabel
-        Left = 136
-        Height = 60
+        Left = 128
+        Height = 40
         Top = 56
         Width = 1136
         Anchors = [akTop, akLeft, akRight]
         Caption = 'Foreldraviðtalur hjá 4. og 5. flokki.'
         Font.Color = 27756
-        Font.Height = 60
+        Font.Height = 40
         Font.Style = [fsBold]
         ParentFont = False
         WordWrap = True
       end
       object LabelNextEvent2: TLabel
-        Left = 136
+        Left = 128
         Height = 41
-        Top = 8
+        Top = 16
         Width = 34
         BorderSpacing.Left = 32
         Caption = 'xx'
@@ -2140,7 +2140,7 @@ object Form1: TForm1
       object Shape2: TShape
         Left = 0
         Height = 8
-        Top = 288
+        Top = 192
         Width = 1280
         Align = alBottom
         Brush.Color = clOlive
@@ -2150,7 +2150,7 @@ object Form1: TForm1
       object PanelBottomLed: TPanel
         Left = 0
         Height = 32
-        Top = 296
+        Top = 200
         Width = 1280
         Align = alBottom
         BevelOuter = bvNone
@@ -10491,8 +10491,8 @@ object Form1: TForm1
       end
       object Image2: TImage
         Left = 8
-        Height = 112
-        Top = 160
+        Height = 80
+        Top = 104
         Width = 136
         BorderSpacing.Left = 30
         BorderSpacing.Right = 30
@@ -11071,22 +11071,22 @@ object Form1: TForm1
         Transparent = True
       end
       object LabelNextEvent3: TLabel
-        Left = 136
-        Height = 60
-        Top = 200
+        Left = 128
+        Height = 40
+        Top = 144
         Width = 1136
         Anchors = [akTop, akLeft, akRight]
         Caption = 'Foreldraviðtalur hjá 4. og 5. flokki.'
         Font.Color = 27756
-        Font.Height = 60
+        Font.Height = 40
         Font.Style = [fsBold]
         ParentFont = False
         WordWrap = True
       end
       object LabelNextEvent4: TLabel
-        Left = 136
+        Left = 128
         Height = 41
-        Top = 152
+        Top = 104
         Width = 34
         BorderSpacing.Left = 32
         Caption = 'xx'
