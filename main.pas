@@ -20,15 +20,14 @@ type
     Image2: TImage;
     ImageSilent: TImage;
     ImMotion: TImage;
+    LabelNextEvent: TLabel;
     LabelStatus: TLabel;
     LabelClock: TLabel;
     Label2: TLabel;
-    LabelNextEvent: TLabel;
     LabelNextEvent1: TLabel;
     LabelNextEvent2: TLabel;
     LabelNextEvent3: TLabel;
     LabelNextEvent4: TLabel;
-    LabelNextEventMessage: TLabel;
     Panel1: TPanel;
     Panel2: TPanel;
     PanelMain: TPanel;
@@ -55,6 +54,7 @@ type
     FDimValue : Real;
     FMainTimerCheckRemote: integer;
     FMainTimerClearStatus: integer;
+    FDelay: integer;
     FRingOnce: boolean;
     FLogger: TLogger;
     FSettings: TfrmSettings;
@@ -145,7 +145,7 @@ procedure TForm1.FormShow(Sender: TObject);
 begin
   Color := clBlack;
   LabelClock.Color := clBlack;
-  LabelNextEventMessage.Color := clBlack;
+  //LabelNextEventMessage.Color := clBlack;
   LabelNextEvent.Color := clBlack;
 
 end;
@@ -181,10 +181,11 @@ begin
 
   control := TfrmControl.Create(self);
   control.Silent:=ImageSilent.Visible;
+  control.Delay := FDelay;
   if (control.ShowModal = mrOk) then
   begin
   	ImageSilent.Visible := control.Silent;
-
+    FDelay := control.Delay;
     if (control.Reboot = True) then
     begin
       {$IFDEF Unix}
@@ -249,6 +250,7 @@ procedure TForm1.TimerMainTimer(Sender: TObject);
 var
   timeleft: int64;
   activated: boolean;
+  wid: integer;
 begin
 
   if (FMainTimerClearStatus > 4) then
@@ -261,9 +263,30 @@ begin
   BeginFormUpdate;
   LabelClock.Caption := FormatDateTime('hh:nn', Now);
 
-
+  LabelNextEvent.Font.Height:= LabelNextEvent.Height;
   LabelNextEvent.Caption := TimeBetweenStr(Now, FNextEvent.Occurance);
-  LabelNextEventMessage.Caption := FNextEvent.Message;
+  if (FDelay > 0) then
+  begin
+	LabelNextEvent.Caption := TimeBetweenStr(Now, FNextEvent.Occurance) + ' +' + IntToStr (FDelay);
+  end;
+
+  if (FDelay < 0) then
+  begin
+	LabelNextEvent.Caption := TimeBetweenStr(Now, FNextEvent.Occurance) + ' -' + IntToStr (FDelay);
+  end;
+
+
+  //LabelNextEventMessage.Caption := FNextEvent.Message;
+
+  wid := LabelNextEvent.Canvas.TextWidth(LabelNextEvent.Caption);
+
+  while (wid > LabelNextEvent.Width) do
+  begin
+	LabelNextEvent.Font.Height:= LabelNextEvent.Font.Height - 5;
+	wid := LabelNextEvent.Canvas.TextWidth(LabelNextEvent.Caption);
+  end;
+
+
 
   if (ShapeMainTrigger.Brush.Color = clBlack) then
     ShapeMainTrigger.Brush.Color := clGray
@@ -286,13 +309,16 @@ begin
 
 
 
-  activated := Events.Activate(FNextEvent);
+  activated := Events.Activate(FNextEvent, FDelay);
   if (FRingOnce or activated) then
   begin
     FRingOnce := False;
     ExecuteRingEvent(FNextEvent);
-    if (activated) then FNextEvent :=
-        Events.NextEvent(IncMinute(FNextEvent.Occurance));
+    if (activated) then
+    begin
+    	FNextEvent := Events.NextEvent(IncMinute(FNextEvent.Occurance));
+        FDelay := 0;
+    end;
   end;
 
   if (FMainTimerCheckRemote = 60) or (FMainTimerCheckRemote = 0) then
@@ -363,8 +389,23 @@ var
   strDays: string;
   strHours: string;
   strMinutes: string;
+  //TDateTime
 begin
   sec := SecondsBetween(AFrom, ATo);
+
+  dhours := sec / 3600;
+  hours := sec div 3600;
+  rem := dhours - hours;
+  minutes := Round(60 * rem + 0.5);
+
+//  TimeDifference := AFrom - ATo;
+  Result := FormatDateTime('hh" : "nn" : "ss', AFrom - ATo);
+
+ // Result := Format ('%.2d:%.2d:%.2d',[hours, minutes, ]);
+  exit;
+//  Result :=
+
+
 
   days := sec div (3600 * 24);
   sec := sec - ((3600 * 24) * days);
@@ -424,13 +465,13 @@ begin
 
   if (strHours <> '') then
   begin
-    if Result <> '' then Result := Result + ' og ' + strHours;
+    if Result <> '' then Result := Result + 'og ' + strHours;
     if Result = '' then Result := strHours;
   end;
 
   if (strMinutes <> '') then
   begin
-    if Result <> '' then Result := Result + ' og ' + strMinutes;
+    if Result <> '' then Result := Result + 'og ' + strMinutes;
     if Result = '' then Result := strMinutes;
   end;
 end;

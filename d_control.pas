@@ -17,21 +17,31 @@ type
     BitBtn2: TBitBtn;
     BitBtn3: TBitBtn;
     BitBtn4: TBitBtn;
+    btnDelayDec: TBitBtn;
+    btnDelayInc: TBitBtn;
+    BitBtn7: TBitBtn;
     Panel1: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
+    Panel4: TPanel;
+    Panel5: TPanel;
+    Panel6: TPanel;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure BitBtn3Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn7Click(Sender: TObject);
+    procedure btnDelayDecClick(Sender: TObject);
+    procedure btnDelayIncClick(Sender: TObject);
     procedure FormMouseLeave(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
-
+	procedure UpdateGUI;
   public
     Silent : boolean;
     Reboot : boolean;
     CloseApp : boolean;
+    Delay:	integer;
 
   end;
 
@@ -58,7 +68,7 @@ begin
   if (Silent = true) then Panel1.Color := clLime;
   Panel2.Color := clDkGray;
   Panel3.Color := clDkGray;
-
+  UpdateGUI;
 
 end;
 
@@ -111,6 +121,46 @@ begin
 	Panel3.Color := clDkGray;
   end;
    ModalResult := mrOk;
+
+end;
+
+procedure TfrmControl.BitBtn7Click(Sender: TObject);
+begin
+  Delay := 0;
+  UpdateGUI;
+end;
+
+procedure TfrmControl.btnDelayDecClick(Sender: TObject);
+begin
+	Delay := Delay - 5;
+    UpdateGUI;
+end;
+
+procedure TfrmControl.btnDelayIncClick(Sender: TObject);
+begin
+  Delay := Delay + 5;
+  UpdateGUI;
+end;
+procedure TfrmControl.UpdateGUI;
+begin
+
+    if (Delay < 0) then
+    begin
+    	btnDelayDec.Caption := IntToStr (Delay);
+	    btnDelayInc.Caption := '+';
+    end;
+
+    if (Delay = 0) then
+    begin
+      	btnDelayDec.Caption := '-';
+  	    btnDelayInc.Caption := '+';
+    end;
+
+    if (Delay > 0) then
+    begin
+      	btnDelayDec.Caption := '-';
+  	    btnDelayInc.Caption := IntToStr (Delay);
+    end;
 
 end;
 

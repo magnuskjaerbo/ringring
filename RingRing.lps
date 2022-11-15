@@ -53,7 +53,7 @@
         </CompilerOptions>
       </Item2>
     </BuildModes>
-    <Units Count="16">
+    <Units Count="15">
       <Unit0>
         <Filename Value="RingRing.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -70,14 +70,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Main"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="96"/>
-        <CursorPos X="47" Y="109"/>
+        <TopLine Value="255"/>
+        <CursorPos X="93" Y="263"/>
         <UsageCount Value="203"/>
         <Bookmarks Count="4">
-          <Item0 X="24" Y="249" ID="2"/>
+          <Item0 X="24" Y="250" ID="2"/>
           <Item1 Y="166" ID="3"/>
           <Item2 Y="161" ID="8"/>
-          <Item3 X="7" Y="201" ID="1"/>
+          <Item3 X="3" Y="183" ID="1"/>
         </Bookmarks>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -120,8 +120,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="uEvents"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="29"/>
-        <CursorPos X="68" Y="61"/>
+        <TopLine Value="104"/>
+        <CursorPos X="42" Y="130"/>
         <UsageCount Value="216"/>
         <Loaded Value="True"/>
       </Unit5>
@@ -155,187 +155,180 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="d_Control"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="82"/>
-        <CursorPos X="73" Y="112"/>
-        <UsageCount Value="165"/>
+        <TopLine Value="100"/>
+        <CursorPos X="36" Y="116"/>
+        <UsageCount Value="177"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit8>
       <Unit9>
-        <Filename Value="/usr/lib/lazarus/2.0.0/lcl/include/customform.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="923"/>
-        <CursorPos Y="940"/>
-        <UsageCount Value="0"/>
-      </Unit9>
-      <Unit10>
         <Filename Value="GPIOInterface.pas"/>
         <EditorIndex Value="9"/>
         <TopLine Value="45"/>
         <CursorPos X="11" Y="92"/>
         <UsageCount Value="101"/>
         <Loaded Value="True"/>
-      </Unit10>
-      <Unit11>
+      </Unit9>
+      <Unit10>
         <Filename Value="C:/Users/Magnus/AppData/Local/lazarus/onlinepackagemanager/packages/synapse40.1/httpsend.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="79"/>
         <CursorPos X="18" Y="86"/>
-        <UsageCount Value="26"/>
-      </Unit11>
-      <Unit12>
+        <UsageCount Value="25"/>
+      </Unit10>
+      <Unit11>
         <Filename Value="C:/lazarus/lcl/customtimer.pas"/>
         <UnitName Value="CustomTimer"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="161"/>
         <CursorPos X="20" Y="170"/>
-        <UsageCount Value="23"/>
-      </Unit12>
-      <Unit13>
+        <UsageCount Value="22"/>
+      </Unit11>
+      <Unit12>
         <Filename Value="C:/lazarus/lcl/include/customform.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="59"/>
         <CursorPos X="63" Y="62"/>
-        <UsageCount Value="34"/>
-      </Unit13>
-      <Unit14>
+        <UsageCount Value="33"/>
+      </Unit12>
+      <Unit13>
         <Filename Value="C:/lazarus/components/lazutils/html2textrender.pas"/>
         <UnitName Value="HTML2TextRender"/>
         <EditorIndex Value="6"/>
         <TopLine Value="7"/>
         <CursorPos X="21" Y="31"/>
-        <UsageCount Value="28"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
-      </Unit14>
-      <Unit15>
+      </Unit13>
+      <Unit14>
         <Filename Value="C:/Users/Magnus/Downloads/html-to-text/unit1.pas"/>
         <UnitName Value="Unit1"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="23"/>
-        <UsageCount Value="28"/>
+        <TopLine Value="22"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
-      </Unit15>
+      </Unit14>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="main.pas"/>
-        <Caret Line="117" TopLine="85"/>
+        <Filename Value="d_control.pas"/>
+        <Caret Line="153" TopLine="116"/>
       </Position1>
       <Position2>
-        <Filename Value="main.pas"/>
-        <Caret Line="120" TopLine="87"/>
+        <Filename Value="d_control.pas"/>
+        <Caret Line="152" Column="5" TopLine="117"/>
       </Position2>
       <Position3>
         <Filename Value="main.pas"/>
-        <Caret Line="121" TopLine="88"/>
+        <Caret Line="414" Column="48" TopLine="388"/>
       </Position3>
       <Position4>
         <Filename Value="main.pas"/>
-        <Caret Line="130" TopLine="111"/>
+        <Caret Line="183" Column="3" TopLine="175"/>
       </Position4>
       <Position5>
         <Filename Value="main.pas"/>
-        <Caret Line="131" TopLine="111"/>
+        <Caret Line="58" Column="5" TopLine="38"/>
       </Position5>
       <Position6>
-        <Filename Value="main.pas"/>
-        <Caret Line="132" TopLine="111"/>
+        <Filename Value="d_control.pas"/>
+        <Caret Line="91" Column="44" TopLine="79"/>
       </Position6>
       <Position7>
-        <Filename Value="main.pas"/>
-        <Caret Line="133" TopLine="111"/>
+        <Filename Value="d_control.pas"/>
+        <Caret Line="130" Column="12" TopLine="124"/>
       </Position7>
       <Position8>
-        <Filename Value="main.pas"/>
-        <Caret Line="134" TopLine="111"/>
+        <Filename Value="uevents.pas"/>
+        <Caret Line="135" Column="60" TopLine="104"/>
       </Position8>
       <Position9>
-        <Filename Value="main.pas"/>
-        <Caret Line="92" TopLine="71"/>
+        <Filename Value="uevents.pas"/>
+        <Caret Line="22" Column="55"/>
       </Position9>
       <Position10>
-        <Filename Value="main.pas"/>
-        <Caret Line="136" TopLine="117"/>
+        <Filename Value="uevents.pas"/>
+        <Caret Line="130" Column="42" TopLine="104"/>
       </Position10>
       <Position11>
-        <Filename Value="ujson.pas"/>
-        <Caret Line="81" Column="40" TopLine="77"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="276" Column="32" TopLine="261"/>
       </Position11>
       <Position12>
-        <Filename Value="ujson.pas"/>
-        <Caret Line="86" Column="11" TopLine="66"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="404" Column="10" TopLine="383"/>
       </Position12>
       <Position13>
-        <Filename Value="ujson.pas"/>
-        <Caret Line="8" Column="60"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="402" Column="58" TopLine="377"/>
       </Position13>
       <Position14>
-        <Filename Value="ujson.pas"/>
-        <Caret Line="94" TopLine="84"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="403" Column="63" TopLine="380"/>
       </Position14>
       <Position15>
-        <Filename Value="ujson.pas"/>
-        <Caret Line="95" Column="23" TopLine="40"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="380" Column="32" TopLine="359"/>
       </Position15>
       <Position16>
-        <Filename Value="ujson.pas"/>
-        <Caret Line="10" Column="83"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="395" TopLine="371"/>
       </Position16>
       <Position17>
-        <Filename Value="ujson.pas"/>
-        <Caret Line="95" Column="15" TopLine="71"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="403" Column="72" TopLine="371"/>
       </Position17>
       <Position18>
-        <Filename Value="ujson.pas"/>
-        <Caret Line="8" Column="64" TopLine="7"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="398" TopLine="371"/>
       </Position18>
       <Position19>
-        <Filename Value="ujson.pas"/>
-        <Caret Line="95" Column="18" TopLine="75"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="399" TopLine="371"/>
       </Position19>
       <Position20>
-        <Filename Value="ujson.pas"/>
-        <Caret Line="98" Column="26" TopLine="78"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="400" TopLine="371"/>
       </Position20>
       <Position21>
-        <Filename Value="ujson.pas"/>
-        <Caret Line="95" Column="12" TopLine="78"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="403" TopLine="371"/>
       </Position21>
       <Position22>
-        <Filename Value="ujson.pas"/>
-        <Caret Line="96" TopLine="78"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="381" Column="58" TopLine="369"/>
       </Position22>
       <Position23>
-        <Filename Value="ujson.pas"/>
-        <Caret Line="97" TopLine="78"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="380" Column="58" TopLine="368"/>
       </Position23>
       <Position24>
-        <Filename Value="ujson.pas"/>
-        <Caret Line="98" TopLine="78"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="381" Column="58" TopLine="369"/>
       </Position24>
       <Position25>
-        <Filename Value="ujson.pas"/>
-        <Caret Line="96" Column="9" TopLine="75"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="380" Column="58" TopLine="368"/>
       </Position25>
       <Position26>
-        <Filename Value="ujson.pas"/>
-        <Caret Line="100" Column="28" TopLine="82"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="379" Column="58" TopLine="367"/>
       </Position26>
       <Position27>
-        <Filename Value="ujson.pas"/>
-        <Caret Line="97" Column="13" TopLine="77"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="380" Column="58" TopLine="368"/>
       </Position27>
       <Position28>
-        <Filename Value="ujson.pas"/>
-        <Caret Line="100" Column="33" TopLine="80"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="379" Column="58" TopLine="367"/>
       </Position28>
       <Position29>
         <Filename Value="main.pas"/>
-        <Caret Line="465" Column="54" TopLine="450"/>
+        <Caret Line="383" Column="39" TopLine="368"/>
       </Position29>
       <Position30>
         <Filename Value="main.pas"/>
-        <Caret Line="197" Column="97" TopLine="176"/>
+        <Caret Line="148" Column="25" TopLine="127"/>
       </Position30>
     </JumpHistory>
     <RunParams>

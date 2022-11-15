@@ -19,7 +19,7 @@ type
     procedure GetRemoteData();
     function NextEvent(ADateTime: TDateTime): TEvent;
     procedure NextRemoteEvent(var OEvents: TOEvents; ADateTime: TDateTime);
-    function Activate(AEvent: TEvent): boolean;
+    function Activate(AEvent: TEvent; ADelay : integer): boolean;
     constructor Create(AStatusLabel: TLabel; ASettings: TfrmSettings);
   end;
 
@@ -127,12 +127,12 @@ begin
   Result := ClosestEvent;
 end;
 
-function TEvents.Activate(AEvent: TEvent): boolean;
+function TEvents.Activate(AEvent: TEvent; ADelay: integer): boolean;
 var
   mins: int64;
 begin
   Result := False;
-  mins := SecondsBetween(AEvent.Occurance, Now);
+  mins := SecondsBetween(AEvent.Occurance, Now) + ADelay*60;
   if (mins < 1) then Result := True;
 end;
 
