@@ -1,8 +1,8 @@
 object Form1: TForm1
   Cursor = crNone
-  Left = 66
+  Left = 123
   Height = 720
-  Top = 154
+  Top = 158
   Width = 1280
   ActiveControl = PanelMain
   BorderStyle = bsNone
@@ -52,7 +52,7 @@ object Form1: TForm1
       end
       object LabelNextEventMessage: TLabel
         Left = 0
-        Height = 120
+        Height = 78
         Top = 207
         Width = 1280
         Align = alTop
@@ -60,22 +60,22 @@ object Form1: TForm1
         Caption = '12:55'
         Color = clDefault
         Font.Color = 3025567
-        Font.Height = 120
+        Font.Height = 80
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
       end
       object LabelNextEvent: TLabel
         Left = 0
-        Height = 150
-        Top = 327
+        Height = 120
+        Top = 285
         Width = 1280
         Align = alTop
         Alignment = taCenter
         Caption = '12:55'
         Color = clDefault
         Font.Color = 3025567
-        Font.Height = 150
+        Font.Height = 120
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
@@ -2105,7 +2105,7 @@ object Form1: TForm1
       object LabelNextEvent1: TLabel
         Left = 128
         Height = 40
-        Top = 56
+        Top = 48
         Width = 1136
         Anchors = [akTop, akLeft, akRight]
         Caption = 'Foreldraviðtalur hjá 4. og 5. flokki.'
@@ -11073,7 +11073,7 @@ object Form1: TForm1
       object LabelNextEvent3: TLabel
         Left = 128
         Height = 40
-        Top = 144
+        Top = 136
         Width = 1136
         Anchors = [akTop, akLeft, akRight]
         Caption = 'Foreldraviðtalur hjá 4. og 5. flokki.'
