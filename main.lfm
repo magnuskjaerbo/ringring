@@ -52,7 +52,7 @@ object Form1: TForm1
       end
       object LabelNextEventMessage: TLabel
         Left = 0
-        Height = 78
+        Height = 70
         Top = 207
         Width = 1280
         Align = alTop
@@ -60,22 +60,22 @@ object Form1: TForm1
         Caption = '12:55'
         Color = clDefault
         Font.Color = 3025567
-        Font.Height = 80
+        Font.Height = 70
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
       end
       object LabelNextEvent: TLabel
         Left = 0
-        Height = 120
-        Top = 285
+        Height = 100
+        Top = 277
         Width = 1280
         Align = alTop
         Alignment = taCenter
         Caption = '12:55'
         Color = clDefault
         Font.Color = 3025567
-        Font.Height = 120
+        Font.Height = 100
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False

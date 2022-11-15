@@ -117,8 +117,8 @@ begin
   Color := clBlack;
 
   {$IFDEF Windows}
-  Width := 1024;
-  Height := 768;
+  Width := 1280;
+  Height := 720;
   {$ELSE}
   Left := -2;
   Top := -2;
