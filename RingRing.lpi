@@ -8,7 +8,6 @@
       </Flags>
       <SessionStorage Value="InProjectDir"/>
       <Title Value="ringring"/>
-      <Scaled Value="True"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
       <XPManifest>
@@ -53,7 +52,7 @@
         <PackageName Value="LCL"/>
       </Item6>
     </RequiredPackages>
-    <Units Count="10">
+    <Units Count="12">
       <Unit0>
         <Filename Value="RingRing.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -117,6 +116,18 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="d_Clock"/>
       </Unit9>
+      <Unit10>
+        <Filename Value="d_nextring.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmNextRing"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="d_NextRing"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="ustringutil.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uStringUtil"/>
+      </Unit11>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

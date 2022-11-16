@@ -9,7 +9,7 @@ uses
   {$IFNDEF Windows}baseunix, Unix,{$ENDIF}Classes, SysUtils, Forms, Controls,
   Graphics, Dialogs, ExtCtrls, Buttons, StdCtrls, ComCtrls,
   IpHtml, Ipfilebroker, uLogger, uSettings,
-  SQLDB, DateUtils, uEvents, uIO, d_Control, d_Clock;
+  SQLDB, DateUtils, uEvents, uIO, d_Control, d_Clock, d_NextRing, uStringUtil;
 
 type
 
@@ -20,7 +20,6 @@ type
     Image1: TImage;
     Image2: TImage;
     ImMotion: TImage;
-    LabelNextEvent: TLabel;
     LabelStatus: TLabel;
     Label2: TLabel;
     LabelNextEvent1: TLabel;
@@ -28,7 +27,7 @@ type
     LabelNextEvent3: TLabel;
     LabelNextEvent4: TLabel;
     Panel1: TPanel;
-    Panel2: TPanel;
+    PanelNextRing: TPanel;
     PanelClock: TPanel;
     PanelMain: TPanel;
     PanelBottomLed: TPanel;
@@ -36,7 +35,6 @@ type
     Shape2: TShape;
     ShapeIdleTrigger: TShape;
     ShapeMainTrigger: TShape;
-    Shape4: TShape;
     TimerMain: TTimer;
     procedure FormCreate(Sender: TObject);
     procedure FormDblClick(Sender: TObject);
@@ -50,12 +48,11 @@ type
 
   private
     FClock: TfrmClock;
+    FNextRing: TfrmNextRing;
     FDimValue : Real;
     FMainTimerCheckRemote: integer;
     FMainTimerClearStatus: integer;
-    FDelay: integer;
     FRingOnce: boolean;
-    FLogger: TLogger;
     FSettings: TfrmSettings;
     Events: TEvents;
     FNextEvent: TEvent;
@@ -105,6 +102,7 @@ begin
   FMainTimerClearStatus := 0;
 
   DefaultFormatSettings.ShortDateFormat := 'yyyy-mm-dd';
+  DefaultFormatSettings.ShortTimeFormat := 'hh:nn:ss';
 
   BorderStyle := bsNone;
 
@@ -136,6 +134,11 @@ begin
   FClock.ImageSilent.OnClick := @ExecuteControls;
   FClock.Show ();
 
+  FNextRing := TfrmNextRing.Create (PanelNextRing);
+  FNextRing.Parent := PanelNextRing;
+  FNextRing.Align := alClient;
+  FNextRing.Show ();
+
 
   FSettings := TfrmSettings.Create(Self, LabelStatus);
   FSettings.Parent := Self;
@@ -159,8 +162,6 @@ end;
 procedure TForm1.FormShow(Sender: TObject);
 begin
   Color := clBlack;
-  LabelNextEvent.Color := clBlack;
-
 end;
 
 {------------------------------------------------------------------------------}
@@ -170,20 +171,6 @@ begin
     ShapeIdleTrigger.Brush.Color := clBlue
   else
     ShapeIdleTrigger.Brush.Color := clBlack;
-
-  //   rc := FIO.ReadMotionSensor();
-
-  //   if rc = false then
-  //  begin
-  //     ImMotion.Visible := false;
-  //     TimerCheckRemote.Enabled:=true;
-  //   end
-  //   else
-  //     begin
-  //       ImMotion.Visible := true;
-  //       PanelMain.Visible:=true;
-  //     end;
-
 end;
 
 {------------------------------------------------------------------------------}
@@ -194,11 +181,12 @@ begin
 
   control := TfrmControl.Create(self);
   control.Silent:=FClock.Silent;
-  control.Delay := FDelay;
+  control.Delay := FNextRing.Delay;
   if (control.ShowModal = mrOk) then
   begin
   	FClock.Silent := control.Silent;
-    FDelay := control.Delay;
+    FNextRing.Delay:=control.Delay;
+
     if (control.Reboot = True) then
     begin
       {$IFDEF Unix}
@@ -250,7 +238,7 @@ end;
 {------------------------------------------------------------------------------}
 procedure TForm1.TimerMainTimer(Sender: TObject);
 var
-  timeleft: int64;
+
   activated: boolean;
   wid: integer;
 begin
@@ -261,35 +249,10 @@ begin
     FMainTimerClearStatus := 0;
   end;
 
-  TimerMain.Enabled := False;
-  BeginFormUpdate;
-  FClock.UpdateGUI;
-
-
-  LabelNextEvent.Font.Height:= LabelNextEvent.Height;
-  LabelNextEvent.Caption := TimeBetweenStr(Now, FNextEvent.Occurance);
-  if (FDelay > 0) then
-  begin
-	LabelNextEvent.Caption := TimeBetweenStr(Now, FNextEvent.Occurance) + ' +' + IntToStr (FDelay);
-  end;
-
-  if (FDelay < 0) then
-  begin
-	LabelNextEvent.Caption := TimeBetweenStr(Now, FNextEvent.Occurance) + ' -' + IntToStr (FDelay);
-  end;
-
-
-  //LabelNextEventMessage.Caption := FNextEvent.Message;
-
-  wid := LabelNextEvent.Canvas.TextWidth(LabelNextEvent.Caption);
-
-  while (wid > LabelNextEvent.Width) do
-  begin
-	LabelNextEvent.Font.Height:= LabelNextEvent.Font.Height - 5;
-	wid := LabelNextEvent.Canvas.TextWidth(LabelNextEvent.Caption);
-  end;
-
-
+  	TimerMain.Enabled := False;
+  	BeginFormUpdate;
+  	FClock.UpdateGUI;
+	FNextRing.UpdateGUI (FNextEvent);
 
   if (ShapeMainTrigger.Brush.Color = clBlack) then
     ShapeMainTrigger.Brush.Color := clGray
@@ -297,22 +260,7 @@ begin
     ShapeMainTrigger.Brush.Color := clBlack;
 
 
-  timeleft := SecondsBetween(FNextEvent.Occurance, Now);
-  if (timeleft < Panel2.Width) then
-  begin
-    Shape4.BorderSpacing.Left := Round((Panel2.Width - timeleft) * 0.5);
-    Shape4.BorderSpacing.Right := Shape4.BorderSpacing.Left;
-  end
-  else
-  begin
-    Shape4.BorderSpacing.Left := 0;
-    Shape4.BorderSpacing.Right := 0;
-  end;
-
-
-
-
-  activated := Events.Activate(FNextEvent, FDelay);
+  activated := Events.Activate(FNextEvent, FNextRing.Delay);
   if (FRingOnce or activated) then
   begin
     FRingOnce := False;
@@ -320,7 +268,7 @@ begin
     if (activated) then
     begin
     	FNextEvent := Events.NextEvent(IncMinute(FNextEvent.Occurance));
-        FDelay := 0;
+        FNextRing.Delay := 0;
     end;
   end;
 
@@ -402,7 +350,7 @@ begin
   minutes := Round(60 * rem + 0.5);
 
 //  TimeDifference := AFrom - ATo;
-  Result := FormatDateTime('hh" : "nn" : "ss', AFrom - ATo);
+//  Result := FormatDateTime('hh" : "nn" : "ss', AFrom - ATo);
 
  // Result := Format ('%.2d:%.2d:%.2d',[hours, minutes, ]);
   exit;

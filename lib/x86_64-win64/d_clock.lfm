@@ -2,21 +2,22 @@ object frmClock: TfrmClock
   Left = 2694
   Height = 240
   Top = 68
-  Width = 320
+  Width = 697
   BorderStyle = bsNone
   Caption = 'frmClock'
   ClientHeight = 240
-  ClientWidth = 320
+  ClientWidth = 697
   OnCreate = FormCreate
   LCLVersion = '2.2.0.4'
   object LabelClock: TLabel
     Left = 0
     Height = 240
     Top = 0
-    Width = 320
+    Width = 697
     Align = alClient
     Alignment = taCenter
     Caption = '12:00'
+    Font.Color = 16744448
     Font.Style = [fsBold]
     Layout = tlCenter
     ParentFont = False
