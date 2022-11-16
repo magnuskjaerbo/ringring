@@ -102,11 +102,16 @@ begin
   begin
 	Panel2.Color := clDkGray;
   end;
-  {$IFDEF Unix}
-  fpSystem('reboot');
-  {$ENDIF}
+
+  if (MessageDlg('Dagfør', 'Skal Ringiklokkan dagførast?',mtWarning,[mbOk, mbCancel], '') = mrOk) then
+  begin
+      {$IFDEF Unix}
+      fpSystem('reboot');
+      {$ENDIF}
+  end;
 
    ModalResult := mrOk;
+
 end;
 
 procedure TfrmControl.BitBtn4Click(Sender: TObject);
