@@ -68,8 +68,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Main"/>
-        <TopLine Value="89"/>
-        <CursorPos X="12" Y="123"/>
+        <TopLine Value="67"/>
+        <CursorPos X="28" Y="77"/>
         <UsageCount Value="203"/>
         <Bookmarks Count="4">
           <Item0 X="24" Y="209" ID="2"/>
@@ -147,7 +147,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="97"/>
         <CursorPos Y="108"/>
-        <UsageCount Value="189"/>
+        <UsageCount Value="197"/>
       </Unit8>
       <Unit9>
         <Filename Value="GPIOInterface.pas"/>
@@ -162,7 +162,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="79"/>
         <CursorPos X="18" Y="86"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="23"/>
       </Unit10>
       <Unit11>
         <Filename Value="C:/lazarus/lcl/customtimer.pas"/>
@@ -170,14 +170,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="161"/>
         <CursorPos X="20" Y="170"/>
-        <UsageCount Value="21"/>
+        <UsageCount Value="20"/>
       </Unit11>
       <Unit12>
         <Filename Value="C:/lazarus/lcl/include/customform.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="59"/>
         <CursorPos X="63" Y="62"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="31"/>
       </Unit12>
       <Unit13>
         <Filename Value="C:/lazarus/components/lazutils/html2textrender.pas"/>
@@ -185,14 +185,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="7"/>
         <CursorPos X="21" Y="31"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="32"/>
       </Unit13>
       <Unit14>
         <Filename Value="C:/Users/Magnus/Downloads/html-to-text/unit1.pas"/>
         <UnitName Value="Unit1"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="22"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="32"/>
       </Unit14>
       <Unit15>
         <Filename Value="d_clock.pas"/>
@@ -201,7 +201,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="d_Clock"/>
         <EditorIndex Value="5"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="40"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit15>
@@ -210,21 +210,21 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="154"/>
         <CursorPos X="56" Y="175"/>
-        <UsageCount Value="11"/>
+        <UsageCount Value="10"/>
       </Unit16>
       <Unit17>
         <Filename Value="C:/lazarus/lcl/dialogs.pp"/>
         <UnitName Value="Dialogs"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="38" Y="35"/>
-        <UsageCount Value="11"/>
+        <UsageCount Value="10"/>
       </Unit17>
       <Unit18>
         <Filename Value="C:/lazarus/components/lazutils/uitypes.pas"/>
         <UnitName Value="UITypes"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="12" Y="13"/>
-        <UsageCount Value="11"/>
+        <UsageCount Value="10"/>
       </Unit18>
       <Unit19>
         <Filename Value="d_nextring.pas"/>
@@ -232,21 +232,21 @@
         <ComponentName Value="frmNextRing"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="d_NextRing"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
         <TopLine Value="35"/>
-        <CursorPos X="60" Y="51"/>
-        <UsageCount Value="24"/>
+        <CursorPos X="73" Y="52"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit19>
       <Unit20>
         <Filename Value="uutil.pas"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="8"/>
         <TopLine Value="5"/>
-        <CursorPos Y="33"/>
-        <UsageCount Value="23"/>
+        <CursorPos X="63" Y="25"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
       </Unit20>
       <Unit21>
@@ -254,7 +254,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="255"/>
         <CursorPos X="10" Y="275"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit21>
       <Unit22>
         <Filename Value="C:/lazarus/lcl/controls.pp"/>
@@ -262,7 +262,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="1723"/>
         <CursorPos X="33" Y="1742"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit22>
       <Unit23>
         <Filename Value="d_onlineevents.pas"/>
@@ -272,7 +272,7 @@
         <UnitName Value="d_OnlineEvents"/>
         <EditorIndex Value="4"/>
         <CursorPos X="80" Y="8"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="30"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit23>
@@ -283,7 +283,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="7"/>
         <CursorPos X="52" Y="15"/>
-        <UsageCount Value="20"/>
+        <UsageCount Value="28"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit24>

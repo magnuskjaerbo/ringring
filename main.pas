@@ -77,7 +77,7 @@ begin
 
    {$IFDEF Windows}
    {$endif}
-  Label2.Caption := '1.0.14';
+  Label2.Caption := '1.0.15';
   DoubleBuffered := True;
   FMainTimerCheckRemote := 0;
   FMainTimerClearStatus := 0;
@@ -90,8 +90,8 @@ begin
   Color := clBlack;
 
   {$IFDEF Windows}
-  Width := 1280;
-  Height := 720;
+  Width := 1024;
+  Height := 600;
   {$ELSE}
   Left := -2;
   Top := -2;
