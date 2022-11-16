@@ -53,7 +53,7 @@
         <PackageName Value="LCL"/>
       </Item6>
     </RequiredPackages>
-    <Units Count="9">
+    <Units Count="10">
       <Unit0>
         <Filename Value="RingRing.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -110,6 +110,13 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="d_Control"/>
       </Unit8>
+      <Unit9>
+        <Filename Value="d_clock.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmClock"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="d_Clock"/>
+      </Unit9>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

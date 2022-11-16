@@ -4,11 +4,12 @@ unit Main;
 
 interface
 
+
 uses
   {$IFNDEF Windows}baseunix, Unix,{$ENDIF}Classes, SysUtils, Forms, Controls,
   Graphics, Dialogs, ExtCtrls, Buttons, StdCtrls, ComCtrls,
   IpHtml, Ipfilebroker, uLogger, uSettings,
-  SQLDB, DateUtils, uEvents, uIO, d_Control;
+  SQLDB, DateUtils, uEvents, uIO, d_Control, d_Clock;
 
 type
 
@@ -18,11 +19,9 @@ type
     IdleTimer1: TIdleTimer;
     Image1: TImage;
     Image2: TImage;
-    ImageSilent: TImage;
     ImMotion: TImage;
     LabelNextEvent: TLabel;
     LabelStatus: TLabel;
-    LabelClock: TLabel;
     Label2: TLabel;
     LabelNextEvent1: TLabel;
     LabelNextEvent2: TLabel;
@@ -30,6 +29,7 @@ type
     LabelNextEvent4: TLabel;
     Panel1: TPanel;
     Panel2: TPanel;
+    PanelClock: TPanel;
     PanelMain: TPanel;
     PanelBottomLed: TPanel;
     Shape1: TShape;
@@ -39,18 +39,17 @@ type
     Shape4: TShape;
     TimerMain: TTimer;
     procedure FormCreate(Sender: TObject);
+    procedure FormDblClick(Sender: TObject);
     procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: integer);
     procedure FormShow(Sender: TObject);
     procedure IdleTimer1Timer(Sender: TObject);
-    procedure LabelClockClick(Sender: TObject);
-    procedure LabelClockMouseMove(Sender: TObject; Shift: TShiftState;
-      X, Y: integer);
-    procedure Shape3ChangeBounds(Sender: TObject);
+
     procedure TimerMainTimer(Sender: TObject);
     procedure ToggleBox1Change(Sender: TObject);
 
 
   private
+    FClock: TfrmClock;
     FDimValue : Real;
     FMainTimerCheckRemote: integer;
     FMainTimerClearStatus: integer;
@@ -70,6 +69,7 @@ type
     procedure BlinkScreen();
     procedure CheckRemote();
     procedure DimDisplay();
+    procedure ExecuteControls (Sender: TObject);
   public
 
   end;
@@ -127,12 +127,27 @@ begin
   WindowState := wsFullScreen;
     {$endif}
 
+
+  FClock := TfrmClock.Create (PanelClock);
+  FClock.Parent := PanelClock;
+  FClock.Align := alClient;
+  FClock.OnClick := @ExecuteControls;
+  FClock.LabelClock.OnClick := @ExecuteControls;
+  FClock.ImageSilent.OnClick := @ExecuteControls;
+  FClock.Show ();
+
+
   FSettings := TfrmSettings.Create(Self, LabelStatus);
   FSettings.Parent := Self;
   Events := TEvents.Create(LabelStatus, FSettings);
   FNextEvent := Events.NextEvent(Now);
   FIO := TIO.Create();
 
+end;
+
+procedure TForm1.FormDblClick(Sender: TObject);
+begin
+    ShowMessage ('Hi');
 end;
 
 procedure TForm1.FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: integer);
@@ -144,8 +159,6 @@ end;
 procedure TForm1.FormShow(Sender: TObject);
 begin
   Color := clBlack;
-  LabelClock.Color := clBlack;
-  //LabelNextEventMessage.Color := clBlack;
   LabelNextEvent.Color := clBlack;
 
 end;
@@ -174,17 +187,17 @@ begin
 end;
 
 {------------------------------------------------------------------------------}
-procedure TForm1.LabelClockClick(Sender: TObject);
+procedure TForm1.ExecuteControls(Sender: TObject);
 var
   control : TfrmControl;
 begin
 
   control := TfrmControl.Create(self);
-  control.Silent:=ImageSilent.Visible;
+  control.Silent:=FClock.Silent;
   control.Delay := FDelay;
   if (control.ShowModal = mrOk) then
   begin
-  	ImageSilent.Visible := control.Silent;
+  	FClock.Silent := control.Silent;
     FDelay := control.Delay;
     if (control.Reboot = True) then
     begin
@@ -199,17 +212,6 @@ begin
     end;
   end;
   control.Destroy;
-
-end;
-
-procedure TForm1.LabelClockMouseMove(Sender: TObject; Shift: TShiftState;
-  X, Y: integer);
-begin
-
-end;
-
-procedure TForm1.Shape3ChangeBounds(Sender: TObject);
-begin
 
 end;
 
@@ -261,7 +263,8 @@ begin
 
   TimerMain.Enabled := False;
   BeginFormUpdate;
-  LabelClock.Caption := FormatDateTime('hh:nn', Now);
+  FClock.UpdateGUI;
+
 
   LabelNextEvent.Font.Height:= LabelNextEvent.Height;
   LabelNextEvent.Caption := TimeBetweenStr(Now, FNextEvent.Occurance);
@@ -348,7 +351,7 @@ var
   odd: boolean;
 begin
 
-  if (ImageSilent.Visible = False) then
+  if (FClock.Silent = False) then
   begin
     durArr := AEvent.Durations.Split(',');
 

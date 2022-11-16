@@ -1,7 +1,7 @@
 object frmSettings: TfrmSettings
-  Left = 491
+  Left = -1429
   Height = 185
-  Top = 343
+  Top = 368
   Width = 289
   BorderStyle = bsNone
   Caption = 'frmSettings'
