@@ -6,13 +6,14 @@ interface
 
 uses
     Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-    uEvents, uStringUtil, uSettings, DateUtils;
+    uutil, uSettings, DateUtils;
 
 type
 
     { TfrmNextRing }
 
     TfrmNextRing = class(TForm)
+        LabelMessage: TLabel;
         LabelNext: TLabel;
         ShapeNextTop: TShape;
         procedure FormCreate(Sender: TObject);
@@ -35,39 +36,33 @@ implementation
 procedure TfrmNextRing.FormCreate(Sender: TObject);
 begin
   Color := clBlack;
-//  LabelNext.Font.Color := $00FF8000;
+  LabelNext.Font.Color := $00FF8000;
+  LabelMessage.Font.Color := $00FF8000;
 
 
 end;
 
 procedure TfrmNextRing.UpdateGUI (ANextEvent : TEvent);
 var
-    wid : integer;
     timeleft: int64;
 begin
 
-  LabelNext.Font.Height:= LabelNext.Height;
   LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance);
   if (Delay > 0) then
   begin
-	LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance) + ' +' + IntToStr (Delay);
+	LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance) + '+' + IntToStr (Delay) + 'min.';
   end;
 
   if (Delay < 0) then
   begin
-	LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance) + ' -' + IntToStr (Delay);
+	LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance) + IntToStr (Delay) + 'min.';
   end;
 
+  CalcLabelSize (LabelNext, Parent.Width, Trunc (Parent.Height * 0.75)-3);
 
-  //LabelNextEventMessage.Caption := FNextEvent.Message;
+  LabelMessage.Caption := ANextEvent.Message;
+  CalcLabelSize (LabelMessage, Parent.Width, Trunc (Parent.Height * 0.25)-3);
 
-  wid := LabelNext.Canvas.TextWidth(LabelNext.Caption);
-
-  while (wid > LabelNext.Width) do
-  begin
-	LabelNext.Font.Height:= LabelNext.Font.Height - 5;
-	wid := LabelNext.Canvas.TextWidth(LabelNext.Caption);
-  end;
 
   timeleft := SecondsBetween(ANextEvent.Occurance, Now);
   if (timeleft < Parent.Width) then

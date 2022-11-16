@@ -1,18 +1,18 @@
 object frmNextRing: TfrmNextRing
-  Left = 1988
-  Height = 240
-  Top = 62
-  Width = 320
+  Left = 1950
+  Height = 80
+  Top = 14
+  Width = 388
   BorderStyle = bsNone
-  ClientHeight = 240
-  ClientWidth = 320
+  ClientHeight = 80
+  ClientWidth = 388
   OnCreate = FormCreate
   LCLVersion = '2.2.0.4'
   object LabelNext: TLabel
     Left = 0
-    Height = 233
-    Top = 7
-    Width = 320
+    Height = 58
+    Top = 22
+    Width = 388
     Align = alClient
     Alignment = taCenter
     Caption = '12:00'
@@ -25,10 +25,22 @@ object frmNextRing: TfrmNextRing
     Left = 32
     Height = 7
     Top = 0
-    Width = 256
+    Width = 324
     Align = alTop
     BorderSpacing.Left = 32
     BorderSpacing.Right = 32
     Brush.Color = clMaroon
+  end
+  object LabelMessage: TLabel
+    Left = 0
+    Height = 15
+    Top = 7
+    Width = 388
+    Align = alTop
+    Alignment = taCenter
+    Caption = 'LabelMessage'
+    Font.Style = [fsBold]
+    Layout = tlCenter
+    ParentFont = False
   end
 end

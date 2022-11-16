@@ -1,7 +1,7 @@
 object frmControl: TfrmControl
-  Left = 2590
+  Left = 2785
   Height = 492
-  Top = 58
+  Top = 15
   Width = 1024
   Caption = 'Funkur'
   ClientHeight = 492

@@ -61,7 +61,6 @@ var
   Event: TEvent;
   nEvents: integer;
   ix: integer;
-  renderer: THTML2TextRenderer;
 begin
 
   if AStr.Length = 0 then exit;
@@ -99,10 +98,6 @@ begin
         begin
         	SetLength (title, ix);
         end;
-        //renderer := THTML2TextRenderer.Create(title);
-        //title :=renderer.Render;
-        //renderer.Destroy;
-
 
         dateBeg := jObjectEvents.FindPath('BeginS').AsString;
 

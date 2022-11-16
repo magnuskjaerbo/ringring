@@ -5,7 +5,7 @@ unit d_Clock;
 interface
 
 uses
-    Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls;
+    Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls, uutil;
 
 type
 
@@ -35,12 +35,10 @@ begin
   Silent := false;
   Color := clBlack;
   LabelClock.Font.Color := $00FF8000;
-  UpdateGUI;
+  //UpdateGUI;
 end;
 
 procedure TfrmClock.UpdateGUI;
-var
-    wid : integer;
 begin
 
   ImageSilent.Visible := Silent;
@@ -53,15 +51,7 @@ begin
   end;
 
   LabelClock.Caption := FormatDateTime('hh:nn', Now);
-  if (Parent <> nil) then LabelClock.Font.Height:=Parent.Height;
-
-  wid := LabelClock.Canvas.TextWidth(LabelClock.Caption);
-
-  while (wid > LabelClock.Width) do
-  begin
-	LabelClock.Font.Height:= LabelClock.Font.Height - 5;
-	wid := LabelClock.Canvas.TextWidth(LabelClock.Caption);
-  end;
+  CalcLabelSize (LabelClock, Parent.Width, Parent.Height);
 
 end;
 

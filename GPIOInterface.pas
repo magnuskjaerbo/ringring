@@ -70,7 +70,9 @@ end;
 function TGpioInterface.ResetPin(GpioNumber: TAvailableGpio): longint;
 
 var
+  {$ifdef CPUARM}
   ioFile: integer;
+  {$endif}
   portNum: string;
   portBuf: PChar;
 

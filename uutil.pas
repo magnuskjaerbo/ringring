@@ -1,4 +1,4 @@
-unit uStringUtil;
+unit uutil;
 
 {$mode ObjFPC}{$H+}
 
@@ -8,18 +8,34 @@ interface
 
 
 uses
-    Classes, SysUtils, DateUtils;
+    Classes, Controls, Forms, SysUtils, DateUtils, Graphics, StdCtrls, ExtCtrls;
 
 function TimeBetweenStr(AFrom, ATo: TDateTime): string;
+procedure CalcLabelSize (ALabel : TLabel; AWidth, AHeight: integer);
 
 implementation
 
+procedure CalcLabelSize (ALabel : TLabel; AWidth, AHeight: integer);
+var
+  wid : integer;
+begin
+  ALabel.Font.Height:= AHeight;
+
+  wid := ALabel.Canvas.TextWidth (ALabel.Caption);
+
+  while (wid > ALabel.Width) do
+  begin
+	ALabel.Font.Height:= ALabel.Font.Height - 5;
+	wid := ALabel.Canvas.TextWidth (ALabel.Caption);
+  end;
+
+
+end;
+
 function TimeBetweenStr(AFrom, ATo: TDateTime): string;
 var
-
   days: integer;
-
-  sec: int64;
+  sec: integer;
   minutes: integer;
   dhours: double;
   rem: double;
@@ -27,23 +43,8 @@ var
   strDays: string;
   strHours: string;
   strMinutes: string;
-  //TDateTime
 begin
   sec := SecondsBetween(AFrom, ATo);
-
-//  dhours := sec / 3600;
-//  hours := sec div 3600;
-//  rem := dhours - hours;
-//  minutes := Round(60 * rem + 0.5);
-//
-////  TimeDifference := AFrom - ATo;
-//  Result := FormatDateTime('hh" : "nn" : "ss', AFrom - ATo);
-
- // Result := Format ('%.2d:%.2d:%.2d',[hours, minutes, ]);
-//  exit;
-//  Result :=
-
-
 
   days := sec div (3600 * 24);
   sec := sec - ((3600 * 24) * days);
@@ -51,7 +52,6 @@ begin
   hours := sec div 3600;
   rem := dhours - hours;
   minutes := Round(60 * rem + 0.5);
-
 
   if (minutes = 60) then
   begin
@@ -87,11 +87,11 @@ begin
   strminutes := '';
   if (minutes > 1) then
   begin
-    strminutes := IntToStr(minutes) + ' minuttir ';
+    strminutes := IntToStr(minutes) + ' min. ';
   end
   else if (minutes = 1) then
   begin
-    strminutes := IntToStr(minutes) + ' minutt ';
+    strminutes := IntToStr(minutes) + ' min. ';
   end;
 
 

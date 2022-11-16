@@ -197,35 +197,30 @@ begin
       FGpioStatus[GpioNumber] := ioOutput;
     end;
   end
-  if (FGpioStatus[GpioNumber] = ioInput) then
+  else if (FGpioStatus[GpioNumber] = ioInput) then
   begin
     {$ifdef CPUARM}
-    if HighLevel then
-    begin
-      valStr := '1'#0;
-    end
-    else
-    begin
-      valStr := '0'#0;
-    end;
-//    FReturnCode := fpsystem(format('echo "%s" > /sys/class/gpio/gpio%d/value',[value,GpioNumber]));
 
-    // Set port value
     valBuf := StrAlloc(2);
-    StrPCopy(valBuf,valStr);
+//    StrPCopy(valBuf,valStr);
     try
       ioFile := FpOpen(Format('/sys/class/gpio/gpio%d/value',[GpioNumber]), O_RdOnly);
-      FReturnCode := FpWrite(ioFile, valBuf[0], 1);
+      FReturnCode := FpRead (ioFile, valBuf[0], 1);
     finally
       FReturnCode := FpClose(ioFile);
     end;
+    if valBuf[0] = '1' then
+        FReturnCode := 1
+        else
+        FReturnCode := 0;
+
     {$else}
     FReturnCode := 0;
     {$endif}
-    if FReturnCode = 0 then
-    begin
-      FGpioStatus[GpioNumber] := ioOutput;
-    end;
+//    if FReturnCode = 0 then
+//    begin
+//      FGpioStatus[GpioNumber] := ioOutput;
+//    end;
   end
   else
   begin

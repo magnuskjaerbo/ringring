@@ -20,7 +20,7 @@
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="1"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="10"/>
+      <BuildNr Value="11"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
@@ -52,7 +52,7 @@
         <PackageName Value="LCL"/>
       </Item6>
     </RequiredPackages>
-    <Units Count="12">
+    <Units Count="13">
       <Unit0>
         <Filename Value="RingRing.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -124,10 +124,16 @@
         <UnitName Value="d_NextRing"/>
       </Unit10>
       <Unit11>
-        <Filename Value="ustringutil.pas"/>
+        <Filename Value="uutil.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uStringUtil"/>
       </Unit11>
+      <Unit12>
+        <Filename Value="d_onlineevents.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmOnlineEvents"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="d_OnlineEvents"/>
+      </Unit12>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
