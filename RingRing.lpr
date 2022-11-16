@@ -17,7 +17,7 @@ uses
   uEvents,
   d_Debug,
   uIO, d_Control, d_Clock, d_NextRing,
-uutil, d_OnlineEvents { you can add units after this };
+uutil, d_OnlineEvents, d_activity { you can add units after this };
 
 {$R *.res}
 

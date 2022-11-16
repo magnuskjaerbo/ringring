@@ -58,10 +58,10 @@ begin
 	LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance) + IntToStr (Delay) + 'min.';
   end;
 
-  CalcLabelSize (LabelNext, Parent.Width, Trunc (Parent.Height * 0.75)-3);
+  CalcLabelSize (LabelNext, Parent.Width, Trunc (Parent.Height * 0.75)-3 - ShapeNextTop.Height);
 
   LabelMessage.Caption := ANextEvent.Message;
-  CalcLabelSize (LabelMessage, Parent.Width, Trunc (Parent.Height * 0.25)-3);
+  CalcLabelSize (LabelMessage, Parent.Width, Trunc (Parent.Height * 0.25)-3-ShapeNextTop.Height);
 
 
   timeleft := SecondsBetween(ANextEvent.Occurance, Now);

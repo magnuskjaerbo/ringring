@@ -17,7 +17,6 @@ type
 
   TForm1 = class(TForm)
     IdleTimer1: TIdleTimer;
-    ImMotion: TImage;
     LabelStatus: TLabel;
     Label2: TLabel;
     PanelOnlineEvents: TPanel;

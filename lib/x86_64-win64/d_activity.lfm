@@ -1,0 +1,56 @@
+object frmActivity: TfrmActivity
+  Left = 2181
+  Height = 40
+  Top = 142
+  Width = 1016
+  BorderStyle = bsNone
+  Caption = 'frmActivity'
+  ClientHeight = 40
+  ClientWidth = 1016
+  LCLVersion = '2.2.0.4'
+  object ShapeIdleTrigger: TShape
+    Left = 838
+    Height = 40
+    Top = 0
+    Width = 8
+    Align = alRight
+    Brush.Color = clNavy
+    Shape = stCircle
+  end
+  object ShapeMainTrigger: TShape
+    Left = 846
+    Height = 40
+    Top = 0
+    Width = 8
+    Align = alRight
+    Brush.Color = clSilver
+    Shape = stCircle
+  end
+  object Label2: TLabel
+    Left = 854
+    Height = 40
+    Top = 0
+    Width = 51
+    Align = alRight
+    BorderSpacing.Right = 16
+    Caption = 'Label2'
+    Font.Color = clYellow
+    Font.Height = -16
+    Font.Name = 'Sans'
+    Font.Style = [fsBold]
+    Layout = tlCenter
+    ParentFont = False
+  end
+  object LabelStatus: TLabel
+    Left = 921
+    Height = 40
+    Top = 0
+    Width = 63
+    Align = alRight
+    BorderSpacing.Right = 32
+    Caption = 'Initializing...'
+    Font.Color = clGray
+    Layout = tlCenter
+    ParentFont = False
+  end
+end
