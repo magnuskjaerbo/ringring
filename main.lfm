@@ -44,13 +44,12 @@ object Form1: TForm1
         Alignment = taCenter
         AutoSize = False
         Caption = '12:55'
-        Font.Color = clHighlight
-        Font.Height = 338
+        Font.Color = 14120960
+        Font.Height = 300
         Font.Style = [fsBold]
         ParentFont = False
         OnClick = LabelClockClick
         OnMouseMove = FormMouseMove
-        OptimalFill = True
       end
       object Shape4: TShape
         Left = 32
@@ -1490,7 +1489,7 @@ object Form1: TForm1
         Alignment = taCenter
         AutoSize = False
         Caption = '00:00:14'
-        Font.Color = clActiveCaption
+        Font.Color = 13743257
         Font.Style = [fsBold]
         Layout = tlCenter
         ParentFont = False
