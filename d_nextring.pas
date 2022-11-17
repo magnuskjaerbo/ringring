@@ -36,8 +36,8 @@ implementation
 procedure TfrmNextRing.FormCreate(Sender: TObject);
 begin
   Color := clBlack;
-  LabelNext.Font.Color := clLime;
-  LabelMessage.Font.Color := clLime;
+  LabelNext.Font.Color := clWhite;
+  LabelMessage.Font.Color := clWhite;
 
 
 end;

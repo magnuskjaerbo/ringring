@@ -34,7 +34,7 @@ procedure TfrmClock.FormCreate(Sender: TObject);
 begin
   Silent := false;
   Color := clBlack;
-  LabelClock.Font.Color := clYellow;
+  LabelClock.Font.Color := clWhite;
   //UpdateGUI;
 end;
 
