@@ -5,7 +5,8 @@ unit d_Clock;
 interface
 
 uses
-    Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls, uutil;
+    Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
+    uutil, ECLink;
 
 type
 
@@ -34,7 +35,8 @@ procedure TfrmClock.FormCreate(Sender: TObject);
 begin
   Silent := false;
   Color := clBlack;
-  LabelClock.Font.Color := clWhite;
+  LabelClock.Font.Color := $00FF8000;
+//  LabelClock.
   //UpdateGUI;
 end;
 
