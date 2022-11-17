@@ -17,7 +17,7 @@ object frmClock: TfrmClock
     Align = alClient
     Alignment = taCenter
     Caption = '12:00'
-    Font.Color = 15720154
+    Font.Color = clYellow
     Font.Style = [fsBold]
     Layout = tlCenter
     ParentFont = False
