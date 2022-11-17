@@ -6,7 +6,7 @@ interface
 
 uses
     Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-    uutil, ECLink;
+    uutil;
 
 type
 
