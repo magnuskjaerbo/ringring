@@ -7,7 +7,9 @@ object frmClock: TfrmClock
   Caption = 'frmClock'
   ClientHeight = 191
   ClientWidth = 661
+  DoubleBuffered = True
   OnCreate = FormCreate
+  ParentDoubleBuffered = False
   LCLVersion = '2.2.0.4'
   object LabelClock: TLabel
     Left = 0
@@ -16,8 +18,10 @@ object frmClock: TfrmClock
     Width = 661
     Align = alClient
     Alignment = taCenter
+    AutoSize = False
     Caption = '12:00'
-    Font.Color = clYellow
+    Font.Color = 16744448
+    Font.Height = 191
     Font.Style = [fsBold]
     Layout = tlCenter
     ParentFont = False
