@@ -14,7 +14,6 @@ type
     TfrmClock = class(TForm)
         ImageSilent: TImage;
         LabelClock: TLabel;
-        Panel1: TPanel;
         procedure FormCreate(Sender: TObject);
     private
 
@@ -35,13 +34,11 @@ procedure TfrmClock.FormCreate(Sender: TObject);
 begin
   Silent := false;
   Color := clBlack;
-  LabelClock.Font.Color := $00FF8000;
+  LabelClock.Font.Color := $0FFF8000;
   //UpdateGUI;
 end;
 
 procedure TfrmClock.UpdateGUI;
-var
-    wid: integer;
 begin
 
   ImageSilent.Visible := Silent;
@@ -53,19 +50,8 @@ begin
     ImageSilent.Top := 8;
   end;
 
-  Panel1.Caption := FormatDateTime('hh:nn', Now);
-  Panel1.Font.Height:= Parent.Height;
-
-  wid := Panel1.Canvas.TextWidth (Panel1.Caption);
-
-  while (wid > Panel1.Width) do
-  begin
-	Panel1.Font.Height:= Panel1.Font.Height - 5;
-	wid := Panel1.Canvas.TextWidth (Panel1.Caption);
-  end;
-
-
-  //CalcLabelSize (LabelClock, Parent.Width, Parent.Height);
+  LabelClock.Caption := FormatDateTime('hh:nn', Now);
+  CalcLabelSize (LabelClock, Parent.Width, Parent.Height);
 
 end;
 
