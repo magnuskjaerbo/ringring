@@ -19,7 +19,7 @@ procedure CalcLabelSize (ALabel : TLabel; AWidth, AHeight: integer);
 var
   wid : integer;
 begin
-  if (AHeight > 170) then AHeight := 170;
+  //if (AHeight > 170) then AHeight := 170;
   ALabel.Font.Height:= AHeight;
 
   wid := ALabel.Canvas.TextWidth (ALabel.Caption);
