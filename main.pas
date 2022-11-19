@@ -20,7 +20,6 @@ type
     LabelStatus: TLabel;
     Label2: TLabel;
     PanelOnlineEvents: TPanel;
-    PanelNextRing: TPanel;
     PanelClock: TPanel;
     PanelMain: TPanel;
     PanelBottomLed: TPanel;
@@ -33,7 +32,7 @@ type
     procedure TimerMainTimer(Sender: TObject);
   private
     FClock: TfrmClock;
-    FNextRing: TfrmNextRing;
+    //FNextRing: TfrmNextRing;
     FOnlineEvents: TfrmOnlineEvents;
     FMainTimerCheckRemote: integer;
     FMainTimerClearStatus: integer;
@@ -109,10 +108,10 @@ begin
   FClock.ImageSilent.OnClick := @ExecuteControls;
   FClock.Show ();
 
-  FNextRing := TfrmNextRing.Create (PanelNextRing);
-  FNextRing.Parent := PanelNextRing;
-  FNextRing.Align := alClient;
-  FNextRing.Show ();
+  //FNextRing := TfrmNextRing.Create (PanelNextRing);
+  //FNextRing.Parent := PanelNextRing;
+  //FNextRing.Align := alClient;
+  //FNextRing.Show ();
 
   FOnlineEvents := TfrmOnlineEvents.Create (PanelOnlineEvents);
   FOnlineEvents.Parent := PanelOnlineEvents;
@@ -150,11 +149,11 @@ begin
 
   control := TfrmControl.Create(self);
   control.Silent:=FClock.Silent;
-  control.Delay := FNextRing.Delay;
+  control.Delay := FClock.Delay;
   if (control.ShowModal = mrOk) then
   begin
   	FClock.Silent := control.Silent;
-    FNextRing.Delay:=control.Delay;
+    FClock.Delay:=control.Delay;
 
     if (control.Reboot = True) then
     begin
@@ -218,8 +217,8 @@ begin
 
   	TimerMain.Enabled := False;
   	BeginFormUpdate;
-  	FClock.UpdateGUI;
-	FNextRing.UpdateGUI (FNextEvent);
+  	FClock.UpdateGUI(FNextEvent);
+	//FNextRing.UpdateGUI (FNextEvent);
 
   	if (ShapeMainTrigger.Brush.Color = clBlack) then
     	ShapeMainTrigger.Brush.Color := clGray
@@ -227,7 +226,7 @@ begin
     	ShapeMainTrigger.Brush.Color := clBlack;
 
 
-  	activated := Events.Activate(FNextEvent, FNextRing.Delay);
+  	activated := Events.Activate(FNextEvent, FClock.Delay);
   	if (FRingOnce or activated) then
   	begin
     	FRingOnce := False;
@@ -235,7 +234,7 @@ begin
     	if (activated) then
     	begin
     		FNextEvent := Events.NextEvent(IncMinute(FNextEvent.Occurance));
-        	FNextRing.Delay := 0;
+        	FClock.Delay := 0;
     	end;
   	end;
 

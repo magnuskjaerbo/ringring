@@ -22,19 +22,6 @@ object Form1: TForm1
     ClientHeight = 720
     ClientWidth = 1280
     TabOrder = 0
-    object PanelNextRing: TPanel
-      Left = 3
-      Height = 240
-      Top = 269
-      Width = 1274
-      Align = alClient
-      BorderSpacing.Around = 3
-      BevelOuter = bvNone
-      Caption = 'PanelNextRing'
-      Color = clTeal
-      ParentColor = False
-      TabOrder = 0
-    end
     object PanelOnlineEvents: TPanel
       Left = 0
       Height = 176
@@ -45,21 +32,21 @@ object Form1: TForm1
       Caption = 'PanelOnlineEvents'
       Color = clMaroon
       ParentColor = False
-      TabOrder = 1
+      TabOrder = 0
     end
     object PanelClock: TPanel
       Left = 0
-      Height = 266
+      Height = 512
       Top = 0
       Width = 1280
-      Align = alTop
+      Align = alClient
       BevelOuter = bvNone
       Caption = 'PanelClock'
       Color = clGray
       DoubleBuffered = True
       ParentColor = False
       ParentDoubleBuffered = False
-      TabOrder = 2
+      TabOrder = 1
     end
     object PanelBottomLed: TPanel
       Left = 0
@@ -70,7 +57,7 @@ object Form1: TForm1
       BevelOuter = bvNone
       ClientHeight = 32
       ClientWidth = 1280
-      TabOrder = 3
+      TabOrder = 2
       object ShapeIdleTrigger: TShape
         Left = 1264
         Height = 32

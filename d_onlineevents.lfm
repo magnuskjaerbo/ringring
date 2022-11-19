@@ -1,5 +1,5 @@
 object frmOnlineEvents: TfrmOnlineEvents
-  Left = 2450
+  Left = 530
   Height = 194
   Top = 38
   Width = 1020

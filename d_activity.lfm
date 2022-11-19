@@ -1,5 +1,5 @@
 object frmActivity: TfrmActivity
-  Left = 2181
+  Left = 261
   Height = 40
   Top = 142
   Width = 1016
