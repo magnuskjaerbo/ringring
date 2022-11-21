@@ -20,7 +20,8 @@ object frmClock: TfrmClock
     AutoSize = False
     Caption = '12:00'
     Font.Color = 16744448
-    Font.Height = 191
+    Font.Height = -173
+    Font.Quality = fqProof
     Font.Style = [fsBold]
     Layout = tlCenter
     ParentFont = False

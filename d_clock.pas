@@ -102,12 +102,15 @@ begin
   LabelMessage.Left:=0;
   LabelMessage.Top:=LabelClock.Height;
   LabelMessage.Width:=Parent.Width;
-  LabelMessage.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.3);
+  LabelMessage.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.33);
 
   LabelNext.Left:=0;
   LabelNext.Top:=LabelClock.Height + LabelMessage.Height;
   LabelNext.Width:=Parent.Width;
-  LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.5);
+  LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.66);
+  LabelNext.Color := clGreen;
+  LabelNext.Transparent:=false;;
+
 
   ImageSilent.Visible := Silent;
   if (Parent <> nil) then
