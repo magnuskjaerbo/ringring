@@ -1,13 +1,15 @@
 object frmOnlineEvents: TfrmOnlineEvents
-  Left = 530
+  Left = 635
   Height = 194
-  Top = 38
+  Top = 162
   Width = 1020
   BorderStyle = bsNone
   Caption = 'frmOnlineEvents'
   ClientHeight = 194
   ClientWidth = 1020
+  DoubleBuffered = True
   OnCreate = FormCreate
+  ParentDoubleBuffered = False
   LCLVersion = '2.2.0.4'
   object Image1: TImage
     Left = 8

@@ -107,7 +107,7 @@ begin
   LabelNext.Left:=0;
   LabelNext.Top:=LabelClock.Height + LabelMessage.Height;
   LabelNext.Width:=Parent.Width;
-  LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.6);
+  LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.5);
 
   ImageSilent.Visible := Silent;
   if (Parent <> nil) then
