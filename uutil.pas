@@ -20,7 +20,7 @@ procedure CalcLabelSize (ALabel : TLabel; AWidth, AHeight: integer);
 var
   wid : integer;
 begin
-  ALabel.Font.Size:= Trunc (AHeight * 0.5);
+  ALabel.Font.Size:= Trunc (AHeight * 0.45);
   wid := ALabel.Canvas.TextWidth (ALabel.Caption);
 
   while (wid > AWidth) do

@@ -108,8 +108,8 @@ begin
   LabelNext.Top:=LabelClock.Height + LabelMessage.Height;
   LabelNext.Width:=Parent.Width;
   LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.66);
-  LabelNext.Color := clGreen;
-  LabelNext.Transparent:=false;;
+  //LabelNext.Color := clGreen;
+  //LabelNext.Transparent:=false;;
 
 
   ImageSilent.Visible := Silent;
