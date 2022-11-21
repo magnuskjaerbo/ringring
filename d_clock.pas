@@ -22,6 +22,7 @@ type
         Shape1: TShape;
         Timer1: TTimer;
         procedure FormCreate(Sender: TObject);
+        procedure PaintBox1Click(Sender: TObject);
         procedure PaintBox1Paint(Sender: TObject);
         procedure Timer1Timer(Sender: TObject);
     private
@@ -61,6 +62,11 @@ begin
   //UpdateGUI;
 end;
 
+procedure TfrmClock.PaintBox1Click(Sender: TObject);
+begin
+
+end;
+
 procedure TfrmClock.PaintBox1Paint(Sender: TObject);
 begin
   PaintBox1.Canvas.Draw(0,0,Bitmap);
@@ -74,7 +80,7 @@ begin
     if (Shape1.Left >= Parent.Width) then Shape1.Tag := Shape1.Tag * -1;
 end;
 
-procedure TfrmClock.UpdateGUI2 (ANextEvent : TEvent);
+procedure TfrmClock.UpdateGUI (ANextEvent : TEvent);
 var
     timeleft: int64;
 	szClock : real;
@@ -96,12 +102,12 @@ begin
   LabelMessage.Left:=0;
   LabelMessage.Top:=LabelClock.Height;
   LabelMessage.Width:=Parent.Width;
-  LabelMessage.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.32);
+  LabelMessage.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.3);
 
   LabelNext.Left:=0;
   LabelNext.Top:=LabelClock.Height + LabelMessage.Height;
   LabelNext.Width:=Parent.Width;
-  LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.65);
+  LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.6);
 
   ImageSilent.Visible := Silent;
   if (Parent <> nil) then
@@ -150,7 +156,7 @@ begin
 
 end;
 
-procedure TfrmClock.UpdateGUI (ANextEvent : TEvent);
+procedure TfrmClock.UpdateGUI2 (ANextEvent : TEvent);
 var
     timeleft: int64;
 	szClock : real;

@@ -106,6 +106,7 @@ begin
   FClock.OnClick := @ExecuteControls;
   FClock.LabelClock.OnClick := @ExecuteControls;
   FClock.ImageSilent.OnClick := @ExecuteControls;
+  FClock.PaintBox1.OnClick := @ExecuteControls;
   FClock.Show ();
 
   //FNextRing := TfrmNextRing.Create (PanelNextRing);
