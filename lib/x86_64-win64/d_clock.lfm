@@ -1105,12 +1105,15 @@ object frmClock: TfrmClock
   end
   object Shape1: TShape
     Left = 136
-    Height = 8
+    Height = 6
     Top = 152
-    Width = 8
+    Width = 6
+    Brush.Color = clBlack
     Shape = stCircle
   end
   object Timer1: TTimer
+    Enabled = False
+    Interval = 500
     OnTimer = Timer1Timer
     Left = 249
     Top = 267

@@ -44,7 +44,8 @@ begin
   Color := clBlack;
   Shape1.Top := Image1.Top + 72;
   Shape1.Left := 130;
-  Shape1.Tag:=10;
+  Shape1.Tag:=5;
+  Shape1.Visible:=false;
 
   LabelClock.Font.Color := $00FF8000;
   LabelNext.Font.Color := clWhite;
@@ -75,7 +76,7 @@ begin
   LabelClock.Left:=0;
   LabelClock.Top:=0;
   LabelClock.Width:=Parent.Width;
-  LabelClock.Height:=Trunc (Parent.Height * szClock);
+  LabelClock.Height:=Trunc (Parent.ClientHeight * szClock);
 
   Image1.Top := LabelClock.Height - 88;
   Image1.Left:= 0;
@@ -83,17 +84,17 @@ begin
   LabelMessage.Left:=0;
   LabelMessage.Top:=LabelClock.Height;
   LabelMessage.Width:=Parent.Width;
-  LabelMessage.Height:=Trunc (Parent.Height * szClockRest * 0.33);
+  LabelMessage.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.32);
 
   LabelNext.Left:=0;
   LabelNext.Top:=LabelClock.Height + LabelMessage.Height;
   LabelNext.Width:=Parent.Width;
-  LabelNext.Height:=Trunc (Parent.Height * szClockRest * 0.66);
+  LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.65);
 
   ImageSilent.Visible := Silent;
   if (Parent <> nil) then
   begin
-  	ImageSilent.Height:=Trunc (Parent.Height * szClock) - 16;
+  	ImageSilent.Height:=Trunc (Parent.ClientHeight * szClock) - 16;
     ImageSilent.Width:=ImageSilent.Height;
     ImageSilent.Left := Parent.Width - ImageSilent.Width - 8;
     ImageSilent.Top := 8;

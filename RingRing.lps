@@ -53,7 +53,7 @@
         </CompilerOptions>
       </Item2>
     </BuildModes>
-    <Units Count="25">
+    <Units Count="27">
       <Unit0>
         <Filename Value="RingRing.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -69,15 +69,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Main"/>
-        <TopLine Value="201"/>
-        <CursorPos X="60" Y="225"/>
-        <ComponentState Value="1"/>
+        <TopLine Value="58"/>
+        <CursorPos X="25" Y="79"/>
         <UsageCount Value="203"/>
-        <Bookmarks Count="4">
+        <Bookmarks Count="3">
           <Item0 X="24" Y="208" ID="2"/>
           <Item1 Y="142" ID="3"/>
-          <Item2 Y="142" ID="8"/>
-          <Item3 X="3" Y="151" ID="1"/>
+          <Item2 X="3" Y="151" ID="1"/>
         </Bookmarks>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -152,263 +150,282 @@
         <UsageCount Value="216"/>
       </Unit8>
       <Unit9>
+        <Filename Value="d_clock.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmClock"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="d_Clock"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="25"/>
+        <CursorPos X="66" Y="46"/>
+        <UsageCount Value="117"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="d_nextring.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmNextRing"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="d_NextRing"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="7"/>
+        <CursorPos Y="41"/>
+        <UsageCount Value="109"/>
+        <Loaded Value="True"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="uutil.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="11"/>
+        <CursorPos Y="32"/>
+        <UsageCount Value="108"/>
+        <Loaded Value="True"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="d_onlineevents.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmOnlineEvents"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="d_OnlineEvents"/>
+        <EditorIndex Value="5"/>
+        <CursorPos X="80" Y="8"/>
+        <UsageCount Value="107"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="d_activity.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmActivity"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="10"/>
+        <CursorPos X="104" Y="16"/>
+        <UsageCount Value="105"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit13>
+      <Unit14>
         <Filename Value="GPIOInterface.pas"/>
         <EditorIndex Value="3"/>
         <CursorPos X="51" Y="29"/>
         <UsageCount Value="101"/>
         <Loaded Value="True"/>
-      </Unit9>
-      <Unit10>
+      </Unit14>
+      <Unit15>
         <Filename Value="C:/Users/Magnus/AppData/Local/lazarus/onlinepackagemanager/packages/synapse40.1/httpsend.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="79"/>
         <CursorPos X="18" Y="86"/>
         <UsageCount Value="16"/>
-      </Unit10>
-      <Unit11>
+      </Unit15>
+      <Unit16>
         <Filename Value="C:/lazarus/lcl/customtimer.pas"/>
         <UnitName Value="CustomTimer"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="161"/>
         <CursorPos X="20" Y="170"/>
         <UsageCount Value="13"/>
-      </Unit11>
-      <Unit12>
+      </Unit16>
+      <Unit17>
         <Filename Value="C:/lazarus/lcl/include/customform.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="59"/>
         <CursorPos X="63" Y="62"/>
         <UsageCount Value="24"/>
-      </Unit12>
-      <Unit13>
+      </Unit17>
+      <Unit18>
         <Filename Value="C:/lazarus/components/lazutils/html2textrender.pas"/>
         <UnitName Value="HTML2TextRender"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="7"/>
         <CursorPos X="21" Y="31"/>
         <UsageCount Value="25"/>
-      </Unit13>
-      <Unit14>
+      </Unit18>
+      <Unit19>
         <Filename Value="C:/Users/Magnus/Downloads/html-to-text/unit1.pas"/>
         <UnitName Value="Unit1"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="22"/>
         <UsageCount Value="25"/>
-      </Unit14>
-      <Unit15>
-        <Filename Value="d_clock.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmClock"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="d_Clock"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="6"/>
-        <TopLine Value="37"/>
-        <CursorPos X="57" Y="57"/>
-        <ComponentState Value="1"/>
-        <UsageCount Value="114"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
-      </Unit15>
-      <Unit16>
+      </Unit19>
+      <Unit20>
         <Filename Value="C:/lazarus/lcl/include/messagedialogs.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="154"/>
         <CursorPos X="56" Y="175"/>
         <UsageCount Value="3"/>
-      </Unit16>
-      <Unit17>
+      </Unit20>
+      <Unit21>
         <Filename Value="C:/lazarus/lcl/dialogs.pp"/>
         <UnitName Value="Dialogs"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="38" Y="35"/>
         <UsageCount Value="3"/>
-      </Unit17>
-      <Unit18>
+      </Unit21>
+      <Unit22>
         <Filename Value="C:/lazarus/components/lazutils/uitypes.pas"/>
         <UnitName Value="UITypes"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="12" Y="13"/>
         <UsageCount Value="3"/>
-      </Unit18>
-      <Unit19>
-        <Filename Value="d_nextring.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmNextRing"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="d_NextRing"/>
-        <EditorIndex Value="7"/>
-        <TopLine Value="7"/>
-        <CursorPos Y="41"/>
-        <UsageCount Value="106"/>
-        <Loaded Value="True"/>
-      </Unit19>
-      <Unit20>
-        <Filename Value="uutil.pas"/>
-        <IsPartOfProject Value="True"/>
-        <EditorIndex Value="9"/>
-        <CursorPos Y="32"/>
-        <UsageCount Value="105"/>
-        <Loaded Value="True"/>
-      </Unit20>
-      <Unit21>
+      </Unit22>
+      <Unit23>
         <Filename Value="C:/lazarus/fpc/3.2.2/source/packages/rtl-objpas/src/inc/dateutil.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="255"/>
         <CursorPos X="10" Y="275"/>
         <UsageCount Value="1"/>
-      </Unit21>
-      <Unit22>
+      </Unit23>
+      <Unit24>
         <Filename Value="C:/lazarus/lcl/controls.pp"/>
         <UnitName Value="Controls"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1723"/>
         <CursorPos X="33" Y="1742"/>
         <UsageCount Value="2"/>
-      </Unit22>
-      <Unit23>
-        <Filename Value="d_onlineevents.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmOnlineEvents"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="d_OnlineEvents"/>
-        <EditorIndex Value="5"/>
-        <CursorPos X="80" Y="8"/>
-        <UsageCount Value="104"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
-      </Unit23>
-      <Unit24>
-        <Filename Value="d_activity.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmActivity"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="8"/>
-        <CursorPos X="104" Y="16"/>
-        <UsageCount Value="102"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit24>
+      <Unit25>
+        <Filename Value="C:/lazarus/lcl/include/control.inc"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="1867"/>
+        <CursorPos Y="1890"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="C:/lazarus/lcl/include/wincontrol.inc"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="4071"/>
+        <CursorPos X="8" Y="4091"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit26>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="38" Column="114" TopLine="20"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="153" Column="27" TopLine="133"/>
       </Position1>
       <Position2>
-        <Filename Value="d_nextring.pas"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="157" Column="12" TopLine="136"/>
       </Position2>
       <Position3>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="39" Column="114" TopLine="21"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="230" Column="52" TopLine="210"/>
       </Position3>
       <Position4>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="40" Column="114" TopLine="22"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="238" Column="17" TopLine="218"/>
       </Position4>
       <Position5>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="92" TopLine="52"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="237" Column="17" TopLine="217"/>
       </Position5>
       <Position6>
         <Filename Value="d_clock.pas"/>
-        <Caret Line="66" Column="63" TopLine="43"/>
+        <Caret Line="76" Column="105" TopLine="50"/>
       </Position6>
       <Position7>
         <Filename Value="d_clock.pas"/>
-        <Caret Line="9" Column="10"/>
+        <Caret Line="79" Column="65" TopLine="45"/>
       </Position7>
       <Position8>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="76" Column="76" TopLine="56"/>
+        <Filename Value="uutil.pas"/>
+        <Caret Line="18" Column="53"/>
       </Position8>
       <Position9>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="79" Column="76" TopLine="56"/>
+        <Filename Value="uutil.pas"/>
+        <Caret Line="22"/>
       </Position9>
       <Position10>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="92" TopLine="59"/>
+        <Filename Value="uutil.pas"/>
+        <Caret Line="23"/>
       </Position10>
       <Position11>
-        <Filename Value="main.pas"/>
-        <Caret Line="200" Column="74" TopLine="200"/>
+        <Filename Value="uutil.pas"/>
+        <Caret Line="25"/>
       </Position11>
       <Position12>
-        <Filename Value="main.pas"/>
-        <Caret Line="115" TopLine="84"/>
+        <Filename Value="uutil.pas"/>
+        <Caret Line="21"/>
       </Position12>
       <Position13>
-        <Filename Value="main.pas"/>
-        <Caret Line="153" Column="27" TopLine="133"/>
+        <Filename Value="uutil.pas"/>
+        <Caret Line="32"/>
       </Position13>
       <Position14>
-        <Filename Value="main.pas"/>
-        <Caret Line="157" Column="12" TopLine="136"/>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="51" TopLine="43"/>
       </Position14>
       <Position15>
-        <Filename Value="main.pas"/>
-        <Caret Line="230" Column="52" TopLine="210"/>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="66" Column="69" TopLine="43"/>
       </Position15>
       <Position16>
-        <Filename Value="main.pas"/>
-        <Caret Line="238" Column="17" TopLine="218"/>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="61" Column="33" TopLine="31"/>
       </Position16>
       <Position17>
-        <Filename Value="main.pas"/>
-        <Caret Line="237" Column="17" TopLine="217"/>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="62" Column="33" TopLine="32"/>
       </Position17>
       <Position18>
         <Filename Value="d_clock.pas"/>
-        <Caret Line="76" Column="105" TopLine="50"/>
+        <Caret Line="69" Column="18" TopLine="34"/>
       </Position18>
       <Position19>
         <Filename Value="d_clock.pas"/>
-        <Caret Line="79" Column="65" TopLine="45"/>
+        <Caret Line="96" Column="44" TopLine="70"/>
       </Position19>
       <Position20>
-        <Filename Value="uutil.pas"/>
-        <Caret Line="18" Column="53"/>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="86" TopLine="70"/>
       </Position20>
       <Position21>
-        <Filename Value="uutil.pas"/>
-        <Caret Line="22"/>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="85" TopLine="70"/>
       </Position21>
       <Position22>
-        <Filename Value="uutil.pas"/>
-        <Caret Line="23"/>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="89" TopLine="70"/>
       </Position22>
       <Position23>
-        <Filename Value="uutil.pas"/>
-        <Caret Line="25"/>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="90" TopLine="70"/>
       </Position23>
       <Position24>
-        <Filename Value="uutil.pas"/>
-        <Caret Line="21"/>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="91" TopLine="70"/>
       </Position24>
       <Position25>
-        <Filename Value="uutil.pas"/>
-        <Caret Line="32"/>
+        <Filename Value="C:/lazarus/lcl/include/control.inc"/>
+        <Caret Line="1888" Column="24" TopLine="1867"/>
       </Position25>
       <Position26>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="51" TopLine="43"/>
+        <Filename Value="C:/lazarus/lcl/include/wincontrol.inc"/>
+        <Caret Line="4020" TopLine="4000"/>
       </Position26>
       <Position27>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="66" Column="69" TopLine="43"/>
+        <Filename Value="C:/lazarus/lcl/include/wincontrol.inc"/>
+        <Caret Line="4021" TopLine="4000"/>
       </Position27>
       <Position28>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="61" Column="33" TopLine="31"/>
+        <Filename Value="C:/lazarus/lcl/include/wincontrol.inc"/>
+        <Caret Line="4091" Column="8" TopLine="4071"/>
       </Position28>
       <Position29>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="62" Column="33" TopLine="32"/>
+        <Filename Value="C:/lazarus/lcl/include/control.inc"/>
+        <Caret Line="1890" TopLine="1867"/>
       </Position29>
       <Position30>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="69" Column="18" TopLine="34"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="225" Column="59" TopLine="201"/>
       </Position30>
     </JumpHistory>
     <RunParams>
