@@ -156,13 +156,6 @@ begin
   	FClock.Silent := control.Silent;
     FClock.Delay:=control.Delay;
 
-    if (control.Reboot = True) then
-    begin
-      {$IFDEF Unix}
-      fpSystem('reboot');
-      {$ENDIF}
-    end;
-
     if (control.CloseApp = True) then
     begin
       Close;
