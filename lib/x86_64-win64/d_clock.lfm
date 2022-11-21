@@ -24,6 +24,7 @@ object frmClock: TfrmClock
     Font.Style = [fsBold]
     Layout = tlCenter
     ParentFont = False
+    Visible = False
   end
   object ImageSilent: TImage
     Left = 1104
@@ -726,6 +727,7 @@ object frmClock: TfrmClock
     Proportional = True
     Stretch = True
     Transparent = True
+    Visible = False
   end
   object Image1: TImage
     Left = 8
@@ -1076,6 +1078,7 @@ object frmClock: TfrmClock
       454E44AE426082
     }
     Transparent = True
+    Visible = False
   end
   object LabelMessage: TLabel
     Left = 0
@@ -1089,6 +1092,7 @@ object frmClock: TfrmClock
     Font.Style = [fsBold]
     Layout = tlBottom
     ParentFont = False
+    Visible = False
   end
   object LabelNext: TLabel
     Left = 0
@@ -1102,6 +1106,7 @@ object frmClock: TfrmClock
     Font.Style = [fsBold]
     Layout = tlCenter
     ParentFont = False
+    Visible = False
   end
   object Shape1: TShape
     Left = 136
@@ -1110,6 +1115,7 @@ object frmClock: TfrmClock
     Width = 6
     Brush.Color = clBlack
     Shape = stCircle
+    Visible = False
   end
   object PaintBox1: TPaintBox
     Left = 0
