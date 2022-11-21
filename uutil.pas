@@ -34,12 +34,12 @@ procedure CalcFontSize (AText : String; ACanvas : TCanvas; AWidth, AHeight: inte
 var
   wid : integer;
 begin
-  ACanvas.Font.Height:= AHeight;
+  ACanvas.Font.Size:= AHeight;
   wid := ACanvas.TextWidth (AText);
 
   while (wid > AWidth) do
   begin
-	ACanvas.Font.Height:= ACanvas.Font.Height - 5;
+	ACanvas.Font.Size:= ACanvas.Font.Size - 5;
 	wid := ACanvas.TextWidth (AText);
   end;
 
