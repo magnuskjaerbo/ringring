@@ -12,6 +12,7 @@ uses
 
 function TimeBetweenStr(AFrom, ATo: TDateTime): string;
 procedure CalcLabelSize (ALabel : TLabel; AWidth, AHeight: integer);
+procedure CalcFontSize (AText : String; ACanvas : TCanvas; AWidth, AHeight: integer);
 
 implementation
 
@@ -22,14 +23,29 @@ begin
   ALabel.Font.Height:= AHeight;
   wid := ALabel.Canvas.TextWidth (ALabel.Caption);
 
-  while (wid > ALabel.Width) do
+  while (wid > AWidth) do
   begin
 	ALabel.Font.Height:= ALabel.Font.Height - 5;
 	wid := ALabel.Canvas.TextWidth (ALabel.Caption);
   end;
+end;
+
+procedure CalcFontSize (AText : String; ACanvas : TCanvas; AWidth, AHeight: integer);
+var
+  wid : integer;
+begin
+  ACanvas.Font.Height:= AHeight;
+  wid := ACanvas.TextWidth (AText);
+
+  while (wid > AWidth) do
+  begin
+	ACanvas.Font.Height:= ACanvas.Font.Height - 5;
+	wid := ACanvas.TextWidth (AText);
+  end;
 
 
 end;
+
 
 function TimeBetweenStr(AFrom, ATo: TDateTime): string;
 var

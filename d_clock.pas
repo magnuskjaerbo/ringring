@@ -18,16 +18,20 @@ type
         LabelClock: TLabel;
         LabelMessage: TLabel;
         LabelNext: TLabel;
+        PaintBox1: TPaintBox;
         Shape1: TShape;
         Timer1: TTimer;
         procedure FormCreate(Sender: TObject);
+        procedure PaintBox1Paint(Sender: TObject);
         procedure Timer1Timer(Sender: TObject);
     private
+        Bitmap : TBitmap;
 
     public
         Silent : boolean;
         Delay : integer;
         procedure UpdateGUI (ANextEvent : TEvent);
+        procedure UpdateGUI2 (ANextEvent : TEvent);
 
     end;
 
@@ -50,9 +54,17 @@ begin
   LabelClock.Font.Color := $00FF8000;
   LabelNext.Font.Color := clWhite;
   LabelMessage.Font.Color := clWhite;
+  Bitmap := TBitmap.Create;
+
 
 //  LabelClock.
   //UpdateGUI;
+end;
+
+procedure TfrmClock.PaintBox1Paint(Sender: TObject);
+begin
+  PaintBox1.Canvas.Draw(0,0,Bitmap);
+
 end;
 
 procedure TfrmClock.Timer1Timer(Sender: TObject);
@@ -72,6 +84,92 @@ begin
 
   szClock := 0.6;
   szClockRest := 1.0 - szClock;
+
+  LabelClock.Left:=0;
+  LabelClock.Top:=0;
+  LabelClock.Width:=Parent.Width;
+  LabelClock.Height:=Trunc (Parent.ClientHeight * szClock);
+
+  Image1.Top := LabelClock.Height - 88;
+  Image1.Left:= 0;
+
+  LabelMessage.Left:=0;
+  LabelMessage.Top:=LabelClock.Height;
+  LabelMessage.Width:=Parent.Width;
+  LabelMessage.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.32);
+
+  LabelNext.Left:=0;
+  LabelNext.Top:=LabelClock.Height + LabelMessage.Height;
+  LabelNext.Width:=Parent.Width;
+  LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.65);
+
+  ImageSilent.Visible := Silent;
+  if (Parent <> nil) then
+  begin
+  	ImageSilent.Height:=Trunc (Parent.ClientHeight * szClock) - 16;
+    ImageSilent.Width:=ImageSilent.Height;
+    ImageSilent.Left := Parent.Width - ImageSilent.Width - 8;
+    ImageSilent.Top := 8;
+  end;
+
+  LabelClock.Caption := FormatDateTime('hh:nn', Now);
+  CalcLabelSize (LabelClock, Parent.Width, LabelClock.Height);
+
+  LabelMessage.Caption := ANextEvent.Message;
+  CalcLabelSize (LabelMessage, Parent.Width, LabelMessage.Height);
+
+  LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance);
+  if (Delay > 0) then
+  begin
+	LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance) + '+' + IntToStr (Delay) + 'min.';
+  end;
+
+  if (Delay < 0) then
+  begin
+	LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance) + IntToStr (Delay) + 'min.';
+  end;
+
+  CalcLabelSize (LabelNext, Parent.Width, LabelNext.Height);
+
+  Shape1.Top := Image1.Top + 70;
+
+
+  //timeleft := SecondsBetween(ANextEvent.Occurance, Now);
+  //if (timeleft < Parent.Width) then
+  //begin
+  //  ShapeNextTop.BorderSpacing.Left := Round((Parent.Width - timeleft) * 0.5);
+  //  ShapeNextTop.BorderSpacing.Right := ShapeNextTop.BorderSpacing.Left;
+  //end
+  //else
+  //begin
+  //  ShapeNextTop.BorderSpacing.Left := 0;
+  //  ShapeNextTop.BorderSpacing.Right := 0;
+  //end;
+
+
+
+end;
+
+procedure TfrmClock.UpdateGUI2 (ANextEvent : TEvent);
+var
+    timeleft: int64;
+	szClock : real;
+    szClockRest : real;
+    tw : integer;
+begin
+
+  Bitmap.Height:=Parent.Height;
+  Bitmap.Width:=Parent.Width;
+
+
+
+
+  szClock := 0.6;
+  szClockRest := 1.0 - szClock;
+
+  Bitmap.Canvas.Font.Height:=Trunc (Parent.ClientHeight * szClock);;
+  tw := Bitmap.Canvas.TextWidth(FormatDateTime('hh:nn', Now));
+
 
   LabelClock.Left:=0;
   LabelClock.Top:=0;

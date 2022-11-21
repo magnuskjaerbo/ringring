@@ -1111,6 +1111,14 @@ object frmClock: TfrmClock
     Brush.Color = clBlack
     Shape = stCircle
   end
+  object PaintBox1: TPaintBox
+    Left = 0
+    Height = 365
+    Top = 0
+    Width = 1291
+    Align = alClient
+    OnPaint = PaintBox1Paint
+  end
   object Timer1: TTimer
     Enabled = False
     Interval = 500
