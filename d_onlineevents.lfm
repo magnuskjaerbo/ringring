@@ -1177,8 +1177,7 @@ object frmOnlineEvents: TfrmOnlineEvents
     Left = 96
     Height = 41
     Top = 16
-    Width = 330
-    AutoSize = False
+    Width = 34
     BorderSpacing.Left = 32
     Caption = 'xx'
     Font.Color = clOlive
@@ -1204,8 +1203,7 @@ object frmOnlineEvents: TfrmOnlineEvents
     Left = 96
     Height = 41
     Top = 104
-    Width = 330
-    AutoSize = False
+    Width = 34
     BorderSpacing.Left = 32
     Caption = 'xx'
     Font.Color = clOlive
