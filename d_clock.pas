@@ -112,7 +112,7 @@ begin
         PanelSplit.Height:=6;
         PanelSplit.Width := Parent.Width;
 
-        currTop := currTop + PanelSplit.Height;
+        currTop := currTop + PanelSplit.Height + 8;
 
         prevLeft := 0;
         for shape in Shapes do
@@ -134,7 +134,7 @@ begin
         LabelNext.Left:=0;
         LabelNext.Top:=currTop;
         LabelNext.Width:=Parent.Width;
-        LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.63);
+        LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.63-12);
         currTop := currTop + LabelNext.Height;
 
       	ImageSilent.Height:=Trunc (Parent.ClientHeight * szClock) - 16;
