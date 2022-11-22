@@ -1,16 +1,18 @@
 object Form1: TForm1
   Cursor = crNone
-  Left = 2503
+  Left = 524
   Height = 720
-  Top = 213
+  Top = 182
   Width = 1280
   ActiveControl = PanelMain
   BorderStyle = bsNone
   Caption = 'Form1'
   ClientHeight = 720
   ClientWidth = 1280
+  DoubleBuffered = True
   OnCreate = FormCreate
   OnShow = FormShow
+  ParentDoubleBuffered = False
   LCLVersion = '2.2.0.4'
   object PanelMain: TPanel
     Left = 0

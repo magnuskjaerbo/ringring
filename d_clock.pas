@@ -52,7 +52,7 @@ begin
   Shape1.Tag:=5;
   Shape1.Visible:=false;
 
-  LabelClock.Font.Color := $00FF8000;
+  LabelClock.Font.Color := clWhite; //$00FF8000;
   LabelNext.Font.Color := clWhite;
   LabelMessage.Font.Color := clWhite;
   Bitmap := TBitmap.Create;
@@ -102,12 +102,12 @@ begin
   LabelMessage.Left:=0;
   LabelMessage.Top:=LabelClock.Height;
   LabelMessage.Width:=Parent.Width;
-  LabelMessage.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.33);
+  LabelMessage.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.333);
 
   LabelNext.Left:=0;
   LabelNext.Top:=LabelClock.Height + LabelMessage.Height;
   LabelNext.Width:=Parent.Width;
-  LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.66);
+  LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.666);
   //LabelNext.Color := clGreen;
   //LabelNext.Transparent:=false;;
 

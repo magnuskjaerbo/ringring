@@ -76,7 +76,7 @@ begin
 
    {$IFDEF Windows}
    {$endif}
-  Label2.Caption := '1.1.16';
+  Label2.Caption := '1.1.17';
   DoubleBuffered := True;
   FMainTimerCheckRemote := 0;
   FMainTimerClearStatus := 0;
@@ -92,10 +92,10 @@ begin
   Width := 1024;
   Height := 600;
   {$ELSE}
-  Left := -2;
-  Top := -2;
-  Width := Screen.Width + 4;
-  Height := Screen.Height + 4;
+  Left := 0;
+  Top := 0;
+  Width := Screen.Width;
+  Height := Screen.Height;
   WindowState := wsFullScreen;
     {$endif}
 

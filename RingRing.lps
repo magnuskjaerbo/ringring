@@ -53,7 +53,7 @@
         </CompilerOptions>
       </Item2>
     </BuildModes>
-    <Units Count="29">
+    <Units Count="27">
       <Unit0>
         <Filename Value="RingRing.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -69,9 +69,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Main"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="133"/>
-        <CursorPos Y="159"/>
+        <TopLine Value="71"/>
+        <CursorPos X="53" Y="73"/>
         <UsageCount Value="203"/>
         <Bookmarks Count="3">
           <Item0 X="24" Y="202" ID="2"/>
@@ -161,8 +160,9 @@
         <UnitName Value="d_Clock"/>
         <EditorIndex Value="8"/>
         <TopLine Value="95"/>
-        <CursorPos X="10" Y="107"/>
-        <UsageCount Value="121"/>
+        <CursorPos X="87" Y="109"/>
+        <ComponentState Value="1"/>
+        <UsageCount Value="144"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit9>
@@ -175,14 +175,15 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="7"/>
         <CursorPos Y="41"/>
-        <UsageCount Value="113"/>
+        <UsageCount Value="136"/>
       </Unit10>
       <Unit11>
         <Filename Value="uutil.pas"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="12"/>
-        <CursorPos X="51" Y="22"/>
-        <UsageCount Value="112"/>
+        <CursorPos X="44" Y="23"/>
+        <UsageCount Value="135"/>
         <Loaded Value="True"/>
       </Unit11>
       <Unit12>
@@ -195,7 +196,8 @@
         <EditorIndex Value="7"/>
         <TopLine Value="16"/>
         <CursorPos X="61" Y="33"/>
-        <UsageCount Value="111"/>
+        <ComponentState Value="1"/>
+        <UsageCount Value="134"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit12>
@@ -207,7 +209,8 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="9"/>
         <CursorPos X="44" Y="17"/>
-        <UsageCount Value="109"/>
+        <ComponentState Value="1"/>
+        <UsageCount Value="132"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit13>
@@ -223,7 +226,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="79"/>
         <CursorPos X="18" Y="86"/>
-        <UsageCount Value="15"/>
+        <UsageCount Value="13"/>
       </Unit15>
       <Unit16>
         <Filename Value="C:/lazarus/lcl/customtimer.pas"/>
@@ -231,14 +234,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="161"/>
         <CursorPos X="20" Y="170"/>
-        <UsageCount Value="12"/>
+        <UsageCount Value="10"/>
       </Unit16>
       <Unit17>
         <Filename Value="C:/lazarus/lcl/include/customform.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="59"/>
         <CursorPos X="63" Y="62"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="21"/>
       </Unit17>
       <Unit18>
         <Filename Value="C:/lazarus/components/lazutils/html2textrender.pas"/>
@@ -246,83 +249,68 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="7"/>
         <CursorPos X="21" Y="31"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="22"/>
       </Unit18>
       <Unit19>
         <Filename Value="C:/Users/Magnus/Downloads/html-to-text/unit1.pas"/>
         <UnitName Value="Unit1"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="22"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="22"/>
       </Unit19>
       <Unit20>
         <Filename Value="C:/lazarus/lcl/include/messagedialogs.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="154"/>
         <CursorPos X="56" Y="175"/>
-        <UsageCount Value="2"/>
+        <UsageCount Value="0"/>
       </Unit20>
       <Unit21>
         <Filename Value="C:/lazarus/lcl/dialogs.pp"/>
         <UnitName Value="Dialogs"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="38" Y="35"/>
-        <UsageCount Value="2"/>
+        <UsageCount Value="0"/>
       </Unit21>
       <Unit22>
         <Filename Value="C:/lazarus/components/lazutils/uitypes.pas"/>
         <UnitName Value="UITypes"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="12" Y="13"/>
-        <UsageCount Value="2"/>
+        <UsageCount Value="0"/>
       </Unit22>
       <Unit23>
-        <Filename Value="C:/lazarus/fpc/3.2.2/source/packages/rtl-objpas/src/inc/dateutil.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="255"/>
-        <CursorPos X="10" Y="275"/>
-        <UsageCount Value="0"/>
-      </Unit23>
-      <Unit24>
-        <Filename Value="C:/lazarus/lcl/controls.pp"/>
-        <UnitName Value="Controls"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="1723"/>
-        <CursorPos X="33" Y="1742"/>
-        <UsageCount Value="1"/>
-      </Unit24>
-      <Unit25>
         <Filename Value="C:/lazarus/lcl/include/control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1867"/>
         <CursorPos Y="1890"/>
-        <UsageCount Value="11"/>
-      </Unit25>
-      <Unit26>
+        <UsageCount Value="8"/>
+      </Unit23>
+      <Unit24>
         <Filename Value="C:/lazarus/lcl/include/wincontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="4071"/>
         <CursorPos X="8" Y="4091"/>
-        <UsageCount Value="11"/>
-      </Unit26>
-      <Unit27>
+        <UsageCount Value="8"/>
+      </Unit24>
+      <Unit25>
         <Filename Value="C:/lazarus/lcl/graphics.pp"/>
         <UnitName Value="Graphics"/>
         <EditorIndex Value="10"/>
         <TopLine Value="702"/>
         <CursorPos X="14" Y="722"/>
-        <UsageCount Value="11"/>
+        <UsageCount Value="22"/>
         <Loaded Value="True"/>
-      </Unit27>
-      <Unit28>
+      </Unit25>
+      <Unit26>
         <Filename Value="C:/lazarus/fpc/3.2.2/source/packages/fcl-image/src/fpcanvas.pp"/>
         <UnitName Value="FPCanvas"/>
         <EditorIndex Value="11"/>
         <TopLine Value="154"/>
         <CursorPos X="36" Y="158"/>
-        <UsageCount Value="11"/>
+        <UsageCount Value="22"/>
         <Loaded Value="True"/>
-      </Unit28>
+      </Unit26>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>

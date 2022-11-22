@@ -5,9 +5,9 @@ object frmClock: TfrmClock
   Width = 1291
   BorderStyle = bsNone
   Caption = 'frmClock'
-  ClientHeight = 365
-  ClientWidth = 1291
-  DoubleBuffered = True
+  ClientHeight = 0
+  ClientWidth = 0
+  DoubleBuffered = False
   OnCreate = FormCreate
   ParentDoubleBuffered = False
   LCLVersion = '2.2.0.4'
