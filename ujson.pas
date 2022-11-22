@@ -99,6 +99,9 @@ begin
         	SetLength (title, ix);
         end;
 
+        title := StringReplace (title, '&#8211;', '-', [rfReplaceAll]);
+
+
         dateBeg := jObjectEvents.FindPath('BeginS').AsString;
 
         if (dateBeg <> date) then
