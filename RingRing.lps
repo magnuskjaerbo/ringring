@@ -161,7 +161,7 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="8"/>
         <TopLine Value="97"/>
-        <CursorPos X="56" Y="114"/>
+        <CursorPos X="41" Y="113"/>
         <UsageCount Value="152"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -295,7 +295,7 @@
         <UsageCount Value="10"/>
       </Unit24>
     </Units>
-    <JumpHistory Count="13" HistoryIndex="12">
+    <JumpHistory Count="17" HistoryIndex="16">
       <Position1>
         <Filename Value="C:/lazarus/lcl/graphics.pp"/>
         <Caret Line="1314" Column="14" TopLine="1294"/>
@@ -348,6 +348,22 @@
         <Filename Value="d_clock.pas"/>
         <Caret Line="115" Column="88" TopLine="97"/>
       </Position13>
+      <Position14>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="114" Column="56" TopLine="97"/>
+      </Position14>
+      <Position15>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="118" TopLine="97"/>
+      </Position15>
+      <Position16>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="119" TopLine="97"/>
+      </Position16>
+      <Position17>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="118" TopLine="97"/>
+      </Position17>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
@@ -355,15 +371,6 @@
     </RunParams>
   </ProjectSession>
   <Debugging>
-    <BreakPoints>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="d_clock.pas"/>
-        <Line Value="119"/>
-      </Item>
-    </BreakPoints>
     <Watches>
       <Item>
         <Expression Value="AFrom"/>

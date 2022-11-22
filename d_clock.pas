@@ -116,7 +116,7 @@ begin
   DeCodeTime (Time,Hh,MM,SS,MS);
   gg := SS;
   gg := Trunc (255 * (gg / 60.0));
-  LabelClock.Font.Color := RGBToColor (0, gg, 255);
+  LabelClock.Font.Color := RGBToColor (gg, gg, 255);
   ImageSilent.Visible := Silent;
   if (Parent <> nil) then
   begin
