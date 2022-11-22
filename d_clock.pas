@@ -160,7 +160,6 @@ begin
   begin
     shape.Brush.Color:=clSilver;
   end;
-
   SS := Trunc (ss / 5);
   Shapes[SS mod 12].Brush.Color:=$00FF8000;
 
@@ -189,7 +188,7 @@ begin
     LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance) + IntToStr (Delay) + 'min.';
     end;
 
-  	CalcLabelSize (LabelNext, Parent.Width, LabelNext.Height-12);
+  	CalcLabelSize (LabelNext, Parent.Width, LabelNext.Height-24);
 
 
   //timeleft := SecondsBetween(ANextEvent.Occurance, Now);
