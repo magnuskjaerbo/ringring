@@ -53,6 +53,7 @@ begin
   Shape1.Visible:=false;
 
   LabelClock.Font.Color := $00FF8000;
+  LabelClock.Tag := 1;
   LabelNext.Font.Color := clWhite;
   LabelMessage.Font.Color := clWhite;
   Bitmap := TBitmap.Create;
@@ -114,9 +115,15 @@ begin
   //LabelNext.Transparent:=false;;
 
   DeCodeTime (Time,Hh,MM,SS,MS);
+  if (SS = 0) then
+  begin
+	LabelClock.Tag := LabelClock.Tag * -1;
+  end;
   gg := SS;
   gg := Trunc (255 * (gg / 60.0));
-  LabelClock.Font.Color := RGBToColor (gg, gg, 255);
+  if (LabelClock.Tag = -1) then gg := 255 - gg;
+
+  LabelClock.Font.Color := RGBToColor (0, gg, 255);
   ImageSilent.Visible := Silent;
   if (Parent <> nil) then
   begin

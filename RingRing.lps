@@ -160,9 +160,9 @@
         <UnitName Value="d_Clock"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="8"/>
-        <TopLine Value="97"/>
-        <CursorPos X="41" Y="113"/>
-        <UsageCount Value="152"/>
+        <TopLine Value="104"/>
+        <CursorPos X="33" Y="124"/>
+        <UsageCount Value="154"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit9>
@@ -175,14 +175,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="7"/>
         <CursorPos Y="41"/>
-        <UsageCount Value="144"/>
+        <UsageCount Value="146"/>
       </Unit10>
       <Unit11>
         <Filename Value="uutil.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="11"/>
+        <EditorIndex Value="10"/>
         <CursorPos X="53" Y="21"/>
-        <UsageCount Value="143"/>
+        <UsageCount Value="145"/>
         <Loaded Value="True"/>
       </Unit11>
       <Unit12>
@@ -194,7 +194,7 @@
         <UnitName Value="d_OnlineEvents"/>
         <EditorIndex Value="7"/>
         <CursorPos X="7" Y="60"/>
-        <UsageCount Value="142"/>
+        <UsageCount Value="144"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit12>
@@ -206,8 +206,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="9"/>
         <CursorPos X="44" Y="17"/>
-        <ComponentState Value="1"/>
-        <UsageCount Value="140"/>
+        <UsageCount Value="142"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit13>
@@ -272,11 +271,10 @@
       <Unit22>
         <Filename Value="C:/lazarus/lcl/graphics.pp"/>
         <UnitName Value="Graphics"/>
-        <EditorIndex Value="10"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="52"/>
         <CursorPos X="6" Y="73"/>
         <UsageCount Value="26"/>
-        <Loaded Value="True"/>
       </Unit22>
       <Unit23>
         <Filename Value="C:/lazarus/fpc/3.2.2/source/packages/fcl-image/src/fpcanvas.pp"/>
@@ -295,75 +293,63 @@
         <UsageCount Value="10"/>
       </Unit24>
     </Units>
-    <JumpHistory Count="17" HistoryIndex="16">
+    <JumpHistory Count="14" HistoryIndex="13">
       <Position1>
-        <Filename Value="C:/lazarus/lcl/graphics.pp"/>
-        <Caret Line="1314" Column="14" TopLine="1294"/>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="165" Column="28" TopLine="140"/>
       </Position1>
       <Position2>
         <Filename Value="d_clock.pas"/>
-        <Caret Line="165" Column="28" TopLine="140"/>
+        <Caret Line="161" Column="28" TopLine="144"/>
       </Position2>
       <Position3>
         <Filename Value="d_clock.pas"/>
-        <Caret Line="161" Column="28" TopLine="144"/>
+        <Caret Line="83" Column="30" TopLine="61"/>
       </Position3>
       <Position4>
-        <Filename Value="C:/lazarus/lcl/graphics.pp"/>
-        <Caret Line="722" Column="14" TopLine="702"/>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="43" Column="106" TopLine="37"/>
       </Position4>
       <Position5>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="83" Column="30" TopLine="61"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="85" Column="36" TopLine="64"/>
       </Position5>
       <Position6>
         <Filename Value="d_clock.pas"/>
-        <Caret Line="43" Column="106" TopLine="37"/>
+        <Caret Line="51" Column="54" TopLine="25"/>
       </Position6>
       <Position7>
-        <Filename Value="main.pas"/>
-        <Caret Line="85" Column="36" TopLine="64"/>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="115" Column="24" TopLine="100"/>
       </Position7>
       <Position8>
         <Filename Value="d_clock.pas"/>
-        <Caret Line="51" Column="54" TopLine="25"/>
+        <Caret Line="117" Column="37" TopLine="97"/>
       </Position8>
       <Position9>
         <Filename Value="d_clock.pas"/>
-        <Caret Line="115" Column="24" TopLine="100"/>
+        <Caret Line="115" Column="88" TopLine="97"/>
       </Position9>
       <Position10>
-        <Filename Value="C:/lazarus/lcl/graphics.pp"/>
-        <Caret Line="558" Column="14" TopLine="538"/>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="114" Column="56" TopLine="97"/>
       </Position10>
       <Position11>
-        <Filename Value="C:/lazarus/lcl/graphics.pp"/>
-        <Caret Line="73" Column="6" TopLine="52"/>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="118" TopLine="97"/>
       </Position11>
       <Position12>
         <Filename Value="d_clock.pas"/>
-        <Caret Line="117" Column="37" TopLine="97"/>
+        <Caret Line="119" TopLine="97"/>
       </Position12>
       <Position13>
         <Filename Value="d_clock.pas"/>
-        <Caret Line="115" Column="88" TopLine="97"/>
+        <Caret Line="118" TopLine="97"/>
       </Position13>
       <Position14>
         <Filename Value="d_clock.pas"/>
-        <Caret Line="114" Column="56" TopLine="97"/>
+        <Caret Line="124" Column="43" TopLine="88"/>
       </Position14>
-      <Position15>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="118" TopLine="97"/>
-      </Position15>
-      <Position16>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="119" TopLine="97"/>
-      </Position16>
-      <Position17>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="118" TopLine="97"/>
-      </Position17>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
