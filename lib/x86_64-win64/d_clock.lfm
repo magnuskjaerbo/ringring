@@ -1,12 +1,12 @@
 object frmClock: TfrmClock
-  Left = 2447
+  Left = 527
   Height = 365
   Top = 75
   Width = 1291
   BorderStyle = bsNone
   Caption = 'frmClock'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 365
+  ClientWidth = 1291
   DoubleBuffered = False
   OnCreate = FormCreate
   ParentDoubleBuffered = False
@@ -19,12 +19,14 @@ object frmClock: TfrmClock
     Alignment = taCenter
     AutoSize = False
     Caption = '12:00'
+    Color = clBackground
     Font.Color = 16744448
     Font.Height = -213
     Font.Quality = fqProof
     Font.Style = [fsBold]
     Layout = tlCenter
     ParentFont = False
+    Transparent = False
   end
   object ImageSilent: TImage
     Left = 1104

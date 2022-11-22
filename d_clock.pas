@@ -52,7 +52,7 @@ begin
   Shape1.Tag:=5;
   Shape1.Visible:=false;
 
-  LabelClock.Font.Color := clWhite; //$00FF8000;
+  LabelClock.Font.Color := $00FF8000;
   LabelNext.Font.Color := clWhite;
   LabelMessage.Font.Color := clWhite;
   Bitmap := TBitmap.Create;
@@ -121,7 +121,7 @@ begin
     ImageSilent.Top := 8;
   end;
 
-  LabelClock.Caption := FormatDateTime('hh:nn', Now) + ' ' + IntToStr (PixelsPerInch);
+  LabelClock.Caption := FormatDateTime('hh:nn', Now);
   CalcLabelSize (LabelClock, Parent.Width, LabelClock.Height);
 
   LabelMessage.Caption := ANextEvent.Message;
