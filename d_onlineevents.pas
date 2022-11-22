@@ -21,6 +21,9 @@ type
         Shape1: TShape;
         Shape2: TShape;
         procedure FormCreate(Sender: TObject);
+        procedure FormMouseEnter(Sender: TObject);
+        procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X,
+            Y: Integer);
     private
     	procedure HandleEvent(LabelMessage, LabelDate: TLabel; Image: TImage; AEvents: array of TEvent);
     public
@@ -41,6 +44,18 @@ begin
   Color := clBlack;
 
 end;
+
+procedure TfrmOnlineEvents.FormMouseEnter(Sender: TObject);
+begin
+    Screen.Cursor := crDefault;
+end;
+
+procedure TfrmOnlineEvents.FormMouseMove(Sender: TObject; Shift: TShiftState;
+    X, Y: Integer);
+begin
+    Screen.Cursor := crDefault;
+end;
+
 procedure TfrmOnlineEvents.UpdateGUI (AEventLine: integer; AEvents: array of TEvent);
 begin
 

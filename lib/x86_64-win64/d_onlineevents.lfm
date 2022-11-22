@@ -9,6 +9,8 @@ object frmOnlineEvents: TfrmOnlineEvents
   ClientWidth = 1020
   DoubleBuffered = True
   OnCreate = FormCreate
+  OnMouseEnter = FormMouseEnter
+  OnMouseMove = FormMouseMove
   ParentDoubleBuffered = False
   LCLVersion = '2.2.0.4'
   object Image1: TImage

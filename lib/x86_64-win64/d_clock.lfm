@@ -9,6 +9,8 @@ object frmClock: TfrmClock
   ClientWidth = 1280
   DoubleBuffered = True
   OnCreate = FormCreate
+  OnMouseEnter = FormMouseEnter
+  OnMouseMove = FormMouseMove
   ParentDoubleBuffered = False
   LCLVersion = '2.2.0.4'
   object LabelClock: TLabel

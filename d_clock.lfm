@@ -9,6 +9,8 @@ object frmClock: TfrmClock
   ClientWidth = 1280
   DoubleBuffered = True
   OnCreate = FormCreate
+  OnMouseEnter = FormMouseEnter
+  OnMouseMove = FormMouseMove
   ParentDoubleBuffered = False
   LCLVersion = '2.2.0.4'
   object LabelClock: TLabel
@@ -27,6 +29,7 @@ object frmClock: TfrmClock
     Layout = tlCenter
     ParentFont = False
     Transparent = False
+    OnMouseMove = LabelClockMouseMove
   end
   object ImageSilent: TImage
     Left = 1104
@@ -741,6 +744,7 @@ object frmClock: TfrmClock
     Font.Style = [fsBold]
     Layout = tlBottom
     ParentFont = False
+    OnMouseMove = LabelMessageMouseMove
   end
   object LabelNext: TLabel
     Left = 0

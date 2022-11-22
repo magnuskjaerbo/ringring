@@ -124,7 +124,7 @@ begin
   Events := TEvents.Create(LabelStatus, FSettings);
   FNextEvent := Events.NextEvent(Now);
   FIO := TIO.Create();
-
+  Screen.Cursor := crNone;
 end;
 
 {------------------------------------------------------------------------------}
@@ -140,6 +140,8 @@ begin
     ShapeIdleTrigger.Brush.Color := clBlue
   else
     ShapeIdleTrigger.Brush.Color := clBlack;
+
+  Screen.Cursor := crNone;
 end;
 
 {------------------------------------------------------------------------------}

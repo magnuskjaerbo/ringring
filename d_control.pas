@@ -59,6 +59,7 @@ var
   own: TWinControl;
 begin
   own := Owner as TWinControl;
+  Screen.Cursor := crDefault;
 
   Top := own.Top;
   Left := own.Left;

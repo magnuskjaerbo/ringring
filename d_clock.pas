@@ -32,6 +32,13 @@ type
         Shape9: TShape;
         Timer1: TTimer;
         procedure FormCreate(Sender: TObject);
+        procedure FormMouseEnter(Sender: TObject);
+        procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X,
+            Y: Integer);
+        procedure LabelClockMouseMove(Sender: TObject; Shift: TShiftState; X,
+            Y: Integer);
+        procedure LabelMessageMouseMove(Sender: TObject; Shift: TShiftState; X,
+            Y: Integer);
     private
         Bitmap : TBitmap;
         Initialized : boolean;
@@ -84,6 +91,29 @@ begin
 
 //  LabelClock.
   //UpdateGUI;
+end;
+
+procedure TfrmClock.FormMouseEnter(Sender: TObject);
+begin
+    Screen.Cursor := crDefault;
+end;
+
+procedure TfrmClock.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
+    Y: Integer);
+begin
+    Screen.Cursor := crDefault;
+end;
+
+procedure TfrmClock.LabelClockMouseMove(Sender: TObject; Shift: TShiftState; X,
+    Y: Integer);
+begin
+    Screen.Cursor := crDefault;
+end;
+
+procedure TfrmClock.LabelMessageMouseMove(Sender: TObject; Shift: TShiftState;
+    X, Y: Integer);
+begin
+    Screen.Cursor := crDefault;
 end;
 
 procedure TfrmClock.Initialize ();
