@@ -19,12 +19,14 @@ object frmClock: TfrmClock
     Alignment = taCenter
     AutoSize = False
     Caption = '12:00'
+    Color = clBlack
     Font.Color = 16744448
     Font.Height = -213
     Font.Quality = fqProof
     Font.Style = [fsBold]
     Layout = tlCenter
     ParentFont = False
+    Transparent = False
   end
   object ImageSilent: TImage
     Left = 1104
@@ -733,6 +735,7 @@ object frmClock: TfrmClock
     Height = 128
     Top = 88
     Width = 1279
+    AutoSize = True
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636B2A000089504E47
       0D0A1A0A0000000D49484452000004FF00000080080600000074A5CC5C000000
