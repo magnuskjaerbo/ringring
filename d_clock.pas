@@ -112,6 +112,8 @@ begin
         PanelSplit.Height:=6;
         PanelSplit.Width := Parent.Width;
 
+        currTop := currTop + PanelSplit.Height;
+
         prevLeft := 0;
         for shape in Shapes do
         begin
@@ -122,76 +124,18 @@ begin
           shape.Width:= Trunc (PanelSplit.Width / 12);
           prevLeft := shape.Left + shape.Width;
         end;
-//
-//        Shape1.Left:=0;
-//        Shape1.Top:=0;
-//        Shape1.Height:=PanelSplit.Height;
-//        Shape1.Width:= Trunc (PanelSplit.Width / 12);
-//
-//        Shape2.Left := Shape1.Left + Shape1.Width;
-//        Shape2.Top:=0;
-//        Shape2.Height:=PanelSplit.Height;
-//        Shape2.Width:= Trunc (PanelSplit.Width / 12);
-//
-//        Shape3.Left := Shape2.Left + Shape2.Width;
-//        Shape3.Top:=0;
-//        Shape3.Height:=PanelSplit.Height;
-//        Shape3.Width:= Trunc (PanelSplit.Width / 12);
-//
-//        Shape4.Left := Shape3.Left + Shape3.Width;
-//        Shape4.Top:=0;
-//        Shape4.Height:=PanelSplit.Height;
-//        Shape4.Width:= Trunc (PanelSplit.Width / 12);
-//
-//        Shape5.Left := Shape4.Left + Shape4.Width;
-//        Shape5.Top:=0;
-//        Shape5.Height:=PanelSplit.Height;
-//        Shape5.Width:= Trunc (PanelSplit.Width / 12);
-//
-//        Shape6.Left := Shape5.Left + Shape5.Width;
-//        Shape6.Top:=0;
-//        Shape6.Height:=PanelSplit.Height;
-//        Shape6.Width:= Trunc (PanelSplit.Width / 12);
-//
-//        Shape7.Left := Shape6.Left + Shape6.Width;
-//        Shape7.Top:=0;
-//        Shape7.Height:=PanelSplit.Height;
-//        Shape7.Width:= Trunc (PanelSplit.Width / 12);
-//
-//        Shape8.Left := Shape7.Left + Shape7.Width;
-//        Shape8.Top:=0;
-//        Shape8.Height:=PanelSplit.Height;
-//        Shape8.Width:= Trunc (PanelSplit.Width / 12);
-//
-//        Shape9.Left := Shape8.Left + Shape8.Width;
-//        Shape9.Top:=0;
-//        Shape9.Height:=PanelSplit.Height;
-//        Shape9.Width:= Trunc (PanelSplit.Width / 12);
-//
-//        Shape10.Left := Shape9.Left + Shape9.Width;
-//        Shape10.Top:=0;
-//        Shape10.Height:=PanelSplit.Height;
-//        Shape10.Width:= Trunc (PanelSplit.Width / 12);
-//
-//        Shape11.Left := Shape10.Left + Shape10.Width;
-//        Shape11.Top:=0;
-//        Shape11.Height:=PanelSplit.Height;
-//        Shape11.Width:= Trunc (PanelSplit.Width / 12);
-//
-//        Shape12.Left := Shape11.Left + Shape11.Width;
-//        Shape12.Top:=0;
-//        Shape12.Height:=PanelSplit.Height;
-//        Shape12.Width:= Trunc (PanelSplit.Width / 12);
 
         LabelMessage.Left:=0;
-        LabelMessage.Top:=LabelClock.Height;
+        LabelMessage.Top:=currTop;
         LabelMessage.Width:=Parent.Width;
-        LabelMessage.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.333);
+        LabelMessage.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.3);
+        currTop := currTop + LabelMessage.Height;
 
         LabelNext.Left:=0;
-        LabelNext.Top:=LabelClock.Height + LabelMessage.Height;
+        LabelNext.Top:=currTop;
         LabelNext.Width:=Parent.Width;
-        LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.666);
+        LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.63);
+        currTop := currTop + LabelNext.Height;
 
       	ImageSilent.Height:=Trunc (Parent.ClientHeight * szClock) - 16;
         ImageSilent.Width:=ImageSilent.Height;
