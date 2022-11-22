@@ -89,8 +89,8 @@ begin
   Color := clBlack;
 
   {$IFDEF Windows}
-  Width := 1024;
-  Height := 600;
+  Width := 1280;
+  Height := 720;
   {$ELSE}
   Left := 0;
   Top := 0;
@@ -106,7 +106,7 @@ begin
   FClock.OnClick := @ExecuteControls;
   FClock.LabelClock.OnClick := @ExecuteControls;
   FClock.ImageSilent.OnClick := @ExecuteControls;
-  FClock.PaintBox1.OnClick := @ExecuteControls;
+
   FClock.Show ();
 
   //FNextRing := TfrmNextRing.Create (PanelNextRing);
