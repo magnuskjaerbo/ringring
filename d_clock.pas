@@ -129,7 +129,7 @@ begin
         LabelMessage.Top:=currTop;
         LabelMessage.Width:=Parent.Width;
         LabelMessage.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.3);
-        currTop := currTop + LabelMessage.Height;
+        currTop := currTop + LabelMessage.Height - 24;
 
         LabelNext.Left:=0;
         LabelNext.Top:=currTop;
