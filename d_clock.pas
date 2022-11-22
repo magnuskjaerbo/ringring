@@ -128,13 +128,13 @@ begin
         LabelMessage.Left:=0;
         LabelMessage.Top:=currTop;
         LabelMessage.Width:=Parent.Width;
-        LabelMessage.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.3);
+        LabelMessage.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.33);
         currTop := currTop + LabelMessage.Height - 24;
 
         LabelNext.Left:=0;
         LabelNext.Top:=currTop;
         LabelNext.Width:=Parent.Width;
-        LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.63-12);
+        LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.66);
         currTop := currTop + LabelNext.Height;
 
       	ImageSilent.Height:=Trunc (Parent.ClientHeight * szClock) - 16;
@@ -176,7 +176,7 @@ begin
   	CalcLabelSize (LabelClock, Parent.Width, LabelClock.Height);
 
   	LabelMessage.Caption := ANextEvent.Message;
-  	CalcLabelSize (LabelMessage, Parent.Width, LabelMessage.Height);
+  	CalcLabelSize (LabelMessage, Parent.Width, LabelMessage.Height-12);
 
     LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance);
     if (Delay > 0) then
@@ -189,7 +189,7 @@ begin
     LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance) + IntToStr (Delay) + 'min.';
     end;
 
-  	CalcLabelSize (LabelNext, Parent.Width, LabelNext.Height);
+  	CalcLabelSize (LabelNext, Parent.Width, LabelNext.Height-12);
 
 
   //timeleft := SecondsBetween(ANextEvent.Occurance, Now);
