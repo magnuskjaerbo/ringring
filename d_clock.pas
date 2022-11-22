@@ -203,6 +203,7 @@ begin
 
 end;
 
+
 procedure TfrmClock.UpdateGUI (ANextEvent : TEvent);
 var
      Hh,MM,SS,MS : Word;
