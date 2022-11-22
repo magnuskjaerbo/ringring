@@ -85,6 +85,8 @@ var
     timeleft: int64;
 	szClock : real;
     szClockRest : real;
+    gg: integer;
+    Hh,MM,SS,MS : Word;
 begin
 
 
@@ -111,7 +113,10 @@ begin
   //LabelNext.Color := clGreen;
   //LabelNext.Transparent:=false;;
 
-
+  DeCodeTime (Time,Hh,MM,SS,MS);
+  gg := SS;
+  gg := Trunc (255 * (gg / 60.0));
+  LabelClock.Font.Color := RGBToColor (0, gg, 255);
   ImageSilent.Visible := Silent;
   if (Parent <> nil) then
   begin
@@ -139,6 +144,8 @@ begin
   end;
 
   CalcLabelSize (LabelNext, Parent.Width, LabelNext.Height);
+
+
 
   Shape1.Top := Image1.Top + 70;
 
