@@ -158,9 +158,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="d_Clock"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="8"/>
-        <TopLine Value="95"/>
-        <CursorPos X="87" Y="109"/>
+        <TopLine Value="92"/>
+        <CursorPos X="81" Y="122"/>
         <ComponentState Value="1"/>
         <UsageCount Value="144"/>
         <Loaded Value="True"/>
@@ -180,9 +181,8 @@
       <Unit11>
         <Filename Value="uutil.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="12"/>
-        <CursorPos X="44" Y="23"/>
+        <CursorPos X="53" Y="21"/>
         <UsageCount Value="135"/>
         <Loaded Value="True"/>
       </Unit11>
@@ -194,9 +194,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="d_OnlineEvents"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="16"/>
-        <CursorPos X="61" Y="33"/>
-        <ComponentState Value="1"/>
+        <TopLine Value="49"/>
+        <CursorPos X="37" Y="85"/>
         <UsageCount Value="134"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -299,7 +298,7 @@
         <EditorIndex Value="10"/>
         <TopLine Value="702"/>
         <CursorPos X="14" Y="722"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit25>
       <Unit26>

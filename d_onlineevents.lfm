@@ -1175,14 +1175,16 @@ object frmOnlineEvents: TfrmOnlineEvents
   end
   object LabelNextEvent2: TLabel
     Left = 96
-    Height = 41
-    Top = 0
+    Height = 34
+    Top = 16
     Width = 34
+    AutoSize = False
     BorderSpacing.Left = 32
     Caption = 'xx'
     Font.Color = clOlive
     Font.Height = -30
     Font.Style = [fsBold]
+    Layout = tlCenter
     ParentFont = False
   end
   object LabelNextEvent1: TLabel
@@ -1200,14 +1202,16 @@ object frmOnlineEvents: TfrmOnlineEvents
   end
   object LabelNextEvent4: TLabel
     Left = 96
-    Height = 41
-    Top = 85
+    Height = 30
+    Top = 104
     Width = 34
+    AutoSize = False
     BorderSpacing.Left = 32
     Caption = 'xx'
     Font.Color = clOlive
     Font.Height = -30
     Font.Style = [fsBold]
+    Layout = tlCenter
     ParentFont = False
   end
   object LabelNextEvent3: TLabel

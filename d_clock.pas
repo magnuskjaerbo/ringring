@@ -121,7 +121,7 @@ begin
     ImageSilent.Top := 8;
   end;
 
-  LabelClock.Caption := FormatDateTime('hh:nn', Now);
+  LabelClock.Caption := FormatDateTime('hh:nn', Now) + ' ' + IntToStr (PixelsPerInch);
   CalcLabelSize (LabelClock, Parent.Width, LabelClock.Height);
 
   LabelMessage.Caption := ANextEvent.Message;
