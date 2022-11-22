@@ -69,8 +69,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Main"/>
-        <TopLine Value="133"/>
-        <CursorPos X="93" Y="139"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="64"/>
+        <CursorPos X="64" Y="77"/>
         <UsageCount Value="203"/>
         <Bookmarks Count="3">
           <Item0 X="24" Y="202" ID="2"/>
@@ -158,10 +159,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="d_Clock"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="8"/>
         <TopLine Value="37"/>
-        <CursorPos X="64" Y="57"/>
+        <CursorPos X="68" Y="43"/>
         <UsageCount Value="144"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
