@@ -80,22 +80,22 @@ object Form1: TForm1
         Shape = stCircle
       end
       object Label2: TLabel
-        Left = 1197
+        Left = 1205
         Height = 32
         Top = 0
-        Width = 51
+        Width = 43
         Align = alRight
         BorderSpacing.Right = 16
         Caption = 'Label2'
-        Font.Color = clYellow
-        Font.Height = -16
+        Font.Color = clGray
+        Font.Height = -13
         Font.Name = 'Sans'
         Font.Style = [fsBold]
         Layout = tlCenter
         ParentFont = False
       end
       object LabelStatus: TLabel
-        Left = 1102
+        Left = 1110
         Height = 32
         Top = 0
         Width = 63
