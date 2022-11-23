@@ -48,6 +48,8 @@ type
     public
         Silent : boolean;
         Delay : integer;
+        marcueeNormal : TColor;
+        marcueeHot : TColor;
         procedure UpdateGUI (ANextEvent : TEvent);
         procedure Initialize ();
         procedure UpdateGUI2 (ANextEvent : TEvent);
@@ -69,11 +71,13 @@ begin
   Initialized := false;
   Silent := false;
   Color := clBlack;
+  marcueeNormal := clMaroon;
+  marcueeHot := clGreen;
 
-  LabelClock.Font.Color := $00FF8000;
+  LabelClock.Font.Color := marcueeHot; //$00FF8000;
   LabelClock.Tag := 1;
-  LabelNext.Font.Color := clWhite;
-  LabelMessage.Font.Color := clWhite;
+  LabelNext.Font.Color := marcueeNormal; //clWhite;
+  LabelMessage.Font.Color := marcueeNormal; //clWhite;
   Bitmap := TBitmap.Create;
   SetLength (Shapes, 12);
   Shapes[0] := Shape1;
@@ -88,6 +92,8 @@ begin
   Shapes[9] := Shape10;
   Shapes[10] := Shape11;
   Shapes[11] := Shape12;
+
+
 
 end;
 
@@ -153,7 +159,8 @@ begin
         begin
           shape.Left:=prevLeft;
           shape.Top:=0;
-          shape.Brush.Color:=clSilver;
+          shape.Brush.Color:=marcueeNormal;
+          shape.Pen.Style:=psClear;
           shape.Height:=PanelSplit.Height;
           shape.Width:= Trunc (PanelSplit.Width / 12);
           prevLeft := shape.Left + shape.Width;
@@ -195,11 +202,11 @@ begin
 
     for shape in Shapes do
     begin
-    	shape.Brush.Color:=clSilver;
+    	shape.Brush.Color:=marcueeNormal;
     end;
 
     XX := Trunc (ss / (60 / Length (Shapes)));
-    Shapes[XX mod 12].Brush.Color:=$00FF8000;
+    Shapes[XX mod 12].Brush.Color:=marcueeHot;
 
   	DisableAlign;
 	Initialize;

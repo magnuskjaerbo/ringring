@@ -774,7 +774,7 @@ object frmClock: TfrmClock
       Height = 12
       Top = 5
       Width = 33
-      Brush.Color = clSilver
+      Brush.Color = clMaroon
       Pen.Color = clGray
       Pen.JoinStyle = pjsMiter
       Shape = stRoundRect

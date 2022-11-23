@@ -42,6 +42,10 @@ implementation
 procedure TfrmOnlineEvents.FormCreate(Sender: TObject);
 begin
   Color := clBlack;
+  LabelNextEvent1.Font.Color := clSilver;
+  LabelNextEvent2.Font.Color := clGray;
+  LabelNextEvent3.Font.Color := clSilver;
+  LabelNextEvent4.Font.Color := clGray;
 
 end;
 
