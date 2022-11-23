@@ -64,10 +64,6 @@ begin
   Initialized := false;
   Silent := false;
   Color := clBlack;
-  //Shape1.Top := Image1.Top + 72;
-  //Shape1.Left := 130;
-  //Shape1.Tag:=5;
-  //Shape1.Visible:=false;
 
   LabelClock.Font.Color := $00FF8000;
   LabelClock.Tag := 1;
@@ -88,9 +84,6 @@ begin
   Shapes[10] := Shape11;
   Shapes[11] := Shape12;
 
-
-//  LabelClock.
-  //UpdateGUI;
 end;
 
 procedure TfrmClock.FormMouseEnter(Sender: TObject);
@@ -184,19 +177,17 @@ var
      shape : TShape;
 begin
 
-  DeCodeTime (Time,Hh,MM,SS,MS);
+    DeCodeTime (Time,Hh,MM,SS,MS);
 
-  for shape in Shapes do
-  begin
-    shape.Brush.Color:=clSilver;
-  end;
-  SS := Trunc (ss / 5);
-  Shapes[SS mod 12].Brush.Color:=$00FF8000;
+    for shape in Shapes do
+    begin
+    	shape.Brush.Color:=clSilver;
+    end;
 
-
+    SS := Trunc (ss / 5);
+    Shapes[SS mod 12].Brush.Color:=$00FF8000;
 
   	DisableAlign;
-
 	Initialize;
 
  	ImageSilent.Visible := Silent;
@@ -210,12 +201,12 @@ begin
     LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance);
     if (Delay > 0) then
     begin
-    LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance) + '+' + IntToStr (Delay) + 'min.';
+	    LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance) + '+' + IntToStr (Delay) + 'min.';
     end;
 
     if (Delay < 0) then
     begin
-    LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance) + IntToStr (Delay) + 'min.';
+    	LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance) + IntToStr (Delay) + 'min.';
     end;
 
   	CalcLabelSize (LabelNext, Parent.Width, LabelNext.Height-24);

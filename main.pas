@@ -7,7 +7,7 @@ interface
 
 uses
   {$IFNDEF Windows}baseunix, Unix,{$ENDIF}Classes, SysUtils, Forms, Controls,
-  Graphics, Dialogs, ExtCtrls, Buttons, StdCtrls, ComCtrls,
+  Graphics, Dialogs, ExtCtrls, Buttons, StdCtrls, ComCtrls, AsyncProcess,
   IpHtml, Ipfilebroker, uSettings,
   SQLDB, DateUtils, uEvents, uIO, d_Control, d_Clock, d_NextRing, d_OnlineEvents;
 
@@ -189,12 +189,25 @@ begin
   shape.Top := 0;
   shape.Height := self.Height;
   Delay(1000);
+
   shape.Brush.Color := clGreen;
   Delay(1000);
+
   shape.Brush.Color := clBlue;
   Delay(1000);
+
   shape.Brush.Color := clWhite;
   Delay(1000);
+
+  shape.Brush.Color := clRed;
+  Delay(100);
+  shape.Brush.Color := clGreen;
+  Delay(100);
+  shape.Brush.Color := clBlue;
+  Delay(100);
+  shape.Brush.Color := clWhite;
+  Delay(100);
+
   shape.Destroy;
   PanelMain.Visible := True;
 end;
@@ -213,17 +226,17 @@ begin
 
   	TimerMain.Enabled := False;
   	BeginFormUpdate;
-  	FClock.UpdateGUI(FNextEvent);
-	//FNextRing.UpdateGUI (FNextEvent);
 
-  	if (ShapeMainTrigger.Brush.Color = clBlack) then
+    FClock.UpdateGUI(FNextEvent);
+
+    if (ShapeMainTrigger.Brush.Color = clBlack) then
     	ShapeMainTrigger.Brush.Color := clGray
   	else
     	ShapeMainTrigger.Brush.Color := clBlack;
 
-
   	activated := Events.Activate(FNextEvent, FClock.Delay);
-  	if (FRingOnce or activated) then
+
+    if (FRingOnce or activated) then
   	begin
     	FRingOnce := False;
     	ExecuteRingEvent(FNextEvent);
@@ -234,7 +247,7 @@ begin
     	end;
   	end;
 
-  	if (FMainTimerCheckRemote = 60) or (FMainTimerCheckRemote = 0) then
+  	if (FMainTimerCheckRemote = 120) or (FMainTimerCheckRemote = 0) then
   	begin
     	FMainTimerCheckRemote := 1;
     	CheckRemote();
@@ -290,7 +303,7 @@ var
 begin
   sectonext := SecondsBetween(Now, FNextEvent.Occurance);
 
-  if (sectonext > 30) or (sectonext < 0) then
+  if (sectonext > 60) or (sectonext < 0) then
   begin
     FSettings.Destroy;
     Events.Destroy;
