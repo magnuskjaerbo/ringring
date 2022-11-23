@@ -19,18 +19,6 @@ type
         LabelMessage: TLabel;
         LabelNext: TLabel;
         PanelSplit: TPanel;
-        Shape1: TShape;
-        Shape10: TShape;
-        Shape11: TShape;
-        Shape12: TShape;
-        Shape2: TShape;
-        Shape3: TShape;
-        Shape4: TShape;
-        Shape5: TShape;
-        Shape6: TShape;
-        Shape7: TShape;
-        Shape8: TShape;
-        Shape9: TShape;
         Timer1: TTimer;
         procedure FormCreate(Sender: TObject);
         procedure FormMouseEnter(Sender: TObject);
@@ -50,6 +38,9 @@ type
         Silent : boolean;
         Delay : integer;
         marcueeNormal : TColor;
+        marcueeMid : TColor;
+        marcueeMid2 : TColor;
+        marcueeMid3 : TColor;
         marcueeHot : TColor;
         procedure UpdateGUI (ANextEvent : TEvent);
         procedure Initialize ();
@@ -68,31 +59,69 @@ procedure TfrmClock.FormCreate(Sender: TObject);
 var
     shape : TShape;
     ix: integer;
+    c1, c2: TColor;
+    r1, r2, r3 :Byte;
+    g1, g2, g3 :Byte;
+    b1, b2, b3 :Byte;
 begin
   Initialized := false;
   Silent := false;
   Color := clBlack;
   marcueeNormal := clMaroon;
   marcueeHot := clGreen;
+  marcueeMid := Trunc ((marcueeNormal + marcueeHot)/2);
+  marcueeMid2:= Trunc ((marcueeNormal*2 + marcueeHot)/3);
+
+  r1 := Red (marcueeNormal);
+  r2 := Red (marcueeHot);
+  g1 := Green (marcueeNormal);
+  g2 := Green (marcueeHot);
+  b1 := Blue (marcueeNormal);
+  b2 := Blue (marcueeHot);
+
+  r3 := Trunc ((r1 + r2)/2);
+  g3 := Trunc ((g1 + g2)/2);
+  b3 := Trunc ((b1 + b2)/2);
+  marcueeMid := RGBToColor (r3, g3, b3);
+
+  r3 := Trunc ((r1*2 + r2)/3);
+  g3 := Trunc ((g1*2 + g2)/3);
+  b3 := Trunc ((b1*2 + b2)/3);
+  marcueeMid2 := RGBToColor (r3, g3, b3);
+
+  r3 := Trunc ((r1*3 + r2)/4);
+  g3 := Trunc ((g1*3 + g2)/4);
+  b3 := Trunc ((b1*3 + b2)/4);
+  marcueeMid3 := RGBToColor (r3, g3, b3);
+
 
   LabelClock.Font.Color := marcueeHot; //$00FF8000;
   LabelClock.Tag := 1;
   LabelNext.Font.Color := marcueeNormal; //clWhite;
   LabelMessage.Font.Color := marcueeNormal; //clWhite;
   Bitmap := TBitmap.Create;
-  SetLength (Shapes, 12);
-  Shapes[0] := Shape1;
-  Shapes[1] := Shape2;
-  Shapes[2] := Shape3;
-  Shapes[3] := Shape4;
-  Shapes[4] := Shape5;
-  Shapes[5] := Shape6;
-  Shapes[6] := Shape7;
-  Shapes[7] := Shape8;
-  Shapes[8] := Shape9;
-  Shapes[9] := Shape10;
-  Shapes[10] := Shape11;
-  Shapes[11] := Shape12;
+
+  SetLength (Shapes, 30);
+  for ix:=0 to Length (Shapes)-1 do
+  begin
+  	shape := TShape.Create (PanelSplit);
+    shape.Parent :=PanelSplit;
+    shape.Pen.JoinStyle:=pjsMiter;
+    shape.Brush.Style:=bsSolid;
+	Shapes[ix] := shape;
+  end;
+  //Shapes[0] := Shape1;
+  //Shapes[1] := Shape2;
+  //Shapes[2] := Shape3;
+  //Shapes[3] := Shape4;
+  //Shapes[4] := Shape5;
+  //Shapes[5] := Shape6;
+  //Shapes[6] := Shape7;
+  //Shapes[7] := Shape8;
+  //Shapes[8] := Shape9;
+  //Shapes[9] := Shape10;
+  //Shapes[10] := Shape11;
+  //Shapes[11] := Shape12;
 
 
 
@@ -168,7 +197,7 @@ begin
           shape.Brush.Color:=marcueeNormal;
           shape.Pen.Style:=psClear;
           shape.Height:=PanelSplit.Height;
-          shape.Width:= Trunc (PanelSplit.Width / 12);
+          shape.Width:= Trunc (PanelSplit.Width / Length(Shapes));
           prevLeft := shape.Left + shape.Width;
         end;
 
@@ -181,8 +210,8 @@ begin
         LabelNext.Left:=0;
         LabelNext.Top:=currTop;
         LabelNext.Width:=Parent.Width;
-        //LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.66);
         LabelNext.Height:=Trunc ((Parent.ClientHeight - currTop) * 0.90);
+
         currTop := currTop + LabelNext.Height;
 
       	ImageSilent.Height:=Trunc (Parent.ClientHeight * szClock) - 16;
@@ -199,10 +228,16 @@ end;
 procedure TfrmClock.UpdateGUI (ANextEvent : TEvent);
 var
      Hh,MM,SS,MS : Word;
-     XX: Word;
+     XX: integer;
+     XXp, XXn: integer;
+     XXpp, XXnn: integer;
+     XXppp, XXnnn: integer;
      ix:integer;
      shape : TShape;
 begin
+
+   	DisableAlign;
+	Initialize;
 
     DeCodeTime (Time,Hh,MM,SS,MS);
 
@@ -212,10 +247,26 @@ begin
     end;
 
     XX := Trunc (ss / (60 / Length (Shapes)));
-    Shapes[XX mod 12].Brush.Color:=marcueeHot;
+    XX :=XX mod Length (Shapes);
+    XXp := XX-1;
+    XXpp := XX-2;
+    XXppp := XX-3;
+    XXn := XX+1;
+    XXnn := XX+2;
+    XXnnn := XX+3;
+    if (XXn > Length (Shapes)-1) then XXn := -1;
+    if (XXnn > Length (Shapes)-1) then XXnn := -1;
+    if (XXnnn > Length (Shapes)-1) then XXnnn := -1;
 
-  	DisableAlign;
-	Initialize;
+    if (XXp > 0) then Shapes[XXp].Brush.Color:=marcueeMid;
+    if (XXpp > 0) then Shapes[XXpp].Brush.Color:=marcueeMid2;
+    if (XXppp > 0) then Shapes[XXppp].Brush.Color:=marcueeMid3;
+
+    if (XXn > 0) then Shapes[XXn].Brush.Color:=marcueeMid;
+    if (XXnn > 0) then Shapes[XXnn].Brush.Color:=marcueeMid2;
+    if (XXnnn > 0) then Shapes[XXnnn].Brush.Color:=marcueeMid3;
+    Shapes[XX].Brush.Color:=marcueeHot;
+
 
  	ImageSilent.Visible := Silent;
 
@@ -236,8 +287,8 @@ begin
     	LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance) + IntToStr (Delay) + 'min.';
     end;
 
-  	CalcLabelSize (LabelNext, Parent.Width, LabelNext.Height-24);
 
+  	CalcLabelSize (LabelNext, Parent.Width, LabelNext.Height-24);
 
   //timeleft := SecondsBetween(ANextEvent.Occurance, Now);
   //if (timeleft < Parent.Width) then

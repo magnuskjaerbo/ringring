@@ -14,9 +14,9 @@ object frmClock: TfrmClock
   ParentDoubleBuffered = False
   LCLVersion = '2.2.0.4'
   object Image1: TImage
-    Left = 104
+    Left = 8
     Height = 90
-    Top = 117
+    Top = 240
     Width = 1092
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963091E020089504E47
@@ -5079,7 +5079,7 @@ object frmClock: TfrmClock
   end
   object LabelMessage: TLabel
     Left = 0
-    Height = 47
+    Height = 16
     Top = 160
     Width = 1291
     Alignment = taCenter
@@ -5104,136 +5104,13 @@ object frmClock: TfrmClock
     ParentFont = False
   end
   object PanelSplit: TPanel
-    Left = 672
+    Left = 272
     Height = 18
-    Top = 272
-    Width = 536
+    Top = 288
+    Width = 808
     BevelOuter = bvNone
     Caption = 'Panel1Split'
-    ClientHeight = 18
-    ClientWidth = 536
     TabOrder = 0
-    object Shape1: TShape
-      Left = 24
-      Height = 12
-      Top = 5
-      Width = 33
-      Brush.Color = clMaroon
-      Pen.Color = clGray
-      Pen.JoinStyle = pjsMiter
-      Shape = stRoundRect
-    end
-    object Shape2: TShape
-      Left = 64
-      Height = 12
-      Top = 5
-      Width = 33
-      Brush.Color = clSilver
-      Pen.Color = clGray
-      Pen.JoinStyle = pjsMiter
-      Shape = stRoundRect
-    end
-    object Shape3: TShape
-      Left = 104
-      Height = 12
-      Top = 5
-      Width = 33
-      Brush.Color = clSilver
-      Pen.Color = clGray
-      Pen.JoinStyle = pjsMiter
-      Shape = stRoundRect
-    end
-    object Shape4: TShape
-      Left = 168
-      Height = 12
-      Top = 5
-      Width = 33
-      Brush.Color = clSilver
-      Pen.Color = clGray
-      Pen.JoinStyle = pjsMiter
-      Shape = stRoundRect
-    end
-    object Shape5: TShape
-      Left = 152
-      Height = 12
-      Top = 5
-      Width = 33
-      Brush.Color = clSilver
-      Pen.Color = clGray
-      Pen.JoinStyle = pjsMiter
-      Shape = stRoundRect
-    end
-    object Shape6: TShape
-      Left = 236
-      Height = 12
-      Top = 5
-      Width = 33
-      Brush.Color = clSilver
-      Pen.Color = clGray
-      Pen.JoinStyle = pjsMiter
-      OnChangeBounds = Shape6ChangeBounds
-      Shape = stRoundRect
-    end
-    object Shape7: TShape
-      Left = 120
-      Height = 12
-      Top = 8
-      Width = 33
-      Brush.Color = clSilver
-      Pen.Color = clGray
-      Pen.JoinStyle = pjsMiter
-      Shape = stRoundRect
-    end
-    object Shape8: TShape
-      Left = 272
-      Height = 12
-      Top = 6
-      Width = 33
-      Brush.Color = clSilver
-      Pen.Color = clGray
-      Pen.JoinStyle = pjsMiter
-      Shape = stRoundRect
-    end
-    object Shape9: TShape
-      Left = 312
-      Height = 12
-      Top = 5
-      Width = 33
-      Brush.Color = clSilver
-      Pen.Color = clGray
-      Pen.JoinStyle = pjsMiter
-      Shape = stRoundRect
-    end
-    object Shape10: TShape
-      Left = 352
-      Height = 12
-      Top = 5
-      Width = 33
-      Brush.Color = clSilver
-      Pen.Color = clGray
-      Pen.JoinStyle = pjsMiter
-      Shape = stRoundRect
-    end
-    object Shape11: TShape
-      Left = 216
-      Height = 12
-      Top = 5
-      Width = 33
-      Brush.Color = clSilver
-      Pen.Color = clGray
-      Pen.JoinStyle = pjsMiter
-      Shape = stRoundRect
-    end
-    object Shape12: TShape
-      Left = 192
-      Height = 12
-      Top = 5
-      Width = 33
-      Brush.Color = clSilver
-      Pen.Color = clGray
-      Pen.JoinStyle = pjsMiter
-      Shape = stRoundRect
-    end
   end
   object Timer1: TTimer
     Enabled = False
