@@ -139,7 +139,7 @@ begin
         LabelClock.Top:=currTop;
         LabelClock.Width:=Parent.Width;
         LabelClock.Height:=Trunc (Parent.ClientHeight * szClock);
-        currTop := Trunc (currTop + LabelClock.Height * 0.85);
+        currTop := Trunc (currTop + LabelClock.Height);
 
         PanelSplit.Left := 0;
         PanelSplit.Top := currTop;
