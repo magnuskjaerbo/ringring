@@ -169,7 +169,7 @@ begin
         LabelNext.Top:=currTop;
         LabelNext.Width:=Parent.Width;
         //LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.66);
-        LabelNext.Height:=Trunc ((Parent.ClientHeight - currTop));
+        LabelNext.Height:=Trunc ((Parent.ClientHeight - currTop) * 0.90);
         currTop := currTop + LabelNext.Height;
 
       	ImageSilent.Height:=Trunc (Parent.ClientHeight * szClock) - 16;
