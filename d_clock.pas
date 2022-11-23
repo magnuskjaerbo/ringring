@@ -39,10 +39,12 @@ type
             Y: Integer);
         procedure LabelMessageMouseMove(Sender: TObject; Shift: TShiftState; X,
             Y: Integer);
+        procedure Shape6ChangeBounds(Sender: TObject);
     private
         Bitmap : TBitmap;
         Initialized : boolean;
         Shapes : array of TShape;
+        ShapesToRing : array of TShape;
     public
         Silent : boolean;
         Delay : integer;
@@ -60,6 +62,9 @@ implementation
 {$R *.lfm}
 
 procedure TfrmClock.FormCreate(Sender: TObject);
+var
+    shape : TShape;
+    ix: integer;
 begin
   Initialized := false;
   Silent := false;
@@ -109,12 +114,17 @@ begin
     Screen.Cursor := crDefault;
 end;
 
+procedure TfrmClock.Shape6ChangeBounds(Sender: TObject);
+begin
+
+end;
+
 procedure TfrmClock.Initialize ();
 var
     szClock : real;
     szClockRest : real;
-    currTop : integer;
-    prevLeft : integer;
+    currTop, space : integer;
+    prevLeft, prevTop, wid : integer;
 	shape : TShape;
 begin
 	if (Initialized = false) then
@@ -124,11 +134,12 @@ begin
     	szClockRest := 1.0 - szClock;
 
         currTop := 0;
+        currTop := -Trunc (currTop + LabelClock.Height * 0.25);
         LabelClock.Left:=0;
-        LabelClock.Top:=0;
+        LabelClock.Top:=currTop;
         LabelClock.Width:=Parent.Width;
         LabelClock.Height:=Trunc (Parent.ClientHeight * szClock);
-        currTop := currTop + LabelClock.Height;
+        currTop := Trunc (currTop + LabelClock.Height * 0.85);
 
         PanelSplit.Left := 0;
         PanelSplit.Top := currTop;
@@ -151,13 +162,14 @@ begin
         LabelMessage.Left:=0;
         LabelMessage.Top:=currTop;
         LabelMessage.Width:=Parent.Width;
-        LabelMessage.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.33);
-        currTop := currTop + LabelMessage.Height - 24;
+        LabelMessage.Height:=Trunc ((Parent.ClientHeight - currTop)* 0.33);
+        currTop := currTop + LabelMessage.Height; // - 24;
 
         LabelNext.Left:=0;
         LabelNext.Top:=currTop;
         LabelNext.Width:=Parent.Width;
-        LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.66);
+        //LabelNext.Height:=Trunc (Parent.ClientHeight * szClockRest * 0.66);
+        LabelNext.Height:=Trunc ((Parent.ClientHeight - currTop));
         currTop := currTop + LabelNext.Height;
 
       	ImageSilent.Height:=Trunc (Parent.ClientHeight * szClock) - 16;
@@ -174,6 +186,8 @@ end;
 procedure TfrmClock.UpdateGUI (ANextEvent : TEvent);
 var
      Hh,MM,SS,MS : Word;
+     XX: Word;
+     ix:integer;
      shape : TShape;
 begin
 
@@ -184,8 +198,8 @@ begin
     	shape.Brush.Color:=clSilver;
     end;
 
-    SS := Trunc (ss / 5);
-    Shapes[SS mod 12].Brush.Color:=$00FF8000;
+    XX := Trunc (ss / (60 / Length (Shapes)));
+    Shapes[XX mod 12].Brush.Color:=$00FF8000;
 
   	DisableAlign;
 	Initialize;

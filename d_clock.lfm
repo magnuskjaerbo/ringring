@@ -1,11 +1,11 @@
 object frmClock: TfrmClock
   Left = 480
-  Height = 365
+  Height = 534
   Top = 116
   Width = 1280
   BorderStyle = bsNone
   Caption = 'frmClock'
-  ClientHeight = 365
+  ClientHeight = 534
   ClientWidth = 1280
   DoubleBuffered = True
   OnCreate = FormCreate
@@ -747,9 +747,9 @@ object frmClock: TfrmClock
     OnMouseMove = LabelMessageMouseMove
   end
   object LabelNext: TLabel
-    Left = 0
+    Left = -11
     Height = 23
-    Top = 342
+    Top = 456
     Width = 1291
     Alignment = taCenter
     AutoSize = False
@@ -760,109 +760,134 @@ object frmClock: TfrmClock
     ParentFont = False
   end
   object PanelSplit: TPanel
-    Left = 88
+    Left = 672
     Height = 18
-    Top = 232
-    Width = 832
+    Top = 272
+    Width = 536
     BevelOuter = bvNone
     Caption = 'Panel1Split'
     ClientHeight = 18
-    ClientWidth = 832
+    ClientWidth = 536
     TabOrder = 0
     object Shape1: TShape
-      Left = 57
+      Left = 24
       Height = 12
       Top = 5
       Width = 33
       Brush.Color = clSilver
+      Pen.Color = clGray
+      Pen.JoinStyle = pjsMiter
       Shape = stRoundRect
     end
     object Shape2: TShape
-      Left = 112
+      Left = 64
       Height = 12
-      Top = 6
+      Top = 5
       Width = 33
       Brush.Color = clSilver
+      Pen.Color = clGray
+      Pen.JoinStyle = pjsMiter
       Shape = stRoundRect
     end
     object Shape3: TShape
+      Left = 104
+      Height = 12
+      Top = 5
+      Width = 33
+      Brush.Color = clSilver
+      Pen.Color = clGray
+      Pen.JoinStyle = pjsMiter
+      Shape = stRoundRect
+    end
+    object Shape4: TShape
+      Left = 168
+      Height = 12
+      Top = 5
+      Width = 33
+      Brush.Color = clSilver
+      Pen.Color = clGray
+      Pen.JoinStyle = pjsMiter
+      Shape = stRoundRect
+    end
+    object Shape5: TShape
       Left = 152
       Height = 12
       Top = 5
       Width = 33
       Brush.Color = clSilver
-      Shape = stRoundRect
-    end
-    object Shape4: TShape
-      Left = 208
-      Height = 12
-      Top = 6
-      Width = 33
-      Brush.Color = clSilver
-      Shape = stRoundRect
-    end
-    object Shape5: TShape
-      Left = 208
-      Height = 12
-      Top = 6
-      Width = 33
-      Brush.Color = clSilver
+      Pen.Color = clGray
+      Pen.JoinStyle = pjsMiter
       Shape = stRoundRect
     end
     object Shape6: TShape
       Left = 236
       Height = 12
-      Top = 6
+      Top = 5
       Width = 33
       Brush.Color = clSilver
+      Pen.Color = clGray
+      Pen.JoinStyle = pjsMiter
+      OnChangeBounds = Shape6ChangeBounds
       Shape = stRoundRect
     end
     object Shape7: TShape
-      Left = 236
+      Left = 120
       Height = 12
-      Top = 6
+      Top = 8
       Width = 33
       Brush.Color = clSilver
+      Pen.Color = clGray
+      Pen.JoinStyle = pjsMiter
       Shape = stRoundRect
     end
     object Shape8: TShape
-      Left = 236
+      Left = 272
       Height = 12
       Top = 6
       Width = 33
       Brush.Color = clSilver
+      Pen.Color = clGray
+      Pen.JoinStyle = pjsMiter
       Shape = stRoundRect
     end
     object Shape9: TShape
-      Left = 236
+      Left = 312
       Height = 12
-      Top = 6
+      Top = 5
       Width = 33
       Brush.Color = clSilver
+      Pen.Color = clGray
+      Pen.JoinStyle = pjsMiter
       Shape = stRoundRect
     end
     object Shape10: TShape
-      Left = 236
+      Left = 352
       Height = 12
-      Top = 6
+      Top = 5
       Width = 33
       Brush.Color = clSilver
+      Pen.Color = clGray
+      Pen.JoinStyle = pjsMiter
       Shape = stRoundRect
     end
     object Shape11: TShape
-      Left = 236
+      Left = 216
       Height = 12
-      Top = 6
+      Top = 5
       Width = 33
       Brush.Color = clSilver
+      Pen.Color = clGray
+      Pen.JoinStyle = pjsMiter
       Shape = stRoundRect
     end
     object Shape12: TShape
-      Left = 236
+      Left = 192
       Height = 12
-      Top = 6
+      Top = 5
       Width = 33
       Brush.Color = clSilver
+      Pen.Color = clGray
+      Pen.JoinStyle = pjsMiter
       Shape = stRoundRect
     end
   end
