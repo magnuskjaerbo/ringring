@@ -62,9 +62,10 @@ constructor TfrmSettings.Create(AOwner: TComponent; StatusLabel: TLabel);
 var
   filePath: string;
   iniFile: string;
+  commandFile: string;
   Response: TStringList;
   url: string;
-
+  res:string;
 begin
   inherited Create(AOwner);
   url := 'www.skopunarskuli.fo/RingRing/config.ini';
@@ -78,6 +79,32 @@ begin
   begin
     Response.SaveToFile(iniFile);
   end;
+  Response.Destroy;
+
+  url := 'https://skopunarskuli.fo/RingRing/reboot.php';
+  StatusLabel.Caption := 'Reading Commands from ' + url;
+  Response := TStringList.Create();
+  HttpGetText(url, Response);
+
+  res := Response.Text;
+  if (res = '1') then
+  begin
+    {$IFDEF Unix}
+    fpSystem('reboot');
+    {$ENDIF}
+    Application.Terminate;
+  end;
+
+  res := Response.CommaText;
+  if (res = '1') then
+  begin
+    {$IFDEF Unix}
+    fpSystem('reboot');
+    {$ENDIF}
+    Application.Terminate;
+  end;
+
+
   Response.Destroy;
 
   FIni := TIniFile.Create(iniFile);
