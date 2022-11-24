@@ -60,11 +60,11 @@
         </CompilerOptions>
       </Item2>
     </BuildModes>
-    <Units Count="28">
+    <Units Count="33">
       <Unit0>
         <Filename Value="RingRing.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="5"/>
         <CursorPos X="76" Y="15"/>
         <UsageCount Value="203"/>
         <Loaded Value="True"/>
@@ -76,13 +76,14 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Main"/>
-        <TopLine Value="4"/>
-        <CursorPos X="44" Y="18"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="218"/>
+        <CursorPos X="46" Y="237"/>
         <UsageCount Value="203"/>
         <Bookmarks Count="3">
-          <Item0 X="24" Y="217" ID="2"/>
-          <Item1 Y="145" ID="3"/>
-          <Item2 X="3" Y="154" ID="1"/>
+          <Item0 X="24" Y="220" ID="2"/>
+          <Item1 Y="148" ID="3"/>
+          <Item2 X="3" Y="157" ID="1"/>
         </Bookmarks>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -102,7 +103,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uSettings"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="8"/>
         <TopLine Value="14"/>
         <CursorPos X="43" Y="27"/>
         <UsageCount Value="208"/>
@@ -112,7 +113,7 @@
         <Filename Value="ujson.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uJSON"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="6"/>
         <TopLine Value="82"/>
         <CursorPos X="63" Y="93"/>
         <UsageCount Value="258"/>
@@ -122,9 +123,9 @@
         <Filename Value="uevents.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uEvents"/>
-        <EditorIndex Value="6"/>
-        <TopLine Value="11"/>
-        <CursorPos X="46" Y="38"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="104"/>
+        <CursorPos Y="137"/>
         <UsageCount Value="216"/>
         <Loaded Value="True"/>
       </Unit5>
@@ -154,7 +155,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="d_Control"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="4"/>
         <TopLine Value="60"/>
         <CursorPos Y="78"/>
         <UsageCount Value="216"/>
@@ -167,10 +168,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="d_Clock"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="8"/>
-        <TopLine Value="272"/>
-        <CursorPos Y="292"/>
+        <EditorIndex Value="11"/>
+        <TopLine Value="81"/>
+        <CursorPos X="27" Y="103"/>
         <UsageCount Value="214"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -189,8 +189,9 @@
       <Unit11>
         <Filename Value="uutil.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="13"/>
-        <CursorPos X="16" Y="20"/>
+        <EditorIndex Value="18"/>
+        <TopLine Value="92"/>
+        <CursorPos Y="130"/>
         <UsageCount Value="205"/>
         <Loaded Value="True"/>
       </Unit11>
@@ -201,7 +202,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="d_OnlineEvents"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="10"/>
         <TopLine Value="29"/>
         <CursorPos X="47" Y="37"/>
         <UsageCount Value="204"/>
@@ -214,7 +215,7 @@
         <ComponentName Value="frmActivity"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="12"/>
+        <EditorIndex Value="17"/>
         <CursorPos X="44" Y="17"/>
         <ComponentState Value="1"/>
         <UsageCount Value="202"/>
@@ -223,7 +224,7 @@
       </Unit13>
       <Unit14>
         <Filename Value="GPIOInterface.pas"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="7"/>
         <CursorPos X="51" Y="29"/>
         <UsageCount Value="101"/>
         <Loaded Value="True"/>
@@ -306,150 +307,191 @@
       <Unit25>
         <Filename Value="C:/lazarus/lcl/controls.pp"/>
         <UnitName Value="Controls"/>
-        <EditorIndex Value="11"/>
+        <EditorIndex Value="16"/>
         <TopLine Value="1755"/>
         <CursorPos X="14" Y="1774"/>
-        <UsageCount Value="12"/>
+        <UsageCount Value="14"/>
         <Loaded Value="True"/>
       </Unit25>
       <Unit26>
         <Filename Value="C:/lazarus/lcl/include/brush.inc"/>
-        <EditorIndex Value="10"/>
-        <TopLine Value="4"/>
-        <CursorPos Y="38"/>
-        <UsageCount Value="12"/>
+        <EditorIndex Value="15"/>
+        <TopLine Value="5"/>
+        <CursorPos Y="39"/>
+        <UsageCount Value="13"/>
         <Loaded Value="True"/>
       </Unit26>
       <Unit27>
         <Filename Value="C:/lazarus/lcl/graphics.pp"/>
         <UnitName Value="Graphics"/>
-        <EditorIndex Value="9"/>
-        <TopLine Value="1894"/>
-        <CursorPos X="10" Y="1915"/>
-        <UsageCount Value="11"/>
+        <EditorIndex Value="14"/>
+        <TopLine Value="2654"/>
+        <CursorPos Y="2677"/>
+        <UsageCount Value="12"/>
         <Loaded Value="True"/>
       </Unit27>
+      <Unit28>
+        <Filename Value="C:/lazarus/lcl/customtimer.pas"/>
+        <UnitName Value="CustomTimer"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="129"/>
+        <CursorPos Y="155"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="C:/lazarus/lcl/interfaces/win32/win32callback.inc"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="2908"/>
+        <CursorPos Y="2943"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="C:/lazarus/lcl/include/customform.inc"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="2730"/>
+        <CursorPos Y="2755"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="C:/lazarus/lcl/include/control.inc"/>
+        <EditorIndex Value="13"/>
+        <TopLine Value="4599"/>
+        <CursorPos Y="4621"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="C:/lazarus/lcl/include/wincontrol.inc"/>
+        <EditorIndex Value="12"/>
+        <TopLine Value="3836"/>
+        <CursorPos Y="3859"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit32>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="213" Column="20" TopLine="193"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="238" TopLine="210"/>
       </Position1>
       <Position2>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="215" Column="47" TopLine="193"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="249" TopLine="215"/>
       </Position2>
       <Position3>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="66" Column="56" TopLine="37"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="255" TopLine="222"/>
       </Position3>
       <Position4>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="219" Column="58" TopLine="196"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="249" Column="8" TopLine="224"/>
       </Position4>
       <Position5>
         <Filename Value="d_clock.pas"/>
-        <Caret Line="225" Column="35" TopLine="196"/>
+        <Caret Line="271" Column="16" TopLine="253"/>
       </Position5>
       <Position6>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="226" Column="61" TopLine="206"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="249" Column="62" TopLine="224"/>
       </Position6>
       <Position7>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="222" TopLine="208"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="251" Column="27" TopLine="224"/>
       </Position7>
       <Position8>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="223" TopLine="208"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="257" Column="29" TopLine="224"/>
       </Position8>
       <Position9>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="224" TopLine="208"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="37" Column="5" TopLine="18"/>
       </Position9>
       <Position10>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="226" TopLine="208"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="82" Column="17" TopLine="60"/>
       </Position10>
       <Position11>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="227" TopLine="208"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="220" Column="29" TopLine="186"/>
       </Position11>
       <Position12>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="229" TopLine="208"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="38" Column="32" TopLine="7"/>
       </Position12>
       <Position13>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="230" TopLine="208"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="81" Column="4" TopLine="47"/>
       </Position13>
       <Position14>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="231" TopLine="208"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="221" Column="31" TopLine="203"/>
       </Position14>
       <Position15>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="233" TopLine="208"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="84" Column="34" TopLine="55"/>
       </Position15>
       <Position16>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="222" TopLine="208"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="223" Column="72" TopLine="205"/>
       </Position16>
       <Position17>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="74" Column="13" TopLine="48"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="252" Column="9" TopLine="232"/>
       </Position17>
       <Position18>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="75" TopLine="48"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="37" Column="21"/>
       </Position18>
       <Position19>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="74" Column="59" TopLine="53"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="252" Column="43" TopLine="232"/>
       </Position19>
       <Position20>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="71" TopLine="53"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="38" Column="39" TopLine="16"/>
       </Position20>
       <Position21>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="72" TopLine="53"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="84" Column="31" TopLine="49"/>
       </Position21>
       <Position22>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="74" TopLine="53"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="41" TopLine="41"/>
       </Position22>
       <Position23>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="244" Column="48" TopLine="222"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="84" Column="34" TopLine="49"/>
       </Position23>
       <Position24>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="294" Column="12" TopLine="260"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="256" Column="29" TopLine="221"/>
       </Position24>
       <Position25>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="102" Column="12" TopLine="82"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="301" Column="23" TopLine="298"/>
       </Position25>
       <Position26>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="217" TopLine="184"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="336" Column="17" TopLine="302"/>
       </Position26>
       <Position27>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="25" Column="92" TopLine="28"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="46" Column="29" TopLine="26"/>
       </Position27>
       <Position28>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="24" Column="92" TopLine="24"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="301" Column="32" TopLine="267"/>
       </Position28>
       <Position29>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="43" Column="13" TopLine="25"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="336" Column="17" TopLine="302"/>
       </Position29>
       <Position30>
-        <Filename Value="d_clock.pas"/>
-        <Caret Line="101" TopLine="81"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="46" Column="29" TopLine="26"/>
       </Position30>
     </JumpHistory>
     <RunParams>
@@ -458,6 +500,15 @@
     </RunParams>
   </ProjectSession>
   <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="main.pas"/>
+        <Line Value="143"/>
+      </Item>
+    </BreakPoints>
     <Watches>
       <Item>
         <Expression Value="AFrom"/>

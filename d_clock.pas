@@ -101,7 +101,7 @@ begin
   LabelMessage.Font.Color := marcueeNormal; //clWhite;
   Bitmap := TBitmap.Create;
 
-  SetLength (Shapes, 30);
+  SetLength (Shapes, 60);
   for ix:=0 to Length (Shapes)-1 do
   begin
   	shape := TShape.Create (PanelSplit);
@@ -197,7 +197,7 @@ begin
           shape.Brush.Color:=marcueeNormal;
           shape.Pen.Style:=psClear;
           shape.Height:=PanelSplit.Height;
-          shape.Width:= Trunc (PanelSplit.Width / Length(Shapes));
+          shape.Width:= Round ((PanelSplit.Width / Length(Shapes)));
           prevLeft := shape.Left + shape.Width;
         end;
 
@@ -228,12 +228,14 @@ end;
 procedure TfrmClock.UpdateGUI (ANextEvent : TEvent);
 var
      Hh,MM,SS,MS : Word;
+     pct : real;
      XX: integer;
      XXp, XXn: integer;
      XXpp, XXnn: integer;
      XXppp, XXnnn: integer;
      ix:integer;
      shape : TShape;
+     timeStr: String;
 begin
 
    	DisableAlign;
@@ -246,8 +248,9 @@ begin
     	shape.Brush.Color:=marcueeNormal;
     end;
 
-    XX := Trunc (ss / (60 / Length (Shapes)));
-    XX :=XX mod Length (Shapes);
+    MS := SS * 1000 + MS;
+    pct := MS / 60000.0;
+    XX := Round (pct * (Length (Shapes)-1));
     XXp := XX-1;
     XXpp := XX-2;
     XXppp := XX-3;
@@ -267,14 +270,20 @@ begin
     if (XXnnn > 0) then Shapes[XXnnn].Brush.Color:=marcueeMid3;
     Shapes[XX].Brush.Color:=marcueeHot;
 
-
  	ImageSilent.Visible := Silent;
 
-  	LabelClock.Caption := FormatDateTime('hh:nn', Now);
-  	CalcLabelSize (LabelClock, Parent.Width, LabelClock.Height);
+    timeStr := FormatDateTime('h:nn', Now);
+    if (timeStr <> LabelClock.Caption) then
+    begin
+	  	LabelClock.Caption := timeStr;
+  		CalcLabelSize (LabelClock, Parent.Width, LabelClock.Height);
+    end;
 
-  	LabelMessage.Caption := ANextEvent.Message;
-  	CalcLabelSize (LabelMessage, Parent.Width, LabelMessage.Height-12);
+    if (LabelMessage.Caption <> ANextEvent.Message) then
+    begin
+	  	LabelMessage.Caption := ANextEvent.Message;
+  		CalcLabelSize (LabelMessage, Parent.Width, LabelMessage.Height-12);
+    end;
 
     LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance);
     if (Delay > 0) then
@@ -286,23 +295,9 @@ begin
     begin
     	LabelNext.Caption := TimeBetweenStr(Now, ANextEvent.Occurance) + IntToStr (Delay) + 'min.';
     end;
-
-
   	CalcLabelSize (LabelNext, Parent.Width, LabelNext.Height-24);
 
-  //timeleft := SecondsBetween(ANextEvent.Occurance, Now);
-  //if (timeleft < Parent.Width) then
-  //begin
-  //  ShapeNextTop.BorderSpacing.Left := Round((Parent.Width - timeleft) * 0.5);
-  //  ShapeNextTop.BorderSpacing.Right := ShapeNextTop.BorderSpacing.Left;
-  //end
-  //else
-  //begin
-  //  ShapeNextTop.BorderSpacing.Left := 0;
-  //  ShapeNextTop.BorderSpacing.Right := 0;
-  //end;
-
-  EnableAlign;
+    EnableAlign;
 
 end;
 

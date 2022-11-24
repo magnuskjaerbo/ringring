@@ -34,8 +34,10 @@ type
     FClock: TfrmClock;
     //FNextRing: TfrmNextRing;
     FOnlineEvents: TfrmOnlineEvents;
-    FMainTimerCheckRemote: integer;
-    FMainTimerClearStatus: integer;
+    FLastRemoteCheck: TDateTime;
+    FLastRemoteCheckInterval: integer;
+    FLastClearStatus: TDateTime;
+    FLastClearStatusInterval: integer;
     FRingOnce: boolean;
     FSettings: TfrmSettings;
     Events: TEvents;
@@ -78,8 +80,10 @@ begin
    {$endif}
   Label2.Caption := '1.1.19';
   DoubleBuffered := True;
-  FMainTimerCheckRemote := 0;
-  FMainTimerClearStatus := 0;
+  FLastRemoteCheck := 0;
+  FLastRemoteCheckInterval := 120;
+  FLastClearStatus := 0;
+  FLastClearStatusInterval := 10;
 
   DefaultFormatSettings.ShortDateFormat := 'yyyy-mm-dd';
   DefaultFormatSettings.ShortTimeFormat := 'hh:nn:ss';
@@ -140,7 +144,6 @@ begin
     ShapeIdleTrigger.Brush.Color := clBlue
   else
     ShapeIdleTrigger.Brush.Color := clBlack;
-
   Screen.Cursor := crNone;
 end;
 
@@ -218,14 +221,15 @@ var
   activated: boolean;
 begin
 
-  	if (FMainTimerClearStatus > 4) then
+
+  	if (SecondsBetween(Now, FLastClearStatus) > FLastClearStatusInterval) then
   	begin
     	LabelStatus.Caption := '';
-    	FMainTimerClearStatus := 0;
+    	FLastClearStatus := Now;
   	end;
 
   	TimerMain.Enabled := False;
-  	BeginFormUpdate;
+//  	BeginFormUpdate;
 
     FClock.UpdateGUI(FNextEvent);
 
@@ -247,16 +251,13 @@ begin
     	end;
   	end;
 
-  	if (FMainTimerCheckRemote = 120) or (FMainTimerCheckRemote = 0) then
+  	if (SecondsBetween(Now, FLastRemoteCheck) > FLastRemoteCheckInterval) then
   	begin
-    	FMainTimerCheckRemote := 1;
+    	FLastRemoteCheck := Now;
     	CheckRemote();
   	end;
 
-  	EndFormUpdate;
-
-  	Inc(FMainTimerCheckRemote);
-  	Inc(FMainTimerClearStatus);
+//  	EndFormUpdate;
 	TimerMain.Enabled := True;
 end;
 

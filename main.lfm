@@ -109,13 +109,14 @@ object Form1: TForm1
     end
   end
   object TimerMain: TTimer
+    Interval = 200
     OnTimer = TimerMainTimer
     Left = 408
     Top = 408
   end
   object IdleTimer1: TIdleTimer
     AutoEnabled = True
-    Interval = 500
+    Interval = 2000
     OnTimer = IdleTimer1Timer
     Left = 512
     Top = 416
