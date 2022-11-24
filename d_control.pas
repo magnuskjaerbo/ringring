@@ -17,6 +17,7 @@ type
     BitBtn2: TBitBtn;
     BitBtn3: TBitBtn;
     BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
     btnDelayDec: TBitBtn;
     btnDelayInc: TBitBtn;
     BitBtn7: TBitBtn;
@@ -26,10 +27,12 @@ type
     Panel4: TPanel;
     Panel5: TPanel;
     Panel6: TPanel;
+    Panel7: TPanel;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure BitBtn3Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
     procedure BitBtn7Click(Sender: TObject);
     procedure btnDelayDecClick(Sender: TObject);
     procedure btnDelayIncClick(Sender: TObject);
@@ -40,6 +43,7 @@ type
   public
     Silent : boolean;
     Reboot : boolean;
+    RingOnce : boolean;
     CloseApp : boolean;
     Delay:	integer;
 
@@ -64,11 +68,16 @@ begin
   Top := own.Top;
   Left := own.Left;
   Width := own.Width;
+  RingOnce := false;
 
   Panel1.Color := clDkGray;
   if (Silent = true) then Panel1.Color := clLime;
   Panel2.Color := clDkGray;
   Panel3.Color := clDkGray;
+  Panel4.Color := clDkGray;
+  Panel5.Color := clDkGray;
+  Panel6.Color := clDkGray;
+  Panel7.Color := clDkGray;
   UpdateGUI;
 
 end;
@@ -128,6 +137,12 @@ begin
   end;
    ModalResult := mrOk;
 
+end;
+
+procedure TfrmControl.BitBtn5Click(Sender: TObject);
+begin
+    RingOnce := true;
+    ModalResult := mrOk;
 end;
 
 procedure TfrmControl.BitBtn7Click(Sender: TObject);

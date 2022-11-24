@@ -78,12 +78,13 @@ begin
 
    {$IFDEF Windows}
    {$endif}
-  Label2.Caption := '1.1.19';
+  Label2.Caption := '1.1.20';
   DoubleBuffered := True;
   FLastRemoteCheck := 0;
   FLastRemoteCheckInterval := 120;
   FLastClearStatus := 0;
   FLastClearStatusInterval := 10;
+  FRingOnce := false;
 
   DefaultFormatSettings.ShortDateFormat := 'yyyy-mm-dd';
   DefaultFormatSettings.ShortTimeFormat := 'hh:nn:ss';
@@ -112,11 +113,6 @@ begin
   FClock.ImageSilent.OnClick := @ExecuteControls;
 
   FClock.Show ();
-
-  //FNextRing := TfrmNextRing.Create (PanelNextRing);
-  //FNextRing.Parent := PanelNextRing;
-  //FNextRing.Align := alClient;
-  //FNextRing.Show ();
 
   FOnlineEvents := TfrmOnlineEvents.Create (PanelOnlineEvents);
   FOnlineEvents.Parent := PanelOnlineEvents;
@@ -160,6 +156,7 @@ begin
   begin
   	FClock.Silent := control.Silent;
     FClock.Delay:=control.Delay;
+    FRingOnce := control.RingOnce;
 
     if (control.CloseApp = True) then
     begin
@@ -175,6 +172,7 @@ end;
 procedure TForm1.BlinkScreen();
 var
   shape: TShape;
+  ix:integer;
 begin
   PanelMain.Visible := False;
   shape := TShape.Create(Self);
@@ -202,14 +200,17 @@ begin
   shape.Brush.Color := clWhite;
   Delay(1000);
 
-  shape.Brush.Color := clRed;
-  Delay(100);
-  shape.Brush.Color := clGreen;
-  Delay(100);
-  shape.Brush.Color := clBlue;
-  Delay(100);
-  shape.Brush.Color := clWhite;
-  Delay(100);
+  for ix:= 0 to 10 do
+  begin
+      shape.Brush.Color := clRed;
+      Delay(100);
+      shape.Brush.Color := clGreen;
+      Delay(100);
+      shape.Brush.Color := clBlue;
+      Delay(100);
+      shape.Brush.Color := clWhite;
+      Delay(100);
+  end;
 
   shape.Destroy;
   PanelMain.Visible := True;
