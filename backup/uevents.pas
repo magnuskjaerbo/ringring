@@ -45,7 +45,7 @@ begin
   DecodeDate(Now, y, m, d);
 
   url := 'www.skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr(y) + '-' + Format('%.*d', [2, m]) + '.txt';
-  StatusLabel.Caption := 'Reading settings from ' + url;
+  StatusLabel.Caption := 'Reading JSON from ' + url;
   Response := TStringList.Create();
   HttpGetText(url, Response);
 
@@ -127,7 +127,7 @@ begin
   Result := ClosestEvent;
 end;
 
-function TEvents.Activate(AEvent: TEvent, ADelay: integer): boolean;
+function TEvents.Activate(AEvent: TEvent; ADelay: integer): boolean;
 var
   mins: int64;
 begin

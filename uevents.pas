@@ -45,7 +45,7 @@ begin
   DecodeDate(Now, y, m, d);
 
   url := 'www.skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr(y) + '-' + Format('%.*d', [2, m]) + '.txt';
-  StatusLabel.Caption := 'Reading settings from ' + url;
+  StatusLabel.Caption := 'Reading JSON from ' + url;
   Response := TStringList.Create();
   HttpGetText(url, Response);
 
@@ -60,7 +60,7 @@ begin
   end;
   url := 'www.skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr(y) + '-' + Format('%.*d', [2, m]) + '.txt';
 
-  StatusLabel.Caption := 'Reading settings from ' + url;
+  StatusLabel.Caption := 'Reading JSON from ' + url;
   Response := TStringList.Create();
   HttpGetText(url, Response);
   FDateChecker.SetJSON(Response.GetText);
