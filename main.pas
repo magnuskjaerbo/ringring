@@ -81,7 +81,7 @@ begin
   Label2.Caption := '1.1.20';
   DoubleBuffered := True;
   FLastRemoteCheck := 0;
-  FLastRemoteCheckInterval := 120;
+  FLastRemoteCheckInterval := 12;
   FLastClearStatus := 0;
   FLastClearStatusInterval := 10;
   FRingOnce := false;
