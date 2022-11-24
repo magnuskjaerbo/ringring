@@ -5,7 +5,7 @@ unit uSettings;
 interface
 
 uses
-  Controls, Classes, SysUtils, StdCtrls, Forms, Graphics, Dialogs, ExtCtrls,
+  {$IFNDEF Windows}baseunix, Unix,{$ENDIF}Controls, Classes, SysUtils, StdCtrls, Forms, Graphics, Dialogs, ExtCtrls,
   Buttons, IniFiles, dateutils, httpsend;
 
 type
