@@ -81,7 +81,7 @@ begin
   end;
   Response.Destroy;
 
-  url := 'https://skopunarskuli.fo/RingRing/reboot.php';
+  url := 'www.skopunarskuli.fo/RingRing/reboot.php';
   StatusLabel.Caption := 'Reading Commands from ' + url;
   Response := TStringList.Create();
   HttpGetText(url, Response);
