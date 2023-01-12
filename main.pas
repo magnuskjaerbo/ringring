@@ -29,6 +29,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure IdleTimer1Timer(Sender: TObject);
+    procedure PanelClockClick(Sender: TObject);
     procedure TimerMainTimer(Sender: TObject);
   private
     FClock: TfrmClock;
@@ -141,6 +142,11 @@ begin
   else
     ShapeIdleTrigger.Brush.Color := clBlack;
   Screen.Cursor := crNone;
+end;
+
+procedure TForm1.PanelClockClick(Sender: TObject);
+begin
+
 end;
 
 {------------------------------------------------------------------------------}

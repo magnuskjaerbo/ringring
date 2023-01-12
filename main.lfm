@@ -50,6 +50,7 @@ object Form1: TForm1
       ParentColor = False
       ParentDoubleBuffered = False
       TabOrder = 1
+      OnClick = PanelClockClick
     end
     object PanelBottomLed: TPanel
       Left = 0
