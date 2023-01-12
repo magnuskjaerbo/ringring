@@ -160,12 +160,11 @@ begin
         LabelClock.Width:=Parent.Width;
         LabelClock.Height:=Trunc (Parent.ClientHeight * szClock);
         currTop := Trunc (currTop + LabelClock.Height);
+
         Image1.Left := 0;
         Image1.Top := 0;
         Image1.Width := LabelClock.Width;
         Image1.Height := LabelClock.Height;
-
-
         PanelSplit.Left := 0;
         PanelSplit.Top := currTop;
         PanelSplit.Height:=6;

@@ -103,8 +103,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uSettings"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="66"/>
-        <CursorPos X="27" Y="72"/>
+        <TopLine Value="59"/>
+        <CursorPos X="24" Y="70"/>
         <UsageCount Value="208"/>
         <Loaded Value="True"/>
       </Unit3>
@@ -171,7 +171,7 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="8"/>
         <TopLine Value="133"/>
-        <CursorPos X="115" Y="158"/>
+        <CursorPos X="9" Y="164"/>
         <UsageCount Value="214"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -274,7 +274,7 @@
         <UsageCount Value="180"/>
       </Unit20>
     </Units>
-    <JumpHistory Count="19" HistoryIndex="18">
+    <JumpHistory Count="20" HistoryIndex="19">
       <Position1>
         <Filename Value="usettings.pas"/>
         <Caret Line="98" TopLine="81"/>
@@ -351,6 +351,10 @@
         <Filename Value="d_clock.pas"/>
         <Caret Line="16" Column="15"/>
       </Position19>
+      <Position20>
+        <Filename Value="d_clock.pas"/>
+        <Caret Line="158" Column="115" TopLine="133"/>
+      </Position20>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
@@ -358,29 +362,6 @@
     </RunParams>
   </ProjectSession>
   <Debugging>
-    <BreakPoints>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="usettings.pas"/>
-        <Line Value="95"/>
-      </Item>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="usettings.pas"/>
-        <Line Value="104"/>
-      </Item>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="usettings.pas"/>
-        <Line Value="90"/>
-      </Item>
-    </BreakPoints>
     <Watches>
       <Item>
         <Expression Value="AFrom"/>
