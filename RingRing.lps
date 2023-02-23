@@ -113,7 +113,6 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="uJSON"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="165"/>
         <CursorPos Y="203"/>
         <UsageCount Value="258"/>
         <Loaded Value="True"/>
@@ -124,8 +123,7 @@
         <UnitName Value="uEvents"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="31"/>
-        <CursorPos X="20" Y="43"/>
+        <CursorPos X="43" Y="12"/>
         <UsageCount Value="216"/>
         <Loaded Value="True"/>
       </Unit5>
