@@ -341,9 +341,10 @@ var
   Events2: array of TEvent;
 begin
 
+  Events.GetRemoteData;
   ReadFromRemote;
 
-  Events.GetRemoteData;
+  //Events.GetRemoteData;
 
   setLength(Events1, 0);
   setLength(Events2, 0);
