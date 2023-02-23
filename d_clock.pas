@@ -65,8 +65,8 @@ begin
   Initialized := false;
   Silent := false;
   Color := clBlack;
-  marcueeNormal := clMaroon;
-  marcueeHot := clGreen;
+  marcueeNormal := $00B0B0A0; // clMaroon;
+  marcueeHot := $00FF8000; //clGreen;
   marcueeMid := Trunc ((marcueeNormal + marcueeHot)/2);
   marcueeMid2:= Trunc ((marcueeNormal*2 + marcueeHot)/3);
 
