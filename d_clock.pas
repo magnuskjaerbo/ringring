@@ -165,6 +165,8 @@ begin
         Image1.Top := 0;
         Image1.Width := LabelClock.Width;
         Image1.Height := LabelClock.Height;
+        Image1.Visible := false;
+
         PanelSplit.Left := 0;
         PanelSplit.Top := currTop;
         PanelSplit.Height:=6;

@@ -319,6 +319,7 @@ begin
     FSettings := TfrmSettings.Create(Self, LabelStatus);
     FSettings.Parent := Self;
     Events := TEvents.Create(LabelStatus, FSettings);
+    Events.GetRemoteData;
     FNextEvent := Events.NextEvent(Now);
   end;
 end;
