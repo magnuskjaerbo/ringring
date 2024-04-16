@@ -62,7 +62,7 @@ begin
     m := 1;
     y := y + 1;
   end;
-  url := 'www.skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr(y) + '-' + Format('%.*d', [2, m]) + '.txt';
+  url := 'www.skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr(y) + '-' + IntToStr (m) + '.txt';
 
   StatusLabel.Caption := 'Reading JSON from ' + url;
   Response := TStringList.Create();
