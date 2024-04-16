@@ -44,9 +44,9 @@ begin
   FDateChecker.Clear();
   DecodeDate(Now, y, m, d);
 
-  url := 'www.skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr(y) + '-' + Format('%.*d', [2, m]) + '.txt';
-  //url := 'https://skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr(y) + '-' + Format('%.*d', [2, m]) + '.txt';
-  url := 'https://skopunarskuli.fo/wp-content/plugins/MJK-PostDate/2024-4.txt';
+  //url := 'www.skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr(y) + '-' + Format('%.*d', [2, m]) + '.txt';
+  url := 'https://skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr(y) + '-' + IntToStr (m) + '.txt';
+  //url := 'https://skopunarskuli.fo/wp-content/plugins/MJK-PostDate/2024-4.txt';
   StatusLabel.Caption := 'Reading JSON from ' + url;
   Response := TStringList.Create();
   try
