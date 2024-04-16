@@ -44,7 +44,7 @@ begin
   FDateChecker.Clear();
   DecodeDate(Now, y, m, d);
 
-  url := 'https://skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr(y) + '-' + IntToStr (m) + '.txt';
+  url := 'www.skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr(y) + '-' + IntToStr (m) + '.txt';
   StatusLabel.Caption := 'Reading JSON from ' + url;
   Response := TStringList.Create();
   try
