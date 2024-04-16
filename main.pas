@@ -79,7 +79,7 @@ begin
 
    {$IFDEF Windows}
    {$endif}
-  Label2.Caption := '1.1.21';
+  Label2.Caption := '1.1.22';
   DoubleBuffered := True;
   FLastRemoteCheck := 0;
   FLastRemoteCheckInterval := 120;
