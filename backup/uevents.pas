@@ -45,12 +45,18 @@ begin
   DecodeDate(Now, y, m, d);
 
   url := 'www.skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr(y) + '-' + Format('%.*d', [2, m]) + '.txt';
+  //url := 'https://skopunarskuli.fo/wp-content/plugins/MJK-PostDate/' + IntToStr(y) + '-' + Format('%.*d', [2, m]) + '.txt';
+  url := 'https://skopunarskuli.fo/wp-content/plugins/MJK-PostDate/2024-4.txt';
   StatusLabel.Caption := 'Reading JSON from ' + url;
   Response := TStringList.Create();
-  HttpGetText(url, Response);
+  try
+	  HttpGetText(url, Response);
+	  FDateChecker.SetJSON(Response.GetText);
 
-  FDateChecker.SetJSON(Response.GetText);
-  Response.Destroy;
+  finally
+	  Response.Destroy;
+  end;
+
 
   m := m + 1;
   if (m = 13) then
@@ -62,9 +68,13 @@ begin
 
   StatusLabel.Caption := 'Reading JSON from ' + url;
   Response := TStringList.Create();
-  HttpGetText(url, Response);
-  FDateChecker.SetJSON(Response.GetText);
-  Response.Destroy;
+  try
+	  HttpGetText(url, Response);
+  	  FDateChecker.SetJSON(Response.GetText);
+  finally
+      Response.Destroy;
+  end;
+
 
 end;
 
