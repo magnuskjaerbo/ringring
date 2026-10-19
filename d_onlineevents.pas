@@ -82,9 +82,6 @@ end;
 procedure TfrmOnlineEvents.HandleEvent(LabelMessage, LabelDate: TLabel; Image: TImage; AEvents: array of TEvent);
 begin
 
-  LabelMessage.Caption := '';
-  LabelDate.Caption := '';
-
   if Length(AEvents) > 0 then
   begin
     if (LabelMessage.Tag > Length(AEvents) - 1) then LabelMessage.Tag := 0;
