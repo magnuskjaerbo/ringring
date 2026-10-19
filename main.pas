@@ -9,7 +9,7 @@ uses
   {$IFNDEF Windows}baseunix, Unix,{$ENDIF}Classes, SysUtils, Forms, Controls,
   Graphics, Dialogs, ExtCtrls, Buttons, StdCtrls, ComCtrls, AsyncProcess,
   IpHtml, Ipfilebroker, uSettings,
-  SQLDB, DateUtils, uEvents, uIO, d_Control, d_Clock, d_NextRing, d_OnlineEvents;
+  SQLDB, DateUtils, uEvents, uIO, d_Control, d_Clock, d_NextRing, d_OnlineEvents, uutil;
 
 type
 
@@ -79,7 +79,7 @@ begin
 
    {$IFDEF Windows}
    {$endif}
-  Label2.Caption := '1.1.23';
+  Label2.Caption := AppVersion;
   DoubleBuffered := True;
   FLastRemoteCheck := 0;
   FLastRemoteCheckInterval := 120;

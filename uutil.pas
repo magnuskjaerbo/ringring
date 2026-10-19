@@ -5,6 +5,10 @@ unit uutil;
 
 interface
 
+{ Application version: shown on screen and sent to reboot.php. Change it here only. }
+const
+  AppVersion = '1.1.25';
+
 
 
 uses

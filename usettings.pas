@@ -6,7 +6,7 @@ interface
 
 uses
   {$IFNDEF Windows}baseunix, Unix,{$ENDIF}Controls, Classes, SysUtils, StdCtrls, Forms, Graphics, Dialogs, ExtCtrls,
-  Buttons, IniFiles, dateutils, httpsend;
+  Buttons, IniFiles, dateutils, httpsend, uutil;
 
 type
 
@@ -81,7 +81,7 @@ begin
   end;
   Response.Destroy;
 
-  url := 'www.skopunarskuli.fo/RingRing/reboot.php';
+  url := 'www.skopunarskuli.fo/RingRing/reboot.php?version=' + AppVersion;
   StatusLabel.Caption := 'Reading Commands from ' + url;
   Response := TStringList.Create();
   HttpGetText(url, Response);
